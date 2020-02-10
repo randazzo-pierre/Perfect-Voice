@@ -55,6 +55,33 @@ $router->get('/Article/CategorieArticle','User#CategorieArticle');
 $router->get('/Article/GestionArticle','User#GestionArticle');
 $router->get('/Article/InscriptionValidation','User#InscriptionValidation');
 
+/*$router->get('/', "User#Menu");
+
+$router->get('/User', "User#Menu");
+$router->get('/User/Update/:id', "User#Update#id");
+$router->post('/User/Update/:id', "User#Update#id");
+$router->get('/User/Add', "User#Add");
+$router->post('/User/Add', "User#Add");
+$router->get('/User/Delete/:id', "User#Delete#id");
+$router->get('/User/Show/:id', "User#Show#id");
+$router->get('/User/Search','User#Search');
+$router->get('/User/MonCompte/:id', "User#affUser#id");
+
+
+$router->get('/User/Login', 'User#loginForm');
+$router->post('/User/Login', 'User#loginCheck');
+$router->get('/User/Logout', 'User#logout');
+$router->get('/User/Register', 'User#registerForm');
+$router->post('/User/Register', 'User#registerCheck');
+
+$router->get('/User/MonCompte/mode/:id', 'User#affPanelMode#id');
+
+
+$router->get('/User/MonCompte/Admin/:id', 'User#affPanelAdmin#id');
+
+$router->post('/Contact/sendMail/:id', 'Contact#sendMail#id');
+echo $router->run();*/
+
 echo $router->run();
 
 
