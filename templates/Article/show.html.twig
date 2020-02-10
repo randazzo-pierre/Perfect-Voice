@@ -1,0 +1,31 @@
+{% extends "index.html.twig" %}
+{% block title %}{{ parent() }} - Article n°{% endblock %}
+
+  {% block css %}
+
+      <link rel="stylesheet" href="/assets/css/header.css">
+  {% endblock %}
+
+{% block body %}
+    <div class="container-fluid mt-2">
+
+        <h2 class="display-3">Article n°{{ article.Id }}</h2>
+        <hr class="my-4">
+        <div class="row">
+            <div class="card col-lg-4 ml" style="width: 15rem;">
+                {% if article.ImageFileName != '' and    file_exist('./uploads/images/'~article.ImageRepository~'/'~article.ImageFileName) %}
+                    <img class='card-img-top' alt='Article' src='/uploads/images/{{ article.ImageRepository }}/{{article.ImageFileName}}'/>
+                {% else %}
+                    <h6 class="display-4">Pas d'image</h6>
+                {% endif %}
+
+
+                <div class="card-body">
+                    <h5 class="card-title">{{ article.Titre }}</h5>
+                    <p class="card-text">{{ article.Description }}</p>
+                    <h5> {{ article.Auteur }}  .  {{ article.DateAjout }}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

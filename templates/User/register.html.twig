@@ -1,0 +1,52 @@
+{% extends "index.html.twig" %}
+{% block head %}
+    {% block title %}{{ parent() }} - Connectez vous {% endblock %}
+
+
+    {% block css %}
+        <link rel="stylesheet" href="/assets/css/login.css">
+        <link rel="stylesheet" href="/assets/css/header.css">
+    {% endblock %}
+{% endblock %}
+{% block body %}
+
+
+<div class="login-page">
+    <div class="form">
+        <form method="post" action="/Register">
+            <input type="text" name="uti_prenom" placeholder="Prenom"/>
+            <input type="text" name="uti_nom" placeholder="Nom"/>
+            <input type="text" name="uti_ville" placeholder="Ville"/>
+            <input type="text" name="uti_tel" placeholder="Tel"/>
+            <input type="text" name="uti_sexe" placeholder="Sexe"/>
+            <input type="text" name="uti_orientation" placeholder="Orientation"/>
+            <input type="email" name="uti_mail" placeholder="Email"/>
+            <input type="password" name="uti_mdp" placeholder="Mot de passe"/>
+            <input type='hidden' name ="token" value ="{{token}}">
+            <label>
+                <input id="check" type="checkbox" class="checkbox" required
+                       aria-required="true">
+                <svg width="30px" height="30px">
+                    <path class="path-back"
+                          d="M1.5,6.021V2.451C1.5,2.009,1.646,1.5,2.3,1.5h18.4c0.442,0,0.8,0.358,0.8,0.801v18.398c0,0.442-0.357,0.801-0.8,0.801H2.3c-0.442,0-0.8-0.358-0.8-0.801V6">
+                    </path>
+
+                    <path class="path-moving"
+                          d="M24.192,3.813L11.818,16.188L1.5,6.021V2.451C1.5,2.009,1.646,1.5,2.3,1.5h18.4c0.442,0,0.8,0.358,0.8,0.801v18.398c0,0.442-0.357,0.801-0.8,0.801H2.3c-0.442,0-0.8-0.358-0.8-0.801V6">
+                    </path>
+                </svg>
+
+
+            </label>
+
+            <button>Creer un compte</button>
+
+        </form>
+    {% block javascript %}
+
+
+    {% endblock %}
+    </body>
+
+    </html>
+{% endblock %}

@@ -1,0 +1,39 @@
+
+
+{% extends "index.html.twig" %}
+{% block head %}
+    {% block title %}{{ parent() }} - Connectez vous {% endblock %}
+
+
+    {% block css %}
+        <link rel="stylesheet" href="/assets/css/login.css">
+        <link rel="stylesheet" href="/assets/css/header.css">
+    {% endblock %}
+{% endblock %}
+{% block body %}
+
+
+
+    <div class="login-page">
+        <div class="form">
+
+            <form method="post" action="/Login">
+                <input type="email" name="uti_mail" placeholder="Email"/>
+                <input type="password" name="uti_mdp" placeholder="Mot de passe"/>
+
+                <input type='hidden' name ="token" value ="{{token}}">
+                <button>login</button>
+
+
+            </form>
+        </div>
+    </div>
+
+    {% block javascript %}
+
+
+    {% endblock %}
+    </body>
+
+    </html>
+{% endblock %}

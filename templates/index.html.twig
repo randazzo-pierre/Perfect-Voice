@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}CESI BLOG{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/pepper-grinder/jquery-ui.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css">
+    <link rel="stylesheet" href="src/assets/css/header.css">
+    {% block css %}
+        <link rel="stylesheet" href="/assets/css/header.css">
+    {% endblock %}
+
+<body>
+<div id="header">
+    <div class="logo">
+        <a href="/">BLOGI</a>
+    </div>
+    <nav>
+        <li class="dropdown">
+            <a href="">Catégorie</a>
+            <ul>
+                <li><a href="/Login">php</a></li>
+                <li><a href="/Register">java.script</a></li>
+            </ul>
+        </li>
+        <ul>
+
+            <li>
+                <a href="/Api/Article/Last">Article Recent</a>
+
+            </li>
+            <li>
+                <a href="/contact">Contact</a>
+
+            </li>
+            <li class="dropdown">
+                <a href="">Compte</a>
+                <ul>
+                    {% if session.email is not defined %}
+                    <li><a href="/Login">Connexion</a></li>
+                    <li><a href="/Register">Inscription</a></li>
+                    {% else %}
+                    <li><a href="/Logout">Deconnexion</li>
+                    {% endif %}
+                </ul>
+            </li>
+            <li>
+                <a href="/Article/Add">Ajouter un Article</a>
+            </li>
+        </ul>
+
+        <form class="form-inline" method="post" action="/Article/Show/{{ post.search }}">
+            <input name="search" placeholder="Recherche..." type="search">
+        </form>
+    </nav>
+
+</div>
+{% block body %}{% endblock %}
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/jquery-ui-i18n.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+{% block javascript %}
+<script src="/assets/js/header.js"></script>
+{% endblock %}
+</body>
+</html>
