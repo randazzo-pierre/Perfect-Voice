@@ -1,0 +1,40 @@
+{% extends "index.html.twig" %}
+{% block title %}{{ parent() }} - Connectez vous {% endblock %}
+
+{% block css %}
+    <style>
+        form#login{
+            margin-right: 30%;
+            margin-left: 30%;
+            margin-top: 7%;
+        }
+        input#login, button#exit {
+            width: 150px;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid mt-2">
+        {% if session.errorlogin is defined %}
+            <div class="alert alert-danger">{{ session.errorlogin }}</div>
+        {% endif %}
+
+        <form id="login" method="post" action="/User/Login">
+            <h1>Connexion :</h1>
+            <div class="form-group">
+                <label>Adresse mail :</label>
+                <input type="email" name="mail" class="form-control" placeholder="Entrer votre adresse mail">
+            </div>
+            <div class="form-group">
+                <label>Mot de passe :</label>
+                <input type="password" name="password" class="form-control" placeholder="Entrer votre mot de passe">
+            </div>
+            <input id="login" type="submit" class="btn btn-secondary">
+            <input id="login" type="reset" class="btn btn-secondary">
+            <a href="/User/Compte">
+                <button id="exit" type="button" class="btn btn-secondary">Quitter</button>
+            </a>
+        </form>
+    </div>
+{% endblock %}

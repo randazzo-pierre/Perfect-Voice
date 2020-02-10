@@ -1,0 +1,28 @@
+{% extends "index.html.twig" %}
+{% block title %} Mon espace - {{ parent() }}{% endblock %}
+
+{% block css %}
+    <style>
+        div#button, h1 {
+            padding-top: 7%;
+            margin-left: 30%;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid mt-2">
+        <h1>Compte</h1>
+        <div id="button">
+            <a href="/User/Login">
+                <button type="button" class="btn btn-secondary btn-lg"><i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;Se
+                    connecter
+                </button>
+            </a>
+            <a href="/User/Register">
+                <button type="button" class="btn btn-secondary btn-lg"><i class="fas fa-user-plus"></i>&nbsp;&nbsp;S'inscrire
+                </button>
+            </a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "index.html.twig" %}
+{% block title %}{{ parent() }} - Inscription {% endblock %}
+{% block css %}
+    <style>
+        form#login {
+            margin-right: 30%;
+            margin-left: 30%;
+            margin-top: 3%;
+        }
+
+        input#login, button#exit {
+            width: 150px;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid mt-2">
+        {% if session.errorlogin is defined %}
+            <div class="alert alert-danger">{{ session.errorlogin }}</div>
+        {% endif %}
+        <form method="post" action="/User/Register" id="login">
+            <h1>Inscription :</h1>
+            <p>Nom :</p>
+            <input type="text" name="username" class="form-control" placeholder="Entrer votre Nom">
+            <p>Prénom :</p>
+            <input type="text" name="userlastname" class="form-control" placeholder="Entrer votre Prénom">
+            <p>Ville:</p>
+            <input type="text" name="usertown" class="form-control" placeholder="Entrer votre ville">
+            <p>Sexe :</p>
+            <input type='radio' name=monBoutonRadio value='Homme'>Homme
+            <input type='radio' name=monBoutonRadio value='Femme'>Femme
+            <p>Orientation :
+                <input type='radio' name=monBoutonRadio value='hétéro'>hétéro
+                <input type='radio' name=monBoutonRadio value='homo'>homo
+                <input type='radio' name=monBoutonRadio value='Bi'>Bi
+            </p>
+            <p>Orientation :
+                <input type="checkbox" name="Hétéro" value="Orientation"/>Hétéro
+                &nbsp;&nbsp;&nbsp;
+                <input type="checkbox" name="Homo" value="Orientation"/>Homo
+
+                <input type="checkbox" name="Bi" value="Orientation"/>bi
+            </p>
+            <p>Date de Naissance :</p>
+                <input type="date" name="DateNai" class="form-control disabled" placeholder="Entrer votre date de naissance" >
+            <p>Mot de passe :</p>
+            <input type="email" name="mail" class="form-control" placeholder="Entrer votre E-mail">
+            <p>Dat de Naissance :</p>
+            <input type="password" name="password" class="form-control" placeholder="Saisir un mot de passe">
+            <p>Confirmer le mot de passe :</p>
+            <input type="password" name="checkPwd" class="form-control" placeholder="Répéter votre mot de passe"><br>
+            <input id="login" type="submit" class="btn btn-secondary">
+            <input id="login" type="reset" class="btn btn-secondary">
+            <a href="/User/Compte">
+                <button id="exit" type="button" class="btn btn-secondary"></button>
+            </a>
+        </form>
+    </div>
+{% endblock %}
