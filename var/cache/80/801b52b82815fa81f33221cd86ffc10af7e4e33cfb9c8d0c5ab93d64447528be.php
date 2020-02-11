@@ -27,9 +27,10 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
         $this->parent = false;
 
         $this->blocks = [
-            'title' => [$this, 'block_title'],
+            'head' => [$this, 'block_head'],
             'css' => [$this, 'block_css'],
             'body' => [$this, 'block_body'],
+            'footer' => [$this, 'block_footer'],
             'javascript' => [$this, 'block_javascript'],
         ];
     }
@@ -38,128 +39,234 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
     {
         $macros = $this->macros;
         // line 1
-        echo "<!doctype html>
-<html lang=\"fr\">
-<head>
-    <meta charset=\"utf-8\">
-    <title>";
-        // line 5
-        $this->displayBlock('title', $context, $blocks);
-        echo "</title>
-    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\">
-    <link rel=\"stylesheet\" href=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/pepper-grinder/jquery-ui.css\">
-    <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.8.1/css/all.css\">
-    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css\">
-    <link rel=\"stylesheet\" href=\"src/assets/css/header.css\">
-    ";
-        // line 11
-        $this->displayBlock('css', $context, $blocks);
-        // line 14
         echo "
-<body>
-<div id=\"header\">
-    <div class=\"logo\">
-        <a href=\"/\">BLOGI</a>
-    </div>
-    <nav>
-        <li class=\"dropdown\">
-            <a href=\"\">Catégorie</a>
-            <ul>
-                <li><a href=\"/Login\">php</a></li>
-                <li><a href=\"/Register\">java.script</a></li>
-            </ul>
-        </li>
-        <ul>
-
-            <li>
-                <a href=\"/Api/Article/Last\">Article Recent</a>
-
-            </li>
-            <li>
-                <a href=\"/contact\">Contact</a>
-
-            </li>
-            <li class=\"dropdown\">
-                <a href=\"\">Compte</a>
-                <ul>
-                    ";
-        // line 41
-        if ( !twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "email", [], "any", true, true, false, 41)) {
-            // line 42
-            echo "                    <li><a href=\"/Login\">Connexion</a></li>
-                    <li><a href=\"/Register\">Inscription</a></li>
-                    ";
-        } else {
-            // line 45
-            echo "                    <li><a href=\"/Logout\">Deconnexion</li>
-                    ";
-        }
-        // line 47
-        echo "                </ul>
-            </li>
-            <li>
-                <a href=\"/Article/Add\">Ajouter un Article</a>
-            </li>
-        </ul>
-
-        <form class=\"form-inline\" method=\"post\" action=\"/Article/Show/";
-        // line 54
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "search", [], "any", false, false, false, 54), "html", null, true);
-        echo "\">
-            <input name=\"search\" placeholder=\"Recherche...\" type=\"search\">
-        </form>
-    </nav>
-
-</div>
 ";
-        // line 60
+        // line 2
+        $this->displayBlock('head', $context, $blocks);
+        // line 13
         $this->displayBlock('body', $context, $blocks);
-        // line 61
+        // line 81
+        $this->displayBlock('footer', $context, $blocks);
+        // line 177
         echo "
 
 
-<script src=\"https://code.jquery.com/jquery-3.4.0.min.js\"></script>
-<script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\"></script>
-<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\"></script>
-<script src=\"https://code.jquery.com/ui/1.12.1/jquery-ui.js\"></script>
-<script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/jquery-ui-i18n.min.js\"></script>
-<script src=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js\"></script>
 ";
-        // line 70
+        // line 180
         $this->displayBlock('javascript', $context, $blocks);
-        // line 73
-        echo "</body>
-</html>";
     }
 
-    // line 5
-    public function block_title($context, array $blocks = [])
+    // line 2
+    public function block_head($context, array $blocks = [])
     {
         $macros = $this->macros;
-        echo "CESI BLOG";
+        // line 3
+        echo "    <meta charset=\"UTF-8\">
+    <meta name=\"viewport\" content=\"width=devide-width, initial-scale=1.0, shrink-to-fit=no\">
+    <title>Perfect Voice</title>
+    ";
+        // line 6
+        $this->displayBlock('css', $context, $blocks);
     }
 
-    // line 11
     public function block_css($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 12
-        echo "        <link rel=\"stylesheet\" href=\"/assets/css/header.css\">
+        // line 7
+        echo "        <link href=\"http://fonts.googleapis.com/css?family=Lato\" rel=\"stylesheet\" type=\"text/css\">
+        <link href=\"http://fonts.googleapis.com/css?family=Titillium+Web\" rel=\"stylesheet\" type=\"text/css\">
+        <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\" integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">
+        <link rel=\"stylesheet\" href=\"asset/css/style.css\">
     ";
     }
 
-    // line 60
+    // line 13
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
+        // line 14
+        echo "    <nav id=\"nav\" class=\"navbar navbar-expand-lg navbar-light bg-light d-flex sticky\">
+        <a class=\"navbar-brand mr-auto\" href=\"#\"><img src=\"uploads/images/logotexte.png\" width=\"200px\" alt=\"Logo Perfect Voice\"></a>
+        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+            <span class=\"navbar-toggler-icon\"></span>
+        </button>
+        <div class=\"collapse navbar-collapse justify-end\" id=\"navbarNavDropdown\">
+            <ul class=\"navbar-nav\">
+                <li class=\"nav-item active\">
+                    <a class=\"nav-link\" href=\"#top\">Top <span class=\"sr-only\">(current)</span></a>
+                </li>
+                <li class=\"nav-item\">
+                    <a class=\"nav-link\" href=\"#lignerouge\">A propos</a>
+                </li>
+                <li class=\"nav-item\">
+                    <a class=\"nav-link\" href=\"#footer\">Contacts</a>
+                </li>
+                <li class=\"nav-item dropdown\">
+                    <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                        Language
+                    </a>
+                    <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\">
+                        <a class=\"dropdown-item\" href=\"#\">Français</a>
+                        <a class=\"dropdown-item\" href=\"#\">Anglais</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div style=\"background:url(uploads/images/fond.jpg) no-repeat scroll 0 0 / 100% auto;\">
+        <!-- Login -->
+        <div class=\"container\" id=\"top\">
+            <div class=\"row\">
+                <div class=\"col-sm-9 col-md-7 col-lg-5\" id=\"login\">
+                    <div class=\"card card-signin my-5\">
+                        <div class=\"card-body\">
+                            <h5 class=\"card-title text-center\">Se connecter</h5>
+                            <form class=\"form-signin\"method=\"post\" action=\"/Login\">
+                                <div class=\"form-label-group\">
+                                    <input type=\"email\" name=\"email\" id=\"inputEmail\" class=\"form-control\" placeholder=\"Email address\" required autofocus>
+                                    <label for=\"inputEmail\">Identifiant</label>
+                                </div>
+
+                                <div class=\"form-label-group\">
+                                    <input type=\"password\" name=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"Password\" required>
+                                    <label for=\"inputPassword\">Mot de passe</label>
+                                    <input type='hidden' name =\"token\" value =\"";
+        // line 59
+        echo twig_escape_filter($this->env, ($context["token"] ?? null), "html", null, true);
+        echo "\">
+                                </div>
+
+                                <div class=\"custom-control custom-checkbox mb-3\">
+                                    <input type=\"checkbox\" class=\"custom-control-input\" id=\"customCheck1\">
+                                    <label class=\"custom-control-label\" for=\"customCheck1\">Rester connecté</label>
+                                </div>
+                                <button class=\"btn btn-lg btn-primary btn-block text-uppercase\" type=\"submit\">Connexion</button>
+                                <hr class=\"my-4\">
+                                <button class=\"btn btn-lg btn-google btn-block text-uppercase\" type=\"submit\"><i class=\"fab fa-google mr-2\"></i> S'inscrire avec un e-mail</button>
+                                <button class=\"btn btn-lg btn-facebook btn-block text-uppercase\" type=\"submit\"><i class=\"fab fa-facebook-f mr-2\"></i> S'inscrire avec Facebook</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/><br/><br/>
+        <!-- Barre séparation -->
+        <div id=lignerouge></div>
+    </div>
+";
     }
 
-    // line 70
+    // line 81
+    public function block_footer($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        // line 82
+        echo "    <div class=\"container\">
+        <div class=\"row\">
+            <div class=\"col-md-5\">
+                <h5><i class=\"fa fa-road\"></i>En savoir plus<br/><br/></h5>
+                <div class=\"row\">
+                    <div class=\"col-6\">
+                        <ul class=\"list-unstyled\">
+                            <li><a href=\"\">Facebook</a></li>
+                            <li><a href=\"\">Twitter</a></li>
+                            <li><a href=\"\">Coordonnées</a></li>
+                            <li><a href=\"callto:0662205586\">Téléphoner</a></li>
+                        </ul>
+                    </div>
+                    <div class=\"col-6\">
+                        <ul class=\"list-unstyled\">
+                            <li><a href=\"\">Documentation</a></li>
+                            <li><a href=\"\">Abonnements</a></li>
+                            <li><a href=\"\">Mentions légales</a></li>
+                            <li><a href=\"\">L'équipe</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <ul class=\"nav\">
+                    <li class=\"nav-item\"><a href=\"\" class=\"nav-link pl-0\"><i class=\"fa fa-facebook fa-lg\"></i></a></li>
+                    <li class=\"nav-item\"><a href=\"\" class=\"nav-link\"><i class=\"fa fa-twitter fa-lg\"></i></a></li>
+                    <li class=\"nav-item\"><a href=\"\" class=\"nav-link\"><i class=\"fa fa-github fa-lg\"></i></a></li>
+                    <li class=\"nav-item\"><a href=\"\" class=\"nav-link\"><i class=\"fa fa-instagram fa-lg\"></i></a></li>
+                </ul>
+                <br>
+            </div>
+            <div class=\"col-md-2\">
+                <h5 class=\"text-md-right\">Nous contacter</h5>
+                <hr>
+            </div>
+            <div class=\"col-md-5\">
+                <form>
+                    <fieldset class=\"form-group\">
+                        <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" placeholder=\"Enter email\">
+                    </fieldset>
+                    <fieldset class=\"form-group\">
+                        <textarea class=\"form-control\" id=\"exampleMessage\" placeholder=\"Message\"></textarea>
+                    </fieldset>
+                    <fieldset class=\"form-group text-xs-right\">
+                        <button type=\"button\" class=\"btn btn-secondary-outline btn-lg\">Send</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Infos -->
+    <div class=\"container\">
+        <div class=\"row\">
+            <h2 id=\"keske\">Qu'est-ce que Perfect Voice ?</h2>
+        </div>
+
+        <div class=\"block\">
+            <br/>
+            <divclass=\"row\">
+            <div class=\"col-12\">
+                <div class=\"span1\">
+                    <img class=\"img-right\" src=\"uploads/images/boy.jpg\"/>
+                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class=\"row\">
+            <div class=\"col-12\">
+                <div class=\"span1\">
+                    <img class=\"img-left\" src=\"uploads/images/girl.jpg\"/>
+                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class=\"row\">
+            <div class=\"col-12\">
+                <div class=\"span1\">
+                    <img class=\"img-right\" src=\"uploads/images/couple.jpg\"/>
+                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+";
+    }
+
+    // line 180
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 71
-        echo "<script src=\"/assets/js/header.js\"></script>
+        // line 181
+        echo "    <script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\" integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\" crossorigin=\"anonymous\"></script>
+    <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
+    <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\" integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\" crossorigin=\"anonymous\"></script>
 ";
     }
 
@@ -168,91 +275,197 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
         return "index.html.twig";
     }
 
-    public function isTraitable()
-    {
-        return false;
-    }
-
     public function getDebugInfo()
     {
-        return array (  162 => 71,  158 => 70,  152 => 60,  147 => 12,  143 => 11,  136 => 5,  131 => 73,  129 => 70,  118 => 61,  116 => 60,  107 => 54,  98 => 47,  94 => 45,  89 => 42,  87 => 41,  58 => 14,  56 => 11,  47 => 5,  41 => 1,);
+        return array (  267 => 181,  263 => 180,  165 => 82,  161 => 81,  135 => 59,  88 => 14,  84 => 13,  76 => 7,  69 => 6,  64 => 3,  60 => 2,  56 => 180,  51 => 177,  49 => 81,  47 => 13,  45 => 2,  42 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("<!doctype html>
-<html lang=\"fr\">
-<head>
-    <meta charset=\"utf-8\">
-    <title>{% block title %}CESI BLOG{% endblock %}</title>
-    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\">
-    <link rel=\"stylesheet\" href=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/pepper-grinder/jquery-ui.css\">
-    <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.8.1/css/all.css\">
-    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css\">
-    <link rel=\"stylesheet\" href=\"src/assets/css/header.css\">
+        return new Source("
+{% block head %}
+    <meta charset=\"UTF-8\">
+    <meta name=\"viewport\" content=\"width=devide-width, initial-scale=1.0, shrink-to-fit=no\">
+    <title>Perfect Voice</title>
     {% block css %}
-        <link rel=\"stylesheet\" href=\"/assets/css/header.css\">
+        <link href=\"http://fonts.googleapis.com/css?family=Lato\" rel=\"stylesheet\" type=\"text/css\">
+        <link href=\"http://fonts.googleapis.com/css?family=Titillium+Web\" rel=\"stylesheet\" type=\"text/css\">
+        <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\" integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">
+        <link rel=\"stylesheet\" href=\"asset/css/style.css\">
     {% endblock %}
-
-<body>
-<div id=\"header\">
-    <div class=\"logo\">
-        <a href=\"/\">BLOGI</a>
-    </div>
-    <nav>
-        <li class=\"dropdown\">
-            <a href=\"\">Catégorie</a>
-            <ul>
-                <li><a href=\"/Login\">php</a></li>
-                <li><a href=\"/Register\">java.script</a></li>
-            </ul>
-        </li>
-        <ul>
-
-            <li>
-                <a href=\"/Api/Article/Last\">Article Recent</a>
-
-            </li>
-            <li>
-                <a href=\"/contact\">Contact</a>
-
-            </li>
-            <li class=\"dropdown\">
-                <a href=\"\">Compte</a>
-                <ul>
-                    {% if session.email is not defined %}
-                    <li><a href=\"/Login\">Connexion</a></li>
-                    <li><a href=\"/Register\">Inscription</a></li>
-                    {% else %}
-                    <li><a href=\"/Logout\">Deconnexion</li>
-                    {% endif %}
-                </ul>
-            </li>
-            <li>
-                <a href=\"/Article/Add\">Ajouter un Article</a>
-            </li>
-        </ul>
-
-        <form class=\"form-inline\" method=\"post\" action=\"/Article/Show/{{ post.search }}\">
-            <input name=\"search\" placeholder=\"Recherche...\" type=\"search\">
-        </form>
-    </nav>
-
-</div>
-{% block body %}{% endblock %}
-
-
-
-<script src=\"https://code.jquery.com/jquery-3.4.0.min.js\"></script>
-<script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\"></script>
-<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\"></script>
-<script src=\"https://code.jquery.com/ui/1.12.1/jquery-ui.js\"></script>
-<script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/jquery-ui-i18n.min.js\"></script>
-<script src=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js\"></script>
-{% block javascript %}
-<script src=\"/assets/js/header.js\"></script>
 {% endblock %}
-</body>
-</html>", "index.html.twig", "C:\\dev\\www\\git\\templates\\index.html.twig");
+{% block body %}
+    <nav id=\"nav\" class=\"navbar navbar-expand-lg navbar-light bg-light d-flex sticky\">
+        <a class=\"navbar-brand mr-auto\" href=\"#\"><img src=\"uploads/images/logotexte.png\" width=\"200px\" alt=\"Logo Perfect Voice\"></a>
+        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+            <span class=\"navbar-toggler-icon\"></span>
+        </button>
+        <div class=\"collapse navbar-collapse justify-end\" id=\"navbarNavDropdown\">
+            <ul class=\"navbar-nav\">
+                <li class=\"nav-item active\">
+                    <a class=\"nav-link\" href=\"#top\">Top <span class=\"sr-only\">(current)</span></a>
+                </li>
+                <li class=\"nav-item\">
+                    <a class=\"nav-link\" href=\"#lignerouge\">A propos</a>
+                </li>
+                <li class=\"nav-item\">
+                    <a class=\"nav-link\" href=\"#footer\">Contacts</a>
+                </li>
+                <li class=\"nav-item dropdown\">
+                    <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                        Language
+                    </a>
+                    <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\">
+                        <a class=\"dropdown-item\" href=\"#\">Français</a>
+                        <a class=\"dropdown-item\" href=\"#\">Anglais</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div style=\"background:url(uploads/images/fond.jpg) no-repeat scroll 0 0 / 100% auto;\">
+        <!-- Login -->
+        <div class=\"container\" id=\"top\">
+            <div class=\"row\">
+                <div class=\"col-sm-9 col-md-7 col-lg-5\" id=\"login\">
+                    <div class=\"card card-signin my-5\">
+                        <div class=\"card-body\">
+                            <h5 class=\"card-title text-center\">Se connecter</h5>
+                            <form class=\"form-signin\"method=\"post\" action=\"/Login\">
+                                <div class=\"form-label-group\">
+                                    <input type=\"email\" name=\"email\" id=\"inputEmail\" class=\"form-control\" placeholder=\"Email address\" required autofocus>
+                                    <label for=\"inputEmail\">Identifiant</label>
+                                </div>
+
+                                <div class=\"form-label-group\">
+                                    <input type=\"password\" name=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"Password\" required>
+                                    <label for=\"inputPassword\">Mot de passe</label>
+                                    <input type='hidden' name =\"token\" value =\"{{token}}\">
+                                </div>
+
+                                <div class=\"custom-control custom-checkbox mb-3\">
+                                    <input type=\"checkbox\" class=\"custom-control-input\" id=\"customCheck1\">
+                                    <label class=\"custom-control-label\" for=\"customCheck1\">Rester connecté</label>
+                                </div>
+                                <button class=\"btn btn-lg btn-primary btn-block text-uppercase\" type=\"submit\">Connexion</button>
+                                <hr class=\"my-4\">
+                                <button class=\"btn btn-lg btn-google btn-block text-uppercase\" type=\"submit\"><i class=\"fab fa-google mr-2\"></i> S'inscrire avec un e-mail</button>
+                                <button class=\"btn btn-lg btn-facebook btn-block text-uppercase\" type=\"submit\"><i class=\"fab fa-facebook-f mr-2\"></i> S'inscrire avec Facebook</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/><br/><br/>
+        <!-- Barre séparation -->
+        <div id=lignerouge></div>
+    </div>
+{% endblock %}
+{% block footer %}
+    <div class=\"container\">
+        <div class=\"row\">
+            <div class=\"col-md-5\">
+                <h5><i class=\"fa fa-road\"></i>En savoir plus<br/><br/></h5>
+                <div class=\"row\">
+                    <div class=\"col-6\">
+                        <ul class=\"list-unstyled\">
+                            <li><a href=\"\">Facebook</a></li>
+                            <li><a href=\"\">Twitter</a></li>
+                            <li><a href=\"\">Coordonnées</a></li>
+                            <li><a href=\"callto:0662205586\">Téléphoner</a></li>
+                        </ul>
+                    </div>
+                    <div class=\"col-6\">
+                        <ul class=\"list-unstyled\">
+                            <li><a href=\"\">Documentation</a></li>
+                            <li><a href=\"\">Abonnements</a></li>
+                            <li><a href=\"\">Mentions légales</a></li>
+                            <li><a href=\"\">L'équipe</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <ul class=\"nav\">
+                    <li class=\"nav-item\"><a href=\"\" class=\"nav-link pl-0\"><i class=\"fa fa-facebook fa-lg\"></i></a></li>
+                    <li class=\"nav-item\"><a href=\"\" class=\"nav-link\"><i class=\"fa fa-twitter fa-lg\"></i></a></li>
+                    <li class=\"nav-item\"><a href=\"\" class=\"nav-link\"><i class=\"fa fa-github fa-lg\"></i></a></li>
+                    <li class=\"nav-item\"><a href=\"\" class=\"nav-link\"><i class=\"fa fa-instagram fa-lg\"></i></a></li>
+                </ul>
+                <br>
+            </div>
+            <div class=\"col-md-2\">
+                <h5 class=\"text-md-right\">Nous contacter</h5>
+                <hr>
+            </div>
+            <div class=\"col-md-5\">
+                <form>
+                    <fieldset class=\"form-group\">
+                        <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" placeholder=\"Enter email\">
+                    </fieldset>
+                    <fieldset class=\"form-group\">
+                        <textarea class=\"form-control\" id=\"exampleMessage\" placeholder=\"Message\"></textarea>
+                    </fieldset>
+                    <fieldset class=\"form-group text-xs-right\">
+                        <button type=\"button\" class=\"btn btn-secondary-outline btn-lg\">Send</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Infos -->
+    <div class=\"container\">
+        <div class=\"row\">
+            <h2 id=\"keske\">Qu'est-ce que Perfect Voice ?</h2>
+        </div>
+
+        <div class=\"block\">
+            <br/>
+            <divclass=\"row\">
+            <div class=\"col-12\">
+                <div class=\"span1\">
+                    <img class=\"img-right\" src=\"uploads/images/boy.jpg\"/>
+                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class=\"row\">
+            <div class=\"col-12\">
+                <div class=\"span1\">
+                    <img class=\"img-left\" src=\"uploads/images/girl.jpg\"/>
+                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class=\"row\">
+            <div class=\"col-12\">
+                <div class=\"span1\">
+                    <img class=\"img-right\" src=\"uploads/images/couple.jpg\"/>
+                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+{% block javascript %}
+    <script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\" integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\" crossorigin=\"anonymous\"></script>
+    <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
+    <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\" integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\" crossorigin=\"anonymous\"></script>
+{% endblock %}
+", "index.html.twig", "C:\\dev\\www\\git\\templates\\index.html.twig");
     }
 }

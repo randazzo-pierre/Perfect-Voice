@@ -156,6 +156,9 @@ class UserController extends  AbstractController {
             }
         }
     }
+    public function test(){
+        return $this->twig->render('index.html.twig');
+    }
 }
 
 
