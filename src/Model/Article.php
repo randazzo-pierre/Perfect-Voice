@@ -103,7 +103,7 @@ class Article extends Contenu implements \JsonSerializable {
             return $listArticle;
     }
     public function SqlGet(\PDO $bdd,$idArticle){
-        $requete = $bdd->prepare('SELECT * FROM articles where Id = :idArticle');
+        $requete = $bdd->prepare('SELECT * FROM articles where Id =:idArticle');
         $requete->execute([
             'idArticle' => $idArticle
         ]);
@@ -120,8 +120,6 @@ class Article extends Contenu implements \JsonSerializable {
         $article->setImageFileName($datas['ImageFileName']);
 
         return $article;
-
-
     }
 
     public function SqlUpdate(\PDO $bdd){
