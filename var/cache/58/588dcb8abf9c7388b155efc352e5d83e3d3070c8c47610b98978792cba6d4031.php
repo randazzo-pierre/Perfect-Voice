@@ -33,13 +33,13 @@ class __TwigTemplate_d79796de4f63d966254f05a2912bfe7d26542ededd16244deee0aadeab6
     protected function doGetParent(array $context)
     {
         // line 1
-        return "index.html.twig";
+        return "index.html.twig.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        $this->parent = $this->loadTemplate("index.html.twig", "Article/update.html.twig", 1);
+        $this->parent = $this->loadTemplate("index.html.twig.twig", "Article/update.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -204,7 +204,7 @@ class __TwigTemplate_d79796de4f63d966254f05a2912bfe7d26542ededd16244deee0aadeab6
 
     public function getSourceContext()
     {
-        return new Source("{% extends \"index.html.twig\" %}
+        return new Source("{% extends \"index.html.twig.twig\" %}
 {% block title %}{{ parent() }} - Mise à jour d'un article {% endblock %}
 
 

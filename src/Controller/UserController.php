@@ -138,6 +138,10 @@ class UserController extends  AbstractController {
         ]);
     }
 
+    public function  test(){
+        return $this->twig->render('index.html.twig');
+    }
+
     public function registerCheck(){
         if($_POST AND $_SESSION['token'] == $_POST['token']){
             if (isset($_POST['uti_prenom']) && isset($_POST['uti_nom'])

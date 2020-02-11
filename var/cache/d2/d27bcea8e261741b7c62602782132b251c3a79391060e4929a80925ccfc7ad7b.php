@@ -33,13 +33,13 @@ class __TwigTemplate_754c6cdbfbbc24e816c272f134ba2fea00548af4cac484502692762b291
     protected function doGetParent(array $context)
     {
         // line 1
-        return "index.html.twig";
+        return "index.html.twig.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        $this->parent = $this->loadTemplate("index.html.twig", "User/erreur.html.twig", 1);
+        $this->parent = $this->loadTemplate("index.html.twig.twig", "User/erreur.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -77,7 +77,7 @@ class __TwigTemplate_754c6cdbfbbc24e816c272f134ba2fea00548af4cac484502692762b291
 
     public function getSourceContext()
     {
-        return new Source("{% extends \"index.html.twig\" %}
+        return new Source("{% extends \"index.html.twig.twig\" %}
 {% block title %}{{ parent() }} - Vous n'avez pas les droits d'accès ! {% endblock %}
 
 {% block body %}

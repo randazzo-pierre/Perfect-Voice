@@ -34,13 +34,13 @@ class __TwigTemplate_a0415b6910a07990aa93f15aa38c6d86351420153a4e2185ff694851082
     protected function doGetParent(array $context)
     {
         // line 1
-        return "index.html.twig";
+        return "index.html.twig.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        $this->parent = $this->loadTemplate("index.html.twig", "Article/admin.html.twig", 1);
+        $this->parent = $this->loadTemplate("index.html.twig.twig", "Article/admin.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -164,7 +164,7 @@ class __TwigTemplate_a0415b6910a07990aa93f15aa38c6d86351420153a4e2185ff694851082
 
     public function getSourceContext()
     {
-        return new Source("{% extends \"index.html.twig\" %}
+        return new Source("{% extends \"index.html.twig.twig\" %}
 {% block title %} Administrateur - {{ parent() }}{% endblock %}
 {% block css %}
     <link rel=\"stylesheet\" href=\"/assets/css/header.css\">

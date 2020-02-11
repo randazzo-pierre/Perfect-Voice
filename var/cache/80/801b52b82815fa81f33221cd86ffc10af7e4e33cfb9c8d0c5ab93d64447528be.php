@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* index.html.twig */
+/* index.html.twig.twig */
 class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e73887e11e extends Template
 {
     private $source;
@@ -145,7 +145,7 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
 
     public function getTemplateName()
     {
-        return "index.html.twig";
+        return "index.html.twig.twig";
     }
 
     public function isTraitable()
@@ -213,6 +213,6 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
 <script src=\"/assets/js/header.js\"></script>
 {% endblock %}
 </body>
-</html>", "index.html.twig", "C:\\dev\\www\\git\\templates\\index.html.twig");
+</html>", "index.html.twig.twig", "C:\\dev\\www\\git\\templates\\index.html.twig.twig");
     }
 }

@@ -34,13 +34,13 @@ class __TwigTemplate_547cb9ecd1070254d51bad16265554fa92305a1e81564a8425be60228b5
     protected function doGetParent(array $context)
     {
         // line 1
-        return "index.html.twig";
+        return "index.html.twig.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        $this->parent = $this->loadTemplate("index.html.twig", "Article/list.html.twig", 1);
+        $this->parent = $this->loadTemplate("index.html.twig.twig", "Article/list.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -154,7 +154,7 @@ class __TwigTemplate_547cb9ecd1070254d51bad16265554fa92305a1e81564a8425be60228b5
 
     public function getSourceContext()
     {
-        return new Source("{% extends \"index.html.twig\" %}
+        return new Source("{% extends \"index.html.twig.twig\" %}
 {% block title %} Liste des articles - {{ parent() }}{% endblock %}
 {% block css %}
     <link rel=\"stylesheet\" href=\"/assets/css/header.css\">

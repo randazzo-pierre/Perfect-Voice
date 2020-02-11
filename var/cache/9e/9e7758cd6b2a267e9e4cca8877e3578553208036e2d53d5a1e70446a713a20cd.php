@@ -34,13 +34,13 @@ class __TwigTemplate_a3453cd4f237ac4ef4b6c0674efeb017e700ac0d1d07390c80f4f70da20
     protected function doGetParent(array $context)
     {
         // line 1
-        return "index.html.twig";
+        return "index.html.twig.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        $this->parent = $this->loadTemplate("index.html.twig", "Article/inscription.html.twig", 1);
+        $this->parent = $this->loadTemplate("index.html.twig.twig", "Article/inscription.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -222,7 +222,7 @@ class __TwigTemplate_a3453cd4f237ac4ef4b6c0674efeb017e700ac0d1d07390c80f4f70da20
 
     public function getSourceContext()
     {
-        return new Source("{% extends \"index.html.twig\" %}
+        return new Source("{% extends \"index.html.twig.twig\" %}
 {% block title %}{{ parent() }} - console admin {% endblock %}
 
 

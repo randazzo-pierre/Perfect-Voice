@@ -36,13 +36,13 @@ class __TwigTemplate_f87bfc19b42dc68d4bd33140ef0a4a133adc55a0fb2684c909313d86362
     protected function doGetParent(array $context)
     {
         // line 3
-        return "index.html.twig";
+        return "index.html.twig.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        $this->parent = $this->loadTemplate("index.html.twig", "User/login.html.twig", 3);
+        $this->parent = $this->loadTemplate("index.html.twig.twig", "User/login.html.twig", 3);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -144,7 +144,7 @@ class __TwigTemplate_f87bfc19b42dc68d4bd33140ef0a4a133adc55a0fb2684c909313d86362
     {
         return new Source("
 
-{% extends \"index.html.twig\" %}
+{% extends \"index.html.twig.twig\" %}
 {% block head %}
     {% block title %}{{ parent() }} - Connectez vous {% endblock %}
 

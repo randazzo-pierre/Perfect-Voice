@@ -16,6 +16,9 @@ function chargerClasse($classe){
 spl_autoload_register('chargerClasse');
 
 $router = new \src\Router\Router($_GET['url']);
+
+$router->get('/', "User#test");
+
 $router->get('/', "Article#ListAll");
 $router->get('/Article', "Article#ListAll");
 $router->get('/Article/Update/:id', "Article#Update#id");

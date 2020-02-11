@@ -33,13 +33,13 @@ class __TwigTemplate_b63553b1563bf8888f2e9bd13109b5c2cb136ca4b4ede88e0e1cefdc5fe
     protected function doGetParent(array $context)
     {
         // line 1
-        return "index.html.twig";
+        return "index.html.twig.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        $this->parent = $this->loadTemplate("index.html.twig", "Contact/form.html.twig", 1);
+        $this->parent = $this->loadTemplate("index.html.twig.twig", "Contact/form.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -86,7 +86,7 @@ class __TwigTemplate_b63553b1563bf8888f2e9bd13109b5c2cb136ca4b4ede88e0e1cefdc5fe
 
     public function getSourceContext()
     {
-        return new Source("{% extends \"index.html.twig\" %}
+        return new Source("{% extends \"index.html.twig.twig\" %}
 {% block title %}{{ parent() }} - Contactez nous {% endblock %}
 {% block body %}
 

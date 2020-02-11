@@ -33,13 +33,13 @@ class __TwigTemplate_a84c2974d65c469478ffcd671dd05059f41f30f09960b7539ff2e270ada
     protected function doGetParent(array $context)
     {
         // line 1
-        return "index.html.twig";
+        return "index.html.twig.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        $this->parent = $this->loadTemplate("index.html.twig", "Article/view.html.twig", 1);
+        $this->parent = $this->loadTemplate("index.html.twig.twig", "Article/view.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -118,7 +118,7 @@ class __TwigTemplate_a84c2974d65c469478ffcd671dd05059f41f30f09960b7539ff2e270ada
 
     public function getSourceContext()
     {
-        return new Source("{% extends \"index.html.twig\" %}
+        return new Source("{% extends \"index.html.twig.twig\" %}
 {% block title %}{{ parent() }} - {{ articleData.Titre }}{% endblock %}
 {% block body %}
     <div class=\"container mt-2\">

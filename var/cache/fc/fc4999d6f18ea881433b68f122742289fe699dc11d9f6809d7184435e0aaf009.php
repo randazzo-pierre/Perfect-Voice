@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* index.html.twig */
+/* index.html.twig.twig */
 class __TwigTemplate_43b0df3f53db8adb8341cc208effa54b8f6e739a92ec189e43a0e47e2d43a0bc extends Template
 {
     private $source;
@@ -165,7 +165,7 @@ class __TwigTemplate_43b0df3f53db8adb8341cc208effa54b8f6e739a92ec189e43a0e47e2d4
 
     public function getTemplateName()
     {
-        return "index.html.twig";
+        return "index.html.twig.twig";
     }
 
     public function isTraitable()
@@ -253,6 +253,6 @@ class __TwigTemplate_43b0df3f53db8adb8341cc208effa54b8f6e739a92ec189e43a0e47e2d4
 <script src=\"/assets/js/header.js\"></script>
 {% endblock %}
 </body>
-</html>", "index.html.twig", "C:\\Dev\\Perfect Voice\\templates\\index.html.twig");
+</html>", "index.html.twig.twig", "C:\\Dev\\Perfect Voice\\templates\\index.html.twig.twig");
     }
 }

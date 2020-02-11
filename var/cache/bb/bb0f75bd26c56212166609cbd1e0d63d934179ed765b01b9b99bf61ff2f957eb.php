@@ -34,13 +34,13 @@ class __TwigTemplate_4e4afbfa7837e720f3b56acf7c801ea349c8b6fec9557c87ae02dbe33e0
     protected function doGetParent(array $context)
     {
         // line 1
-        return "index.html.twig";
+        return "index.html.twig.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        $this->parent = $this->loadTemplate("index.html.twig", "Article/add.html.twig", 1);
+        $this->parent = $this->loadTemplate("index.html.twig.twig", "Article/add.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -138,7 +138,7 @@ class __TwigTemplate_4e4afbfa7837e720f3b56acf7c801ea349c8b6fec9557c87ae02dbe33e0
 
     public function getSourceContext()
     {
-        return new Source("{% extends \"index.html.twig\" %}
+        return new Source("{% extends \"index.html.twig.twig\" %}
 {% block title %}{{ parent() }} - Ajout d'un article {% endblock %}
    {% block css %}
        <link rel=\"stylesheet\" href=\"/assets/css/header.css\">
