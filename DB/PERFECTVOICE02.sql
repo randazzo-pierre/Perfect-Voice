@@ -25,37 +25,36 @@ drop table if exists T_UTILISATEUR;
 /*==============================================================*/
 create table T_AIME
 (
-   ID_UTI               int auto increment,
-   AIM_MUSIC            bool,
+   ID_UTI               int AUTO_INCREMENT,
+   AIM_MUSIC            boolean,
    AIM_MUSIC_PREF       varchar(48),
-   AIM_FILM             bool,
+   AIM_FILM             boolean,
    AIM_FILM_PREF        varchar(48),
-   AIM_EVENT            bool,
+   AIM_EVENT            boolean,
    AIM_EVENT_PREF       varchar(48),
-   AIM_SPORT            bool,
+   AIM_SPORT            boolean,
    AIM_SPORT_PREf       varchar(48),
-   AIM_LIVRE            bool,
+   AIM_LIVRE            boolean,
    AIM_LIVRE_PREF       varchar(48),
-   AIM_CUISINE          bool,
+   AIM_CUISINE          boolean,
    AIM_CUISINE_PREf     varchar(48), 
-   AIM_JEUXVIDEO        bool,
+   AIM_JEUXVIDEO        boolean,
    AIM_JEUXVIDEO_PREF   varchar(48),
-   AIM_MANUEL           bool,
+   AIM_MANUEL           boolean,
    AIM_MANUEL_PREF      varchar(48),
-   AIM_ANIMAUX          bool,
+   AIM_ANIMAUX          boolean,
    AIM_ANIMAUX_PREF     varchar(48),
    AIM_DESCRIP          varchar(48),
-    
-    
    primary key (ID_UTI)
 );
 
 /*==============================================================*/
 /* Table : T_COMPTE                                             */
 /*==============================================================*/
+
 create table T_COMPTE
 (
-   ID_UTI            int auto increment,
+   ID_UTI            int AUTO_INCREMENT,
    COM_LVL           varchar(48) not null,
    primary key (ID_UTI)
 );
@@ -65,7 +64,7 @@ create table T_COMPTE
 /*==============================================================*/
 create table T_GALLERIE
 (
-   ID_UTI               int auto increment,
+   ID_UTI               int AUTO_INCREMENT,
    ID_GAL               bigint(20),
    GAL_NOM              varchar(48),
    primary key (ID_UTI)
@@ -76,10 +75,10 @@ create table T_GALLERIE
 /*==============================================================*/
 create table T_MATCH
 (
+   ID_UTI               int AUTO_INCREMENT,
    ID_MAT               bigint(20) not null,
-   ID_UTI               int auto increment,
    OTH_ID_UTI           varchar(48) not null,
-   MAT_LIKE             bool,
+   MAT_LIKE             boolean,
    MAT_TEMP             time,
    MAT_SCORE            numeric(8,0),
    primary key (ID_MAT)
@@ -90,8 +89,8 @@ create table T_MATCH
 /*==============================================================*/
 create table T_MESSAGE
 (
+   ID_UTI               int AUTO_INCREMENT,
    ID_MES               bigint(20) not null,
-   ID_UTI               int auto increment,
    OTH_ID_UTI           varchar(48) not null,
    MES_DATE             datetime,
    MES_FICHIERS         text,
@@ -104,10 +103,10 @@ create table T_MESSAGE
 /*==============================================================*/
 create table T_PHOTO
 (
-   ID_UTI               int auto increment,
+   ID_UTI               int AUTO_INCREMENT,
    ID_GAL               bigint(20),
    PHO_PHOTO            longblob,
-   PHO_PROFIL           bool,
+   PHO_PROFIL           boolean,
    primary key (ID_UTI)
 );
 
@@ -117,7 +116,7 @@ create table T_PHOTO
 create table T_SIGNALEMENT
 (
    ID_SIG               bigint(20) not null,
-   ID_UTI               int auto increment,
+   ID_UTI               int AUTO_INCREMENT,
    OTH_ID_UTI           varchar(48) not null,
    SIG_DATE             datetime,
    primary key (ID_SIG)
@@ -128,8 +127,8 @@ create table T_SIGNALEMENT
 /*==============================================================*/
 create table T_UTILISATEUR
 (
-   ID_UTI               int auto increment,
-   UTI_MDP              varchar(48) not null,
+   ID_UTI               int AUTO_INCREMENT,
+   UTI_MDP              varchar(60) not null,
    UTI_NOM              varchar(48),
    UTI_PRENOM           varchar(48),
    UTI_NAISSANCE        date,
@@ -141,7 +140,5 @@ create table T_UTILISATEUR
    UTI_ORIENTATION      varchar(48),
    UTI_HEURECON         datetime,
    UTI_STATUTCON        int,
-   primary key (ID_UTI, UTI_MDP)
    primary key (UTI_MAIL, UTI_MDP)
 );
-
