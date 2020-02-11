@@ -59,32 +59,52 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
 <body>
 <div id=\"header\">
     <div class=\"logo\">
-        <a href=\"/\">Perfect Voice</a>
+        <a href=\"/\">BLOGI</a>
     </div>
     <nav>
+        <li class=\"dropdown\">
+            <a href=\"\">Catégorie</a>
+            <ul>
+                <li><a href=\"/Login\">php</a></li>
+                <li><a href=\"/Register\">java.script</a></li>
+            </ul>
+        </li>
+        <ul>
+
+            <li>
+                <a href=\"/Api/Article/Last\">Article Recent</a>
+
+            </li>
+            <li>
+                <a href=\"/contact\">Contact</a>
+
+            </li>
             <li class=\"dropdown\">
                 <a href=\"\">Compte</a>
                 <ul>
                     ";
-        // line 24
-        if ( !twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "email", [], "any", true, true, false, 24)) {
-            // line 25
+        // line 41
+        if ( !twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "email", [], "any", true, true, false, 41)) {
+            // line 42
             echo "                    <li><a href=\"/Login\">Connexion</a></li>
                     <li><a href=\"/Register\">Inscription</a></li>
                     ";
         } else {
-            // line 28
+            // line 45
             echo "                    <li><a href=\"/Logout\">Deconnexion</li>
                     ";
         }
-        // line 30
+        // line 47
         echo "                </ul>
+            </li>
+            <li>
+                <a href=\"/Article/Add\">Ajouter un Article</a>
             </li>
         </ul>
 
         <form class=\"form-inline\" method=\"post\" action=\"/Article/Show/";
-        // line 34
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "search", [], "any", false, false, false, 34), "html", null, true);
+        // line 54
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "search", [], "any", false, false, false, 54), "html", null, true);
         echo "\">
             <input name=\"search\" placeholder=\"Recherche...\" type=\"search\">
         </form>
@@ -92,9 +112,9 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
 
 </div>
 ";
-        // line 40
+        // line 60
         $this->displayBlock('body', $context, $blocks);
-        // line 41
+        // line 61
         echo "
 
 
@@ -105,9 +125,9 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
 <script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/jquery-ui-i18n.min.js\"></script>
 <script src=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js\"></script>
 ";
-        // line 50
+        // line 70
         $this->displayBlock('javascript', $context, $blocks);
-        // line 53
+        // line 73
         echo "</body>
 </html>";
     }
@@ -128,17 +148,17 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
     ";
     }
 
-    // line 40
+    // line 60
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
     }
 
-    // line 50
+    // line 70
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 51
+        // line 71
         echo "<script src=\"/assets/js/header.js\"></script>
 ";
     }
@@ -155,7 +175,7 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
 
     public function getDebugInfo()
     {
-        return array (  142 => 51,  138 => 50,  132 => 40,  127 => 12,  123 => 11,  116 => 5,  111 => 53,  109 => 50,  98 => 41,  96 => 40,  87 => 34,  81 => 30,  77 => 28,  72 => 25,  70 => 24,  58 => 14,  56 => 11,  47 => 5,  41 => 1,);
+        return array (  162 => 71,  158 => 70,  152 => 60,  147 => 12,  143 => 11,  136 => 5,  131 => 73,  129 => 70,  118 => 61,  116 => 60,  107 => 54,  98 => 47,  94 => 45,  89 => 42,  87 => 41,  58 => 14,  56 => 11,  47 => 5,  41 => 1,);
     }
 
     public function getSourceContext()
@@ -177,9 +197,26 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
 <body>
 <div id=\"header\">
     <div class=\"logo\">
-        <a href=\"/\">Perfect Voice</a>
+        <a href=\"/\">BLOGI</a>
     </div>
     <nav>
+        <li class=\"dropdown\">
+            <a href=\"\">Catégorie</a>
+            <ul>
+                <li><a href=\"/Login\">php</a></li>
+                <li><a href=\"/Register\">java.script</a></li>
+            </ul>
+        </li>
+        <ul>
+
+            <li>
+                <a href=\"/Api/Article/Last\">Article Recent</a>
+
+            </li>
+            <li>
+                <a href=\"/contact\">Contact</a>
+
+            </li>
             <li class=\"dropdown\">
                 <a href=\"\">Compte</a>
                 <ul>
@@ -190,6 +227,9 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
                     <li><a href=\"/Logout\">Deconnexion</li>
                     {% endif %}
                 </ul>
+            </li>
+            <li>
+                <a href=\"/Article/Add\">Ajouter un Article</a>
             </li>
         </ul>
 
