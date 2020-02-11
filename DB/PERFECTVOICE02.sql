@@ -25,7 +25,7 @@ drop table if exists T_UTILISATEUR;
 /*==============================================================*/
 create table T_AIME
 (
-   ID_UTI               bigint(20) not null,
+   ID_UTI               int auto increment,
    AIM_MUSIC            bool,
    AIM_MUSIC_PREF       varchar(48),
    AIM_FILM             bool,
@@ -55,7 +55,7 @@ create table T_AIME
 /*==============================================================*/
 create table T_COMPTE
 (
-   ID_UTI            bigint(20) not null,
+   ID_UTI            int auto increment,
    COM_LVL           varchar(48) not null,
    primary key (ID_UTI)
 );
@@ -65,7 +65,7 @@ create table T_COMPTE
 /*==============================================================*/
 create table T_GALLERIE
 (
-   ID_UTI               bigint(20) not null,
+   ID_UTI               int auto increment,
    ID_GAL               bigint(20),
    GAL_NOM              varchar(48),
    primary key (ID_UTI)
@@ -77,7 +77,7 @@ create table T_GALLERIE
 create table T_MATCH
 (
    ID_MAT               bigint(20) not null,
-   ID_UTI               bigint(20) not null,
+   ID_UTI               int auto increment,
    OTH_ID_UTI           varchar(48) not null,
    MAT_LIKE             bool,
    MAT_TEMP             time,
@@ -91,7 +91,7 @@ create table T_MATCH
 create table T_MESSAGE
 (
    ID_MES               bigint(20) not null,
-   ID_UTI               bigint(20) not null,
+   ID_UTI               int auto increment,
    OTH_ID_UTI           varchar(48) not null,
    MES_DATE             datetime,
    MES_FICHIERS         text,
@@ -104,7 +104,7 @@ create table T_MESSAGE
 /*==============================================================*/
 create table T_PHOTO
 (
-   ID_UTI               bigint(20) not null,
+   ID_UTI               int auto increment,
    ID_GAL               bigint(20),
    PHO_PHOTO            longblob,
    PHO_PROFIL           bool,
@@ -117,7 +117,7 @@ create table T_PHOTO
 create table T_SIGNALEMENT
 (
    ID_SIG               bigint(20) not null,
-   ID_UTI               bigint(20) not null,
+   ID_UTI               int auto increment,
    OTH_ID_UTI           varchar(48) not null,
    SIG_DATE             datetime,
    primary key (ID_SIG)
@@ -128,20 +128,20 @@ create table T_SIGNALEMENT
 /*==============================================================*/
 create table T_UTILISATEUR
 (
-   ID_UTI               bigint(20) not null,
+   ID_UTI               int auto increment,
    UTI_MDP              varchar(48) not null,
-   UTI_MAIL             varchar(48) not null,
    UTI_NOM              varchar(48),
    UTI_PRENOM           varchar(48),
    UTI_NAISSANCE        date,
-   UTI_ADRESSE          varchar(48),
    UTI_VILLE            varchar(48),
+   UTI_MAIL             varchar(48),
    UTI_TEL              decimal(16),
    UTI_INSCRIPTION      datetime,
    UTI_SEXE             varchar(48),
    UTI_ORIENTATION      varchar(48),
    UTI_HEURECON         datetime,
    UTI_STATUTCON        int,
+   primary key (ID_UTI, UTI_MDP)
    primary key (UTI_MAIL, UTI_MDP)
 );
 

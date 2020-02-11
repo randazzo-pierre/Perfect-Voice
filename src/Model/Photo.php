@@ -11,7 +11,7 @@ class Photo extends User {
     {
         // Requete d'ajout photo
         try{
-            $requete = $bdd->prepare('INSERT INTO t_photo (ID_GAL,PHO_PHOTO,PHO_PROFIL)
+            $requete = $bdd->prepare('INSERT INTO t_photo (ID_GAL, PHO_PHOTO, PHO_PROFIL)
                 VALUES(:ID_GAL, :PHO_PHOTO, :PHO_PROFIL)');
             $requete->execute([
                 "idgal" => $this->getIdGal(),
@@ -28,7 +28,7 @@ class Photo extends User {
         // Requete delete preference
     {
         try {
-            $requete = $bdd->prepare('DELETE FROM t_photo where Id =:ID_UTI');
+            $requete = $bdd->prepare('DELETE FROM t_photo where ID_UTI =:ID_UTI');
             $requete->execute([
                 'iduti' => $id_uti
             ]);

@@ -9,6 +9,40 @@ private $mes_date;
 private $mes_fichiers;
 private $mes_typefichier;
 
+    public function SqlAddMes(\PDO $bdd) {
+        // Requete d'ajout match
+        try{
+            $requete = $bdd->prepare('INSERT INTO t_message (ID_UTI, OTH_ID_UTI, MES_DATE, MES_FICHIERS, MES_TYPEFICHIERS)
+                VALUES(:ID_MAT, :OTH_ID_UTI, :MAT_LIKE, :MAT_TEMP, :MAT_SCORE)');
+            $requete->execute([
+                "IdUti" => $this->getIdUti(),
+                "OthIdUti" => $this->getOthIdUti(),
+                "MesDate" => $this->getMesDate(),
+                "MesFichiers" => $this->getMesFichiers(),
+                "Typefichier" => $this->getMesTypefichier(),
+            ]);
+            return array("result"=>true,"message"=>$bdd->lastInsertId());
+        }catch (\Exception $e){
+            return array("result"=>false,"message"=>$e->getMessage());
+        }
+    }
+
+    public function SqlUpdateMes(\PDO $bdd){
+        // Requete update messagerie
+        try{
+            $requete = $bdd->prepare('UPDATE t_message set ID_UTI=:ID_UTI, OTH_ID_UTI=:OTH_ID_UTI, WHERE ID_MES=:ID_MES');
+            $requete->execute([
+                "IdMat" => $this->getIdMat(),
+                "OthIdUti" => $this->getOthIdUti(),
+                "MatLike" => $this->getMatLike(),
+                "MatTemp" => $this->getMatTemp(),
+                "MatScore" => $this->getMatScore(),
+            ]);
+            return array("0", "[OK] Update");
+        }catch (\Exception $e){
+            return array("1", "[ERREUR] ".$e->getMessage());
+        }
+    }
     /**
      * @return mixed
      */

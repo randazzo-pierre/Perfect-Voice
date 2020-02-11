@@ -38,7 +38,7 @@ class Gallerie extends User{
 
     }
 
-    public function deleteGal(\PDO $bdd)
+    public function deleteGal(\PDO $bdd, $id_uti)
     {
         try {
             $requete = $bdd->prepare('DELETE FROM t_gallerie where Id =:ID_UTI');
@@ -51,7 +51,6 @@ class Gallerie extends User{
         }
 
     }
-
 
 
 
