@@ -13,27 +13,13 @@
 {% block body %}
 
 
-
-    <div class="login-page">
-        <div class="form">
-
-            <form method="post" action="/Login">
-                <input type="email" name="uti_mail" placeholder="Email"/>
-                <input type="password" name="uti_mdp" placeholder="Mot de passe"/>
-
-                <input type='hidden' name ="token" value ="{{token}}">
-                <button>login</button>
+    <form method="post" action="/Login">
+        <input name="email" type="email"  placeholder="Email"/>
+        <input name="password" type="password" placeholder="Mot de passe"/>
+        <input type='hidden' name ="token" value ="{{token}}">
+        <button type="submit" class="btn btn-secondary">Connexion</button>
+    </form>
 
 
-            </form>
-        </div>
-    </div>
 
-    {% block javascript %}
-
-
-    {% endblock %}
-    </body>
-
-    </html>
 {% endblock %}

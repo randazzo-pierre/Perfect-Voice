@@ -1,5 +1,6 @@
 <?php
 namespace src\Model;
+use src\Model\Bdd;
 
 class User
 {
@@ -88,18 +89,15 @@ class User
             return array("result"=>false,"message"=>$e->getMessage());
         }
     }
-    public function getUserLogin(\PDO $bdd, $uti_mail){
-
-        $requete = $bdd->prepare("SELECT UTI_MAIL, UTI_MDP, ID_UTI FROM t_utilisateur WHERE UTI_MAIL = ?");
-        $requete -> execute(array($uti_mail));
+    public function getUserLogin(\PDO $bdd, $email){
+        $requete = $bdd->prepare("SELECT UTI_MAIL, UTI_MDP FROM t_utilisateur WHERE UTI_MAIL = ?");
+        $requete -> execute(array($email));
         $datas = $requete ->fetch();
         return $datas;
     }
-    function registerUser(\PDO $bdd, $uti_prenom, $uti_nom, $uti_ville, $uti_tel, $uti_sexe, $uti_orientation, $uti_mail, $uti_mdp){
+    function registerUser(\PDO $bdd, $uti_prenom, $uti_nom, $uti_ville, $uti_tel, $uti_sexe, $uti_orientation, $uti_mail, $mdp){
         try{
-            $uti_mdp_hash = password_hash($uti_mdp, PASSWORD_DEFAULT);
-
-            $requete=$bdd->prepare("INSERT INTO t_utilisateur (UTI_MAIL, UTI_MDP, UTI_NOM, UTI_PRENOM, UTI_VILLE, UTI_TEL, UTI_SEXE, UTI_ORIENTATION) VALUES (:mail, :mdp, :nom, :prenom, :ville, :tel, :sexe, :orientation);");
+            $requete=$bdd->prepare("INSERT INTO t_utilisateur (UTI_PRENOM, UTI_NOM, UTI_VILLE, UTI_TEL, UTI_SEXE, UTI_ORIENTATION, UTI_MAIL, UTI_MDP) VALUES (:prenom, :nom, :ville, :tel, :sexe, :orientation, :mail, :mdp);");
             $requete->execute([
                 'prenom' => $uti_prenom,
                 'nom' => $uti_nom,
@@ -108,15 +106,11 @@ class User
                 'sexe' => $uti_sexe,
                 'orientation' => $uti_orientation,
                 'mail' => $uti_mail,
-                'mdp' => $uti_mdp_hash
+                'mdp' => $mdp
             ]);
-
-            //password_hash = password_hash($password, PASSWORD_DEFAULT);
-            return true;
+            return;
         }catch (\Exception $e){
-
             die('Erreur : ' . $e->getMessage());
-
         }
     }
    /* function getAllUser(\PDO $bdd){

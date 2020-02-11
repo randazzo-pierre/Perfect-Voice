@@ -26,13 +26,6 @@ class UserController extends  AbstractController {
         return $this->twig->render('User/erreur.html.twig');
     }
 
-    public function loginForm(){
-        $token = bin2hex(random_bytes(32));
-        $_SESSION['token'] = $token;
-        return $this->twig->render('User/login.html.twig', [
-            'token' => $token
-        ]);
-    }
     public function utilisateur(){
         unset($_SESSION['errorlogin']);
         return $this->twig->render('Article/utilisateur.html.twig');
@@ -67,32 +60,7 @@ class UserController extends  AbstractController {
             ]
         );
     }
-    public function loginCheck(){
-        if($_POST AND $_SESSION['token'] == $_POST['token']){
-            if(!filter_var($_POST['uti_mail'],FILTER_VALIDATE_EMAIL)){
-                $_SESSION['errorlogin'] = "Mail invalide";
-                header('Location:/register');
-                return;
-            }
-            $user = new user();
-            $log = $user->getUserLogin(Bdd::GetInstance(), $_POST['uti_mail']);
-            if($_POST["uti_mail"]==$log['UTI_MAIL'] AND password_verify($_POST["uti_mdp"], $log['UTI_MDP'])){
-                $_SESSION['uti_mail'] = $log['UTI_MAIL'];
-                $_SESSION['uti_mdp'] = $log['UTI_MDP'];
-               // $role = UserController::roleP();
-              //  if($role == "2") {
-             //       header('Location:/Admin');
-             //   }else {
-             //       header('Location:/');
-           //     }
-                header('Location:/Yeah');
-            }
-            else {
-                $_SESSION['errorlogin'] = "Erreur d'Authentificationnn";
-                header('Location:/Loginn');
-            }
-        }
-    }
+
 
     public static function roleP()
     {
@@ -144,14 +112,14 @@ class UserController extends  AbstractController {
                 && isset($_POST['uti_ville']) && isset($_POST['uti_tel'])
                 && isset($_POST['uti_sexe']) && isset($_POST['uti_orientation'])
                 && isset($_POST['uti_mail']) && isset($_POST['uti_mdp'])) {
-                $log = new user();
-                $registerCheck = $log->registerUser(Bdd::GetInstance(), $_POST['uti_prenom'], $_POST['uti_nom'],
+                $mdp = password_hash($_POST['uti_mdp'], PASSWORD_BCRYPT);
+                $log = new User();
+                $log->registerUser(Bdd::GetInstance(), $_POST['uti_prenom'], $_POST['uti_nom'],
                     $_POST['uti_ville'], $_POST['uti_tel'], $_POST['uti_sexe'],
-                    $_POST['uti_orientation'], $_POST['uti_mail'], $_POST['uti_mdp']);
-
+                    $_POST['uti_orientation'], $_POST['uti_mail'], $mdp);
                     return $this->twig->render('User/login.html.twig');
                 }
-            }
+        }
         else {
             $token = bin2hex(random_bytes(32));
 
@@ -160,6 +128,32 @@ class UserController extends  AbstractController {
                 [
                     'token' => $token
                 ]);
+        }
+    }
+    public function loginForm(){
+        $token = bin2hex(random_bytes(32));
+        $_SESSION['token'] = $token;
+        return $this->twig->render('User/login.html.twig', [
+            'token' => $token
+        ]);
+    }
+    public function loginCheck(){
+        if($_POST AND $_SESSION['token'] == $_POST['token']){
+            if(!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
+                $_SESSION['errorlogin'] = "Mail invalide";
+                header('Location:/register');
+                return;
+            }
+            $userModel = new User();
+            $user = $userModel->getUserLogin(Bdd::GetInstance(), $_POST['email']);
+            if (password_verify($_POST['password'], $user['UTI_MDP'])) {
+                $_SESSION['uti_mail'] = $user['UTI_MAIL'];
+                $_SESSION['uti_mdp'] = $user['UTI_MDP'];
+                header('Location:/Yeah');
+            }else {
+                $_SESSION['errorlogin'] = "Erreur d'Authentificationnn";
+                header('Location:/Login');
+            }
         }
     }
 }

@@ -29,7 +29,6 @@ class __TwigTemplate_f87bfc19b42dc68d4bd33140ef0a4a133adc55a0fb2684c909313d86362
             'title' => [$this, 'block_title'],
             'css' => [$this, 'block_css'],
             'body' => [$this, 'block_body'],
-            'javascript' => [$this, 'block_javascript'],
         ];
     }
 
@@ -86,43 +85,19 @@ class __TwigTemplate_f87bfc19b42dc68d4bd33140ef0a4a133adc55a0fb2684c909313d86362
         // line 14
         echo "
 
-
-    <div class=\"login-page\">
-        <div class=\"form\">
-
-            <form method=\"post\" action=\"/Login\">
-                <input type=\"email\" name=\"uti_mail\" placeholder=\"Email\"/>
-                <input type=\"password\" name=\"uti_mdp\" placeholder=\"Mot de passe\"/>
-
-                <input type='hidden' name =\"token\" value =\"";
-        // line 24
+    <form method=\"post\" action=\"/Login\">
+        <input name=\"email\" type=\"email\"  placeholder=\"Email\"/>
+        <input name=\"password\" type=\"password\" placeholder=\"Mot de passe\"/>
+        <input type='hidden' name =\"token\" value =\"";
+        // line 19
         echo twig_escape_filter($this->env, ($context["token"] ?? null), "html", null, true);
         echo "\">
-                <button>login</button>
+        <button type=\"submit\" class=\"btn btn-secondary\">Connexion</button>
+    </form>
 
 
-            </form>
-        </div>
-    </div>
 
-    ";
-        // line 32
-        $this->displayBlock('javascript', $context, $blocks);
-        // line 36
-        echo "    </body>
-
-    </html>
 ";
-    }
-
-    // line 32
-    public function block_javascript($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        // line 33
-        echo "
-
-    ";
     }
 
     public function getTemplateName()
@@ -137,7 +112,7 @@ class __TwigTemplate_f87bfc19b42dc68d4bd33140ef0a4a133adc55a0fb2684c909313d86362
 
     public function getDebugInfo()
     {
-        return array (  123 => 33,  119 => 32,  112 => 36,  110 => 32,  99 => 24,  87 => 14,  83 => 13,  77 => 9,  73 => 8,  65 => 5,  61 => 8,  57 => 6,  54 => 5,  50 => 4,  39 => 3,);
+        return array (  93 => 19,  86 => 14,  82 => 13,  76 => 9,  72 => 8,  64 => 5,  60 => 8,  56 => 6,  53 => 5,  49 => 4,  38 => 3,);
     }
 
     public function getSourceContext()
@@ -157,29 +132,15 @@ class __TwigTemplate_f87bfc19b42dc68d4bd33140ef0a4a133adc55a0fb2684c909313d86362
 {% block body %}
 
 
-
-    <div class=\"login-page\">
-        <div class=\"form\">
-
-            <form method=\"post\" action=\"/Login\">
-                <input type=\"email\" name=\"uti_mail\" placeholder=\"Email\"/>
-                <input type=\"password\" name=\"uti_mdp\" placeholder=\"Mot de passe\"/>
-
-                <input type='hidden' name =\"token\" value =\"{{token}}\">
-                <button>login</button>
+    <form method=\"post\" action=\"/Login\">
+        <input name=\"email\" type=\"email\"  placeholder=\"Email\"/>
+        <input name=\"password\" type=\"password\" placeholder=\"Mot de passe\"/>
+        <input type='hidden' name =\"token\" value =\"{{token}}\">
+        <button type=\"submit\" class=\"btn btn-secondary\">Connexion</button>
+    </form>
 
 
-            </form>
-        </div>
-    </div>
 
-    {% block javascript %}
-
-
-    {% endblock %}
-    </body>
-
-    </html>
 {% endblock %}", "User/login.html.twig", "C:\\dev\\www\\git\\templates\\User\\login.html.twig");
     }
 }

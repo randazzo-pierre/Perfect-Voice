@@ -38,6 +38,7 @@ $router->get('/Login', 'User#loginForm');
 $router->post('/Login', 'User#loginCheck');
 $router->get('/Logout', 'User#logout');
 $router->get('/Api/Article/Last','Api#ArticleGetLast');
+$router->get('/Register', 'User#registerCheck');
 $router->get('/Register', 'User#registerForm');
 $router->post('/Register', 'User#registerCheck');
 $router->get('/Admin', "Article#ListAllAdmin");
