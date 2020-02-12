@@ -119,6 +119,7 @@ class User
             $requete->execute(array($email));
             $userDatas = $requete->fetch();
             return $userDatas;
+
         }catch (\Exception $e){
             return array("1", "[ERREUR] ".$e->getMessage());
         }
