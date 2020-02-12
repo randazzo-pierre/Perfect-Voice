@@ -54,10 +54,13 @@ class __TwigTemplate_9da6f9dc85691838b50ab8fb1cef59a07b4dc1271ddfc9f67586b4dad8e
         echo "    ";
         $this->displayBlock('title', $context, $blocks);
         // line 4
-        echo "
+        echo "    <link href=\"http://fonts.googleapis.com/css?family=Lato\" rel=\"stylesheet\" type=\"text/css\">
+    <link href=\"http://fonts.googleapis.com/css?family=Titillium+Web\" rel=\"stylesheet\" type=\"text/css\">
+    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\" integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">
+
 
     ";
-        // line 6
+        // line 9
         $this->displayBlock('css', $context, $blocks);
     }
 
@@ -69,21 +72,21 @@ class __TwigTemplate_9da6f9dc85691838b50ab8fb1cef59a07b4dc1271ddfc9f67586b4dad8e
         echo " - Connectez vous ";
     }
 
-    // line 6
+    // line 9
     public function block_css($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 7
+        // line 10
         echo "        <link rel=\"stylesheet\" href=\"/assets/css/login.css\">
         <link rel=\"stylesheet\" href=\"/assets/css/header.css\">
     ";
     }
 
-    // line 11
+    // line 14
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 12
+        // line 15
         echo "
 
 <div class=\"login-page\">
@@ -98,7 +101,7 @@ class __TwigTemplate_9da6f9dc85691838b50ab8fb1cef59a07b4dc1271ddfc9f67586b4dad8e
             <input type=\"email\" name=\"uti_mail\" placeholder=\"Email\"/>
             <input type=\"password\" name=\"uti_mdp\" placeholder=\"Mot de passe\"/>
             <input type='hidden' name =\"token\" value =\"";
-        // line 25
+        // line 28
         echo twig_escape_filter($this->env, ($context["token"] ?? null), "html", null, true);
         echo "\">
             <label>
@@ -121,20 +124,20 @@ class __TwigTemplate_9da6f9dc85691838b50ab8fb1cef59a07b4dc1271ddfc9f67586b4dad8e
 
         </form>
     ";
-        // line 45
+        // line 48
         $this->displayBlock('javascript', $context, $blocks);
-        // line 49
+        // line 52
         echo "    </body>
 
     </html>
 ";
     }
 
-    // line 45
+    // line 48
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 46
+        // line 49
         echo "
 
     ";
@@ -152,7 +155,7 @@ class __TwigTemplate_9da6f9dc85691838b50ab8fb1cef59a07b4dc1271ddfc9f67586b4dad8e
 
     public function getDebugInfo()
     {
-        return array (  138 => 46,  134 => 45,  127 => 49,  125 => 45,  102 => 25,  87 => 12,  83 => 11,  77 => 7,  73 => 6,  65 => 3,  61 => 6,  57 => 4,  54 => 3,  50 => 2,  39 => 1,);
+        return array (  141 => 49,  137 => 48,  130 => 52,  128 => 48,  105 => 28,  90 => 15,  86 => 14,  80 => 10,  76 => 9,  68 => 3,  64 => 9,  57 => 4,  54 => 3,  50 => 2,  39 => 1,);
     }
 
     public function getSourceContext()
@@ -160,6 +163,9 @@ class __TwigTemplate_9da6f9dc85691838b50ab8fb1cef59a07b4dc1271ddfc9f67586b4dad8e
         return new Source("{% extends \"index.html.twig\" %}
 {% block head %}
     {% block title %}{{ parent() }} - Connectez vous {% endblock %}
+    <link href=\"http://fonts.googleapis.com/css?family=Lato\" rel=\"stylesheet\" type=\"text/css\">
+    <link href=\"http://fonts.googleapis.com/css?family=Titillium+Web\" rel=\"stylesheet\" type=\"text/css\">
+    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\" integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">
 
 
     {% block css %}

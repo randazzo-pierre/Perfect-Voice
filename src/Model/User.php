@@ -113,16 +113,17 @@ class User
             die('Erreur : ' . $e->getMessage());
         }
     }
-   /* function getAllUser(\PDO $bdd){
+   public function getAllUser(\PDO $bdd, $email){
         try{
-            $requete = $bdd->prepare('SELECT * FROM table_name ');
-            $requete->execute();
-            $arrayUserData = $requete->fetchAll();
-            return $arrayUserData;
+            $requete = $bdd->prepare('SELECT * FROM t_utilisateur WHERE UTI_MAIL = ?');
+            $requete->execute(array($email));
+            $userDatas = $requete->fetch();
+            return $userDatas;
+
         }catch (\Exception $e){
             return array("1", "[ERREUR] ".$e->getMessage());
         }
-    }*/
+    }
     function logCheck(\PDO $bdd, $uti_mail, $passwordHash){
         try{
             $requete = $bdd->prepare("SELECT * FROM t_utilisateur 
@@ -143,7 +144,7 @@ class User
         }
     }
     public function SqlGetAllUser(\PDO $bdd){
-        $requete = $bdd->prepare('SELECT * FROM users');
+        $requete = $bdd->prepare('SELECT * FROM t_utilisateur');
         $requete->execute();
         $arrayUsers = $requete->fetchAll();
 
@@ -163,7 +164,6 @@ class User
             $user->setUtiOrientation($userSQL['UTI_ORIENTATION']);
             $user->setUtiHeurecon($userSQL['UTI_HEURECON']);
             $user->setUtiStatutcon($userSQL['UTI_STATUTCON']);
-
             $listArticle[] = $user;
         }
         return $listUsers;
