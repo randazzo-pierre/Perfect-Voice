@@ -157,6 +157,7 @@ class UserController extends  AbstractController {
                 $_SESSION['uti_tel'] = $user['UTI_TEL'];
                 $_SESSION['uti_sexe'] = $user['UTI_SEXE'];
                 $_SESSION['uti_orientation'] = $user['UTI_ORIENTATION'];
+
                 var_dump($_SESSION);
                // header('Location:/Yeah');
             }else {
