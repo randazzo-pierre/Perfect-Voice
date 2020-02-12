@@ -160,9 +160,9 @@ class __TwigTemplate_eb58122447deafe7f658d155105bb5484df613353afddda5c9d5bc5ed4c
     </div>
   </label>
   <label class=\"label2\">
+    <p class=\"label-txt\">Sexe</p>
     <select id=\"iller\"  name=\"uti_sexe\" class=\"form-control\" >
-      <option selected class=\"label-txt\">Sexe</option>
-      <option>Homme</option>
+      <option selected >Homme</option>
       <option>Femme</option>
       <option>Autre</option>
     </select>
@@ -171,9 +171,9 @@ class __TwigTemplate_eb58122447deafe7f658d155105bb5484df613353afddda5c9d5bc5ed4c
     </div>
   </label>
     <label class=\"label2\">
+    <p class=\"label-txt mb-5\">Orientation</p>
     <select id=\"iller\" name=\"uti_orientation\" class=\"form-control\" >
-      <option selected class=\"label-txt\">Orientation</option>
-      <option>Hommes</option>
+      <option selected >Hommes</option>
       <option>Femmes</option>
       <option>Les deux</option>
     </select>
@@ -406,9 +406,9 @@ class __TwigTemplate_eb58122447deafe7f658d155105bb5484df613353afddda5c9d5bc5ed4c
     </div>
   </label>
   <label class=\"label2\">
+    <p class=\"label-txt\">Sexe</p>
     <select id=\"iller\"  name=\"uti_sexe\" class=\"form-control\" >
-      <option selected class=\"label-txt\">Sexe</option>
-      <option>Homme</option>
+      <option selected >Homme</option>
       <option>Femme</option>
       <option>Autre</option>
     </select>
@@ -417,9 +417,9 @@ class __TwigTemplate_eb58122447deafe7f658d155105bb5484df613353afddda5c9d5bc5ed4c
     </div>
   </label>
     <label class=\"label2\">
+    <p class=\"label-txt mb-5\">Orientation</p>
     <select id=\"iller\" name=\"uti_orientation\" class=\"form-control\" >
-      <option selected class=\"label-txt\">Orientation</option>
-      <option>Hommes</option>
+      <option selected >Hommes</option>
       <option>Femmes</option>
       <option>Les deux</option>
     </select>

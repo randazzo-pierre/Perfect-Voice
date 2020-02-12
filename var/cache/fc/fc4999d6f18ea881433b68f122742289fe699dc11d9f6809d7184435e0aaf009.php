@@ -59,6 +59,9 @@ class __TwigTemplate_43b0df3f53db8adb8341cc208effa54b8f6e739a92ec189e43a0e47e2d4
     ";
         // line 194
         $this->displayBlock('javascript', $context, $blocks);
+        // line 199
+        echo "
+";
     }
 
     // line 2
@@ -298,7 +301,7 @@ class __TwigTemplate_43b0df3f53db8adb8341cc208effa54b8f6e739a92ec189e43a0e47e2d4
 
     public function getDebugInfo()
     {
-        return array (  288 => 195,  284 => 194,  183 => 94,  179 => 93,  153 => 70,  97 => 16,  93 => 15,  85 => 7,  81 => 6,  76 => 12,  74 => 6,  69 => 3,  65 => 2,  61 => 194,  57 => 192,  55 => 93,  52 => 92,  50 => 15,  47 => 14,  45 => 2,  42 => 1,);
+        return array (  291 => 195,  287 => 194,  186 => 94,  182 => 93,  156 => 70,  100 => 16,  96 => 15,  88 => 7,  84 => 6,  79 => 12,  77 => 6,  72 => 3,  68 => 2,  63 => 199,  61 => 194,  57 => 192,  55 => 93,  52 => 92,  50 => 15,  47 => 14,  45 => 2,  42 => 1,);
     }
 
     public function getSourceContext()
@@ -501,6 +504,7 @@ class __TwigTemplate_43b0df3f53db8adb8341cc208effa54b8f6e739a92ec189e43a0e47e2d4
     <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
     <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\" integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\" crossorigin=\"anonymous\"></script>
     {% endblock %}
+
 ", "index.html.twig", "C:\\Dev\\Perfect Voice\\templates\\index.html.twig");
     }
 }

@@ -123,7 +123,6 @@ class UserController extends  AbstractController {
         }
         else {
             $token = bin2hex(random_bytes(32));
-            var_dump($_POST);
             $_SESSION['token'] = $token;
             return $this->twig->render('User/inscription1.html.twig',
                 [
@@ -169,6 +168,7 @@ class UserController extends  AbstractController {
             }
         }
     }
+
     public function test(){
         return $this->twig->render('index.html.twig');
     }
