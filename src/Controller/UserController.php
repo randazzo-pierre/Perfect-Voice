@@ -145,14 +145,23 @@ class UserController extends  AbstractController {
                 return;
             }
             $userModel = new User();
-            $user = $userModel->getUserLogin(Bdd::GetInstance(), $_POST['email']);
+            $user = $userModel->getAllUser(Bdd::GetInstance(), $_POST['email']);
             if (password_verify($_POST['password'], $user['UTI_MDP'])) {
                 $_SESSION['uti_mail'] = $user['UTI_MAIL'];
                 $_SESSION['uti_mdp'] = $user['UTI_MDP'];
-                header('Location:/Yeah');
+                $_SESSION['id_uti'] = $user['ID_UTI'];
+                $_SESSION['uti_nom'] = $user['UTI_NOM'];
+                $_SESSION['uti_prenom'] = $user['UTI_PRENOM'];
+                $_SESSION['uti_naissance'] = $user['UTI_NAISSANCE'];
+                $_SESSION['uti_ville'] = $user['UTI_VILLE'];
+                $_SESSION['uti_tel'] = $user['UTI_TEL'];
+                $_SESSION['uti_sexe'] = $user['UTI_SEXE'];
+                $_SESSION['uti_orientation'] = $user['UTI_ORIENTATION'];
+                var_dump($_SESSION);
+               // header('Location:/Yeah');
             }else {
                 $_SESSION['errorlogin'] = "Erreur d'Authentificationnn";
-                header('Location:/Login');
+                header('Location:/Loginn');
             }
         }
     }
