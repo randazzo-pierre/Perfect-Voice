@@ -108,7 +108,7 @@ class __TwigTemplate_eb58122447deafe7f658d155105bb5484df613353afddda5c9d5bc5ed4c
 \t<div style=\"background:url(/asset/uploads/images/fond.jpg) no-repeat scroll 0 0 / 100% auto;\">
 \t\t<!-- Inscription -->
     <br/><br/>
-  <form class=\"form2\">
+  <form class=\"form2\" method=\"post\" action=\"/Register\">
     <h2>Inscription</h2>
   <label class=\"label2\">
     <p class=\"label-txt\">Adresse Email</p>
@@ -185,7 +185,7 @@ class __TwigTemplate_eb58122447deafe7f658d155105bb5484df613353afddda5c9d5bc5ed4c
       <div class=\"line\"></div>
     </div>
   </label>
-  <button class=\"button2\" type=\"submit\"><a href=\"inscription2.html.twig\">Suivant</a></button>
+  <button class=\"button2\" type=\"submit\">Suivant</button>
 </form>
   <br/>
     <!-- Barre séparation -->
@@ -354,7 +354,7 @@ class __TwigTemplate_eb58122447deafe7f658d155105bb5484df613353afddda5c9d5bc5ed4c
 \t<div style=\"background:url(/asset/uploads/images/fond.jpg) no-repeat scroll 0 0 / 100% auto;\">
 \t\t<!-- Inscription -->
     <br/><br/>
-  <form class=\"form2\">
+  <form class=\"form2\" method=\"post\" action=\"/Register\">
     <h2>Inscription</h2>
   <label class=\"label2\">
     <p class=\"label-txt\">Adresse Email</p>
@@ -428,7 +428,7 @@ class __TwigTemplate_eb58122447deafe7f658d155105bb5484df613353afddda5c9d5bc5ed4c
       <div class=\"line\"></div>
     </div>
   </label>
-  <button class=\"button2\" type=\"submit\"><a href=\"inscription2.html.twig\">Suivant</a></button>
+  <button class=\"button2\" type=\"submit\">Suivant</button>
 </form>
   <br/>
     <!-- Barre séparation -->

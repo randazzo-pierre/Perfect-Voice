@@ -89,7 +89,7 @@ class UserController extends  AbstractController {
         unset($_SESSION['errorlogin']);
         unset($_SESSION['role']);
         session_destroy();
-        header('Location:/Login');
+        header('Location: ../');
     }
     public function verifyToken($token) {
         if(!isset($_SESSION['token'])) {return false;}
@@ -107,6 +107,7 @@ class UserController extends  AbstractController {
     }
 
     public function registerCheck(){
+
         if($_POST AND $_SESSION['token'] == $_POST['token']){
             if (isset($_POST['uti_prenom']) && isset($_POST['uti_nom'])
                 && isset($_POST['uti_ville']) && isset($_POST['uti_tel'])
@@ -122,7 +123,7 @@ class UserController extends  AbstractController {
         }
         else {
             $token = bin2hex(random_bytes(32));
-
+            var_dump($_POST);
             $_SESSION['token'] = $token;
             return $this->twig->render('User/inscription1.html.twig',
                 [
@@ -137,6 +138,7 @@ class UserController extends  AbstractController {
             'token' => $token
         ]);
     }
+
     public function loginCheck(){
         if($_POST AND $_SESSION['token'] == $_POST['token']){
             if(!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
