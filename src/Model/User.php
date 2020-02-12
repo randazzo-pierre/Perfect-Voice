@@ -164,7 +164,6 @@ class User
             $user->setUtiOrientation($userSQL['UTI_ORIENTATION']);
             $user->setUtiHeurecon($userSQL['UTI_HEURECON']);
             $user->setUtiStatutcon($userSQL['UTI_STATUTCON']);
-
             $listArticle[] = $user;
         }
         return $listUsers;
