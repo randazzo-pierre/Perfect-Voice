@@ -28,6 +28,7 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
 
         $this->blocks = [
             'head' => [$this, 'block_head'],
+            'title' => [$this, 'block_title'],
             'css' => [$this, 'block_css'],
             'body' => [$this, 'block_body'],
             'footer' => [$this, 'block_footer'],
@@ -39,52 +40,58 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
     {
         $macros = $this->macros;
         // line 1
-        echo "
-";
-        // line 2
         $this->displayBlock('head', $context, $blocks);
-        // line 13
+        // line 6
+        $this->displayBlock('css', $context, $blocks);
+        // line 12
         $this->displayBlock('body', $context, $blocks);
-        // line 81
+        // line 80
         $this->displayBlock('footer', $context, $blocks);
-        // line 177
+        // line 176
         echo "
 
-
 ";
-        // line 180
+        // line 178
         $this->displayBlock('javascript', $context, $blocks);
     }
 
-    // line 2
+    // line 1
     public function block_head($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 3
+        // line 2
         echo "    <meta charset=\"UTF-8\">
     <meta name=\"viewport\" content=\"width=devide-width, initial-scale=1.0, shrink-to-fit=no\">
-    <title>Perfect Voice</title>
-    ";
-        // line 6
-        $this->displayBlock('css', $context, $blocks);
+    <title>";
+        // line 4
+        $this->displayBlock('title', $context, $blocks);
+        echo "</title>
+";
     }
 
+    public function block_title($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        echo "Perfect Voice";
+    }
+
+    // line 6
     public function block_css($context, array $blocks = [])
     {
         $macros = $this->macros;
         // line 7
-        echo "        <link href=\"http://fonts.googleapis.com/css?family=Lato\" rel=\"stylesheet\" type=\"text/css\">
-        <link href=\"http://fonts.googleapis.com/css?family=Titillium+Web\" rel=\"stylesheet\" type=\"text/css\">
-        <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\" integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">
-        <link rel=\"stylesheet\" href=\"asset/css/style.css\">
-    ";
+        echo "    <link href=\"http://fonts.googleapis.com/css?family=Lato\" rel=\"stylesheet\" type=\"text/css\">
+    <link href=\"http://fonts.googleapis.com/css?family=Titillium+Web\" rel=\"stylesheet\" type=\"text/css\">
+    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\" integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">
+    <link rel=\"stylesheet\" href=\"/assets/css/style.css\">
+";
     }
 
-    // line 13
+    // line 12
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 14
+        // line 13
         echo "    <nav id=\"nav\" class=\"navbar navbar-expand-lg navbar-light bg-light d-flex sticky\">
         <a class=\"navbar-brand mr-auto\" href=\"#\"><img src=\"uploads/images/logotexte.png\" width=\"200px\" alt=\"Logo Perfect Voice\"></a>
         <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
@@ -131,7 +138,7 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
                                     <input type=\"password\" name=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"Password\" required>
                                     <label for=\"inputPassword\">Mot de passe</label>
                                     <input type='hidden' name =\"token\" value =\"";
-        // line 59
+        // line 58
         echo twig_escape_filter($this->env, ($context["token"] ?? null), "html", null, true);
         echo "\">
                                 </div>
@@ -157,11 +164,11 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
 ";
     }
 
-    // line 81
+    // line 80
     public function block_footer($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 82
+        // line 81
         echo "    <div class=\"container\">
         <div class=\"row\">
             <div class=\"col-md-5\">
@@ -259,11 +266,11 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
 ";
     }
 
-    // line 180
+    // line 178
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 181
+        // line 179
         echo "    <script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\" integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\" crossorigin=\"anonymous\"></script>
     <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
     <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\" integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\" crossorigin=\"anonymous\"></script>
@@ -277,22 +284,21 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
 
     public function getDebugInfo()
     {
-        return array (  267 => 181,  263 => 180,  165 => 82,  161 => 81,  135 => 59,  88 => 14,  84 => 13,  76 => 7,  69 => 6,  64 => 3,  60 => 2,  56 => 180,  51 => 177,  49 => 81,  47 => 13,  45 => 2,  42 => 1,);
+        return array (  274 => 179,  270 => 178,  172 => 81,  168 => 80,  142 => 58,  95 => 13,  91 => 12,  83 => 7,  79 => 6,  67 => 4,  63 => 2,  59 => 1,  55 => 178,  51 => 176,  49 => 80,  47 => 12,  45 => 6,  43 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("
-{% block head %}
+        return new Source("{% block head %}
     <meta charset=\"UTF-8\">
     <meta name=\"viewport\" content=\"width=devide-width, initial-scale=1.0, shrink-to-fit=no\">
-    <title>Perfect Voice</title>
-    {% block css %}
-        <link href=\"http://fonts.googleapis.com/css?family=Lato\" rel=\"stylesheet\" type=\"text/css\">
-        <link href=\"http://fonts.googleapis.com/css?family=Titillium+Web\" rel=\"stylesheet\" type=\"text/css\">
-        <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\" integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">
-        <link rel=\"stylesheet\" href=\"asset/css/style.css\">
-    {% endblock %}
+    <title>{% block title %}Perfect Voice{% endblock %}</title>
+{% endblock %}
+{% block css %}
+    <link href=\"http://fonts.googleapis.com/css?family=Lato\" rel=\"stylesheet\" type=\"text/css\">
+    <link href=\"http://fonts.googleapis.com/css?family=Titillium+Web\" rel=\"stylesheet\" type=\"text/css\">
+    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\" integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">
+    <link rel=\"stylesheet\" href=\"/assets/css/style.css\">
 {% endblock %}
 {% block body %}
     <nav id=\"nav\" class=\"navbar navbar-expand-lg navbar-light bg-light d-flex sticky\">
@@ -458,7 +464,6 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
         </div>
     </div>
 {% endblock %}
-
 
 
 {% block javascript %}
