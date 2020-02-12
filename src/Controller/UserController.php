@@ -89,7 +89,7 @@ class UserController extends  AbstractController {
         unset($_SESSION['errorlogin']);
         unset($_SESSION['role']);
         session_destroy();
-        header('Location:/Login');
+        header('Location: ../');
     }
     public function verifyToken($token) {
         if(!isset($_SESSION['token'])) {return false;}
@@ -100,13 +100,14 @@ class UserController extends  AbstractController {
 
         $token = bin2hex(random_bytes(32));
         $_SESSION['token'] = $token;
-        return $this->twig->render('User/register.html.twig',[
+        return $this->twig->render('User/inscription1.html.twig',[
             'inscrit'=>1
             ,'token' => $token
         ]);
     }
 
     public function registerCheck(){
+
         if($_POST AND $_SESSION['token'] == $_POST['token']){
             if (isset($_POST['uti_prenom']) && isset($_POST['uti_nom'])
                 && isset($_POST['uti_ville']) && isset($_POST['uti_tel'])
@@ -117,14 +118,14 @@ class UserController extends  AbstractController {
                 $log->registerUser(Bdd::GetInstance(), $_POST['uti_prenom'], $_POST['uti_nom'],
                     $_POST['uti_ville'], $_POST['uti_tel'], $_POST['uti_sexe'],
                     $_POST['uti_orientation'], $_POST['uti_mail'], $mdp);
-                    return $this->twig->render('User/login.html.twig');
+                    return $this->twig->render('User/inscription2.html.twig');
                 }
         }
         else {
             $token = bin2hex(random_bytes(32));
-
+            var_dump($_POST);
             $_SESSION['token'] = $token;
-            return $this->twig->render('User/register.html.twig',
+            return $this->twig->render('User/inscription1.html.twig',
                 [
                     'token' => $token
                 ]);
@@ -133,10 +134,11 @@ class UserController extends  AbstractController {
     public function loginForm(){
         $token = bin2hex(random_bytes(32));
         $_SESSION['token'] = $token;
-        return $this->twig->render('User/login.html.twig', [
+        return $this->twig->render('index.html.twig', [
             'token' => $token
         ]);
     }
+
     public function loginCheck(){
         if($_POST AND $_SESSION['token'] == $_POST['token']){
             if(!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
@@ -160,8 +162,10 @@ class UserController extends  AbstractController {
                 var_dump($_SESSION);
                // header('Location:/Yeah');
             }else {
-                $_SESSION['errorlogin'] = "Erreur d'Authentificationnn";
-                header('Location:/Loginn');
+
+                $_SESSION['errorlogin'] = "Erreur d'Authentification";
+                header('Location:/Login');
+
             }
         }
     }

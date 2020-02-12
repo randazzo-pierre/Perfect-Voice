@@ -26,26 +26,25 @@ drop table if exists T_UTILISATEUR;
 create table T_AIME
 (
    ID_UTI               bigint(20) not null,
-   AIM_MUSIC            bool,
+   AIM_MUSIC            boolean,
    AIM_MUSIC_PREF       varchar(48),
-   AIM_FILM             bool,
+   AIM_FILM             boolean,
    AIM_FILM_PREF        varchar(48),
-   AIM_EVENT            bool,
+   AIM_EVENT            boolean,
    AIM_EVENT_PREF       varchar(48),
-   AIM_SPORT            bool,
+   AIM_SPORT            boolean,
    AIM_SPORT_PREf       varchar(48),
-   AIM_LIVRE            bool,
+   AIM_LIVRE            boolean,
    AIM_LIVRE_PREF       varchar(48),
-   AIM_CUISINE          bool,
+   AIM_CUISINE          boolean,
    AIM_CUISINE_PREf     varchar(48), 
-   AIM_JEUXVIDEO        bool,
+   AIM_JEUXVIDEO        boolean,
    AIM_JEUXVIDEO_PREF   varchar(48),
-   AIM_MANUEL           bool,
+   AIM_MANUEL           boolean,
    AIM_MANUEL_PREF      varchar(48),
-   AIM_ANIMAUX          bool,
+   AIM_ANIMAUX          boolean,
    AIM_ANIMAUX_PREF     varchar(48),
    AIM_DESCRIP          varchar(48),
-    
     
    primary key (ID_UTI)
 );
@@ -66,7 +65,7 @@ create table T_COMPTE
 create table T_GALLERIE
 (
    ID_UTI               bigint(20) not null,
-   ID_GAL               bigint(20),
+   ID_GAL               bigint(20) not null,
    GAL_NOM              varchar(48),
    primary key (ID_UTI)
 );
@@ -76,10 +75,10 @@ create table T_GALLERIE
 /*==============================================================*/
 create table T_MATCH
 (
-   ID_MAT               bigint(20) not null,
    ID_UTI               bigint(20) not null,
+   ID_MAT               int AUTO_INCREMENT not null,
    OTH_ID_UTI           varchar(48) not null,
-   MAT_LIKE             bool,
+   MAT_LIKE             boolean,
    MAT_TEMP             time,
    MAT_SCORE            numeric(8,0),
    primary key (ID_MAT)
@@ -90,12 +89,11 @@ create table T_MATCH
 /*==============================================================*/
 create table T_MESSAGE
 (
-   ID_MES               bigint(20) not null,
    ID_UTI               bigint(20) not null,
+   ID_MES               int AUTO_INCREMENT not null,
    OTH_ID_UTI           varchar(48) not null,
    MES_DATE             datetime,
-   MES_FICHIERS         text,
-   MES_TYPEFICHIER      text,
+   MES_MESSAGE          text,
    primary key (ID_MES)
 );
 
@@ -105,9 +103,9 @@ create table T_MESSAGE
 create table T_PHOTO
 (
    ID_UTI               bigint(20) not null,
-   ID_GAL               bigint(20),
+   ID_GAL               bigint(20) not null,
    PHO_PHOTO            longblob,
-   PHO_PROFIL           bool,
+   PHO_PROFIL           boolean,
    primary key (ID_UTI)
 );
 
@@ -116,7 +114,7 @@ create table T_PHOTO
 /*==============================================================*/
 create table T_SIGNALEMENT
 (
-   ID_SIG               bigint(20) not null,
+   ID_SIG               int AUTO_INCREMENT,
    ID_UTI               bigint(20) not null,
    OTH_ID_UTI           varchar(48) not null,
    SIG_DATE             datetime,
@@ -128,20 +126,18 @@ create table T_SIGNALEMENT
 /*==============================================================*/
 create table T_UTILISATEUR
 (
-   ID_UTI               bigint(20) not null,
-   UTI_MDP              varchar(48) not null,
-   UTI_MAIL             varchar(48) not null,
+   ID_UTI               int AUTO_INCREMENT not null,
+   UTI_MDP              varchar(60) not null,
    UTI_NOM              varchar(48),
    UTI_PRENOM           varchar(48),
    UTI_NAISSANCE        date,
-   UTI_ADRESSE          varchar(48),
    UTI_VILLE            varchar(48),
+   UTI_MAIL             varchar(48),
    UTI_TEL              decimal(16),
    UTI_INSCRIPTION      datetime,
    UTI_SEXE             varchar(48),
    UTI_ORIENTATION      varchar(48),
    UTI_HEURECON         datetime,
    UTI_STATUTCON        int,
-   primary key (UTI_MAIL, UTI_MDP)
+   primary key (ID_UTI, UTI_MDP)
 );
-
