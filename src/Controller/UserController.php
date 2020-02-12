@@ -100,7 +100,7 @@ class UserController extends  AbstractController {
 
         $token = bin2hex(random_bytes(32));
         $_SESSION['token'] = $token;
-        return $this->twig->render('User/register.html.twig',[
+        return $this->twig->render('User/inscription1.html.twig',[
             'inscrit'=>1
             ,'token' => $token
         ]);
@@ -117,14 +117,14 @@ class UserController extends  AbstractController {
                 $log->registerUser(Bdd::GetInstance(), $_POST['uti_prenom'], $_POST['uti_nom'],
                     $_POST['uti_ville'], $_POST['uti_tel'], $_POST['uti_sexe'],
                     $_POST['uti_orientation'], $_POST['uti_mail'], $mdp);
-                    return $this->twig->render('User/login.html.twig');
+                    return $this->twig->render('User/inscription2.html.twig');
                 }
         }
         else {
             $token = bin2hex(random_bytes(32));
 
             $_SESSION['token'] = $token;
-            return $this->twig->render('User/register.html.twig',
+            return $this->twig->render('User/inscription1.html.twig',
                 [
                     'token' => $token
                 ]);

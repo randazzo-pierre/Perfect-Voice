@@ -42,6 +42,8 @@ $router->get('/Api/Article/Last','Api#ArticleGetLast');
 $router->get('/Register', 'User#registerCheck');
 $router->get('/Register', 'User#registerForm');
 $router->post('/Register', 'User#registerCheck');
+$router->get('/Register/2', 'User#registerForm2');
+$router->post('/Register/2', 'User#registerCheck2');
 $router->get('/Admin', "Article#ListAllAdmin");
 $router->get('/AdminUser', "User#ListAllUser");
 $router->get('/Article/Search', 'Article#Search');

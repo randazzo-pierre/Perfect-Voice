@@ -30,7 +30,6 @@ class __TwigTemplate_43b0df3f53db8adb8341cc208effa54b8f6e739a92ec189e43a0e47e2d4
             'head' => [$this, 'block_head'],
             'css' => [$this, 'block_css'],
             'body' => [$this, 'block_body'],
-            'footer' => [$this, 'block_footer'],
             'javascript' => [$this, 'block_javascript'],
         ];
     }
@@ -49,13 +48,107 @@ class __TwigTemplate_43b0df3f53db8adb8341cc208effa54b8f6e739a92ec189e43a0e47e2d4
         // line 15
         $this->displayBlock('body', $context, $blocks);
         // line 92
-        $this->displayBlock('footer', $context, $blocks);
-        // line 190
         echo "
+    <div class=\"container\">
+        <div class=\"row\">
+            <h2 id=\"keske\">Qu'est-ce que Perfect Voice ?</h2>
+        </div>
+
+        <div class=\"block\">
+            <br/>
+            <div class=\"row\">
+            <div class=\"col-12\">
+                <div class=\"span1\">
+                    <img class=\"img-right \" src=\"/asset/uploads/images/boy.jpg\"/>
+                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class=\"row\">
+            <div class=\"col-12\">
+                <div class=\"span1\">
+                    <img class=\"img-left\"  src=\"/asset/uploads/images/girl.jpg\"/>
+                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class=\"row\">
+            <div class=\"col-12\">
+                <div class=\"span1\">
+                    <img class=\"img-right\" src=\"/asset/uploads/images/couple.jpg\" />
+                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-";
-        // line 193
+    <!-- Infos -->
+    <div class=\"container\" id=\"footer\">
+        <div class=\"row\">
+            <div class=\"col-md-5\">
+                <h5><i class=\"fa fa-road\"></i>En savoir plus<br/><br/></h5>
+                <div class=\"row\">
+                    <div class=\"col-6\">
+                        <ul class=\"list-unstyled\">
+                            <li><a href=\"\">Facebook</a></li>
+                            <li><a href=\"\">Twitter</a></li>
+                            <li><a href=\"\">Coordonnées</a></li>
+                            <li><a href=\"callto:0662205586\">Téléphoner</a></li>
+                        </ul>
+                    </div>
+                    <div class=\"col-6\">
+                        <ul class=\"list-unstyled\">
+                            <li><a href=\"\">Documentation</a></li>
+                            <li><a href=\"\">Abonnements</a></li>
+                            <li><a href=\"\">Mentions légales</a></li>
+                            <li><a href=\"\">L'équipe</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <ul class=\"nav\">
+                    <li class=\"nav-item\"><a href=\"\" class=\"nav-link pl-0\"><i class=\"fa fa-facebook fa-lg\"></i></a></li>
+                    <li class=\"nav-item\"><a href=\"\" class=\"nav-link\"><i class=\"fa fa-twitter fa-lg\"></i></a></li>
+                    <li class=\"nav-item\"><a href=\"\" class=\"nav-link\"><i class=\"fa fa-github fa-lg\"></i></a></li>
+                    <li class=\"nav-item\"><a href=\"\" class=\"nav-link\"><i class=\"fa fa-instagram fa-lg\"></i></a></li>
+                </ul>
+                <br>
+            </div>
+            <div class=\"col-md-2\">
+                <h5 class=\"text-md-right\">Nous contacter</h5>
+                <hr>
+            </div>
+            <div class=\"col-md-5\">
+                <form>
+                    <fieldset class=\"form-group\">
+                        <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" placeholder=\"Enter email\">
+                    </fieldset>
+                    <fieldset class=\"form-group\">
+                        <textarea class=\"form-control\" id=\"exampleMessage\" placeholder=\"Message\"></textarea>
+                    </fieldset>
+                    <fieldset class=\"form-group text-xs-right\">
+                        <button type=\"button\" class=\"btn btn-secondary-outline btn-lg\">Envoyer</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    ";
+        // line 191
         $this->displayBlock('javascript', $context, $blocks);
     }
 
@@ -168,124 +261,20 @@ class __TwigTemplate_43b0df3f53db8adb8341cc208effa54b8f6e739a92ec189e43a0e47e2d4
         </div>
         <br/><br/><br/>
         <!-- Barre séparation -->
-        <div id=lignerouge></div>
+        <div id=lignerouge ></div>
     </div>
 ";
     }
 
-    // line 92
-    public function block_footer($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        // line 93
-        echo "
-    <div class=\"container\">
-        <div class=\"row\">
-            <h2 id=\"keske\">Qu'est-ce que Perfect Voice ?</h2>
-        </div>
-
-        <div class=\"block\">
-            <br/>
-            <div class=\"row\">
-            <div class=\"col-12\">
-                <div class=\"span1\">
-                    <img class=\"img-right float-right\"  width=\"400px\" src=\"/asset/uploads/images/boy.jpg\"/>
-                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                </div>
-            </div>
-        </div>
-        <br/>
-        <div class=\"row\">
-            <div class=\"col-12\">
-                <div class=\"span1\">
-                    <img class=\"img-left float-left mr-5  \"  width=\"400px\" src=\"/asset/uploads/images/girl.jpg\"/>
-                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                </div>
-            </div>
-        </div>
-        <br/>
-        <div class=\"row\">
-            <div class=\"col-12\">
-                <div class=\"span1\">
-                    <img class=\"img-right float-right \" width=\"400px\" src=\"/asset/uploads/images/couple.jpg\" />
-                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Infos -->
-    <div class=\"container\" id=\"footer\">
-        <div class=\"row\">
-            <div class=\"col-md-5\">
-                <h5><i class=\"fa fa-road\"></i>En savoir plus<br/><br/></h5>
-                <div class=\"row\">
-                    <div class=\"col-6\">
-                        <ul class=\"list-unstyled\">
-                            <li><a href=\"\">Facebook</a></li>
-                            <li><a href=\"\">Twitter</a></li>
-                            <li><a href=\"\">Coordonnées</a></li>
-                            <li><a href=\"callto:0662205586\">Téléphoner</a></li>
-                        </ul>
-                    </div>
-                    <div class=\"col-6\">
-                        <ul class=\"list-unstyled\">
-                            <li><a href=\"\">Documentation</a></li>
-                            <li><a href=\"\">Abonnements</a></li>
-                            <li><a href=\"\">Mentions légales</a></li>
-                            <li><a href=\"\">L'équipe</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <ul class=\"nav\">
-                    <li class=\"nav-item\"><a href=\"\" class=\"nav-link pl-0\"><i class=\"fa fa-facebook fa-lg\"></i></a></li>
-                    <li class=\"nav-item\"><a href=\"\" class=\"nav-link\"><i class=\"fa fa-twitter fa-lg\"></i></a></li>
-                    <li class=\"nav-item\"><a href=\"\" class=\"nav-link\"><i class=\"fa fa-github fa-lg\"></i></a></li>
-                    <li class=\"nav-item\"><a href=\"\" class=\"nav-link\"><i class=\"fa fa-instagram fa-lg\"></i></a></li>
-                </ul>
-                <br>
-            </div>
-            <div class=\"col-md-2\">
-                <h5 class=\"text-md-right\">Nous contacter</h5>
-                <hr>
-            </div>
-            <div class=\"col-md-5\">
-                <form>
-                    <fieldset class=\"form-group\">
-                        <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" placeholder=\"Enter email\">
-                    </fieldset>
-                    <fieldset class=\"form-group\">
-                        <textarea class=\"form-control\" id=\"exampleMessage\" placeholder=\"Message\"></textarea>
-                    </fieldset>
-                    <fieldset class=\"form-group text-xs-right\">
-                        <button type=\"button\" class=\"btn btn-secondary-outline btn-lg\">Envoyer</button>
-                    </fieldset>
-                </form>
-            </div>
-        </div>
-    </div>
-";
-    }
-
-    // line 193
+    // line 191
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 194
+        // line 192
         echo "    <script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\" integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\" crossorigin=\"anonymous\"></script>
     <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
     <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\" integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\" crossorigin=\"anonymous\"></script>
-";
+    ";
     }
 
     public function getTemplateName()
@@ -295,7 +284,7 @@ class __TwigTemplate_43b0df3f53db8adb8341cc208effa54b8f6e739a92ec189e43a0e47e2d4
 
     public function getDebugInfo()
     {
-        return array (  285 => 194,  281 => 193,  181 => 93,  177 => 92,  151 => 70,  95 => 16,  91 => 15,  83 => 7,  79 => 6,  74 => 12,  72 => 6,  67 => 3,  63 => 2,  59 => 193,  54 => 190,  52 => 92,  50 => 15,  47 => 14,  45 => 2,  42 => 1,);
+        return array (  274 => 192,  270 => 191,  244 => 70,  188 => 16,  184 => 15,  176 => 7,  172 => 6,  167 => 12,  165 => 6,  160 => 3,  156 => 2,  152 => 191,  51 => 92,  49 => 15,  46 => 14,  44 => 2,  41 => 1,);
     }
 
     public function getSourceContext()
@@ -388,10 +377,9 @@ class __TwigTemplate_43b0df3f53db8adb8341cc208effa54b8f6e739a92ec189e43a0e47e2d4
         </div>
         <br/><br/><br/>
         <!-- Barre séparation -->
-        <div id=lignerouge></div>
+        <div id=lignerouge ></div>
     </div>
 {% endblock %}
-{% block footer %}
 
     <div class=\"container\">
         <div class=\"row\">
@@ -403,7 +391,7 @@ class __TwigTemplate_43b0df3f53db8adb8341cc208effa54b8f6e739a92ec189e43a0e47e2d4
             <div class=\"row\">
             <div class=\"col-12\">
                 <div class=\"span1\">
-                    <img class=\"img-right float-right\"  width=\"400px\" src=\"/asset/uploads/images/boy.jpg\"/>
+                    <img class=\"img-right \" src=\"/asset/uploads/images/boy.jpg\"/>
                     <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
                     <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
                     <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
@@ -415,7 +403,7 @@ class __TwigTemplate_43b0df3f53db8adb8341cc208effa54b8f6e739a92ec189e43a0e47e2d4
         <div class=\"row\">
             <div class=\"col-12\">
                 <div class=\"span1\">
-                    <img class=\"img-left float-left mr-5  \"  width=\"400px\" src=\"/asset/uploads/images/girl.jpg\"/>
+                    <img class=\"img-left\"  src=\"/asset/uploads/images/girl.jpg\"/>
                     <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
                     <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
                     <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
@@ -427,7 +415,7 @@ class __TwigTemplate_43b0df3f53db8adb8341cc208effa54b8f6e739a92ec189e43a0e47e2d4
         <div class=\"row\">
             <div class=\"col-12\">
                 <div class=\"span1\">
-                    <img class=\"img-right float-right \" width=\"400px\" src=\"/asset/uploads/images/couple.jpg\" />
+                    <img class=\"img-right\" src=\"/asset/uploads/images/couple.jpg\" />
                     <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
                     <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
                     <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
@@ -488,15 +476,14 @@ class __TwigTemplate_43b0df3f53db8adb8341cc208effa54b8f6e739a92ec189e43a0e47e2d4
             </div>
         </div>
     </div>
-{% endblock %}
 
 
 
-{% block javascript %}
+    {% block javascript %}
     <script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\" integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\" crossorigin=\"anonymous\"></script>
     <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
     <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\" integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\" crossorigin=\"anonymous\"></script>
-{% endblock %}
+    {% endblock %}
 ", "index.html.twig", "C:\\Dev\\Perfect Voice\\templates\\index.html.twig");
     }
 }
