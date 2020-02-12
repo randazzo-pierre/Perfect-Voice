@@ -16,7 +16,7 @@ function chargerClasse($classe){
 spl_autoload_register('chargerClasse');
 
 $router = new \src\Router\Router($_GET['url']);
-$router->get('/', "User#test");
+$router->get('/', "User#loginForm");
 $router->post('/', 'User#loginCheck');
 $router->get('/Article', "Article#ListAll");
 $router->get('/Article/Update/:id', "Article#Update#id");
@@ -35,8 +35,8 @@ $router->get('/Article/ListAll','Article#listAll');
 $router->get('/coucou/di/:param1/:param2','Article#test#param1#param2');
 $router->get('/Contact', 'Contact#showForm');
 $router->post('/Contact/sendMail', 'Contact#sendMail');
-$router->get('/Login', 'User#loginForm');
-$router->post('/Login', 'User#loginCheck');
+//$router->get('/Login', 'User#loginForm');
+//$router->post('/Login', 'User#loginCheck');
 $router->get('/Logout', 'User#logout');
 $router->get('/Api/Article/Last','Api#ArticleGetLast');
 $router->get('/Register', 'User#registerCheck');

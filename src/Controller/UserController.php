@@ -133,7 +133,7 @@ class UserController extends  AbstractController {
     public function loginForm(){
         $token = bin2hex(random_bytes(32));
         $_SESSION['token'] = $token;
-        return $this->twig->render('User/login.html.twig', [
+        return $this->twig->render('index.html.twig', [
             'token' => $token
         ]);
     }
@@ -151,7 +151,7 @@ class UserController extends  AbstractController {
                 $_SESSION['uti_mdp'] = $user['UTI_MDP'];
                 header('Location:/Yeah');
             }else {
-                $_SESSION['errorlogin'] = "Erreur d'Authentificationnn";
+                $_SESSION['errorlogin'] = "Erreur d'Authentification";
                 header('Location:/Login');
             }
         }
