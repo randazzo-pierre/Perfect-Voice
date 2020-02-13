@@ -17,15 +17,25 @@ class UserController extends  AbstractController {
             return $this->twig->render('User/erreur.html.twig');
         }
     }
-    public function registe(){
-        return $this->twig->render('User/register.html.twig');
-    }
+    public function loginForm(){
+        if(isset($_SESSION['uti_mail'])) {
+            header('Location:/profil');
+        } else {
+            $token = bin2hex(random_bytes(32));
+            $_SESSION['token'] = $token;
+            return $this->twig->render('index.html.twig', [
+                'token' => $token
+            ]);
+        }
 
-    public function erreur()
-    {
-        return $this->twig->render('User/erreur.html.twig');
     }
-
+    public function registerForm(){
+        $token = bin2hex(random_bytes(32));
+        $_SESSION['token'] = $token;
+        return $this->twig->render('User/inscription1.html.twig',[
+            'token' => $token
+        ]);
+    }
     public function utilisateur(){
         unset($_SESSION['errorlogin']);
         return $this->twig->render('Article/utilisateur.html.twig');
@@ -34,20 +44,21 @@ class UserController extends  AbstractController {
         unset($_SESSION['errorlogin']);
         return $this->twig->render('Article/Validation.html.twig');
     }
-
-    public function CategorieArticle(){
-        unset($_SESSION['errorlogin']);
-        return $this->twig->render('Article/CategorieArticle.html.twig');
-    }
-
-    public function GestionArticle(){
-        unset($_SESSION['errorlogin']);
-        return $this->twig->render('Article/gestionArticle.html.twig');
-    }
-
     public function InscriptionValidation(){
         unset($_SESSION['errorlogin']);
         return $this->twig->render('Article/inscription.html.twig');
+    }
+    public function modifyForm(){
+        if(isset($_SESSION['uti_mail'])) {
+            return $this->twig->render('User/modify.html.twig');
+        }
+        header('Location:/');
+    }
+    public function profilShow(){
+        if(isset($_SESSION['uti_mail'])) {
+            return $this->twig->render('User/profil.html.twig');
+        }
+        header('Location:/');
     }
     public function ListAllAdminUser(){
         $user = new User();
@@ -62,7 +73,7 @@ class UserController extends  AbstractController {
     }
 
 
-    public static function roleP()
+    public static function roleTest()
     {
         if (isset($_SESSION['email']) AND $_SESSION['password']) {
             $emailUser = $_SESSION['email'];
@@ -85,9 +96,6 @@ class UserController extends  AbstractController {
     }
 
     public function logout(){
-        unset($_SESSION['login']);
-        unset($_SESSION['errorlogin']);
-        unset($_SESSION['role']);
         session_destroy();
         header('Location: ../');
     }
@@ -96,15 +104,7 @@ class UserController extends  AbstractController {
         if(!isset($_POST['token'])) {return false;}
         if($_SESSION['token']!==$token) {return false;}return true;
     }
-    public function registerForm(){
 
-        $token = bin2hex(random_bytes(32));
-        $_SESSION['token'] = $token;
-        return $this->twig->render('User/inscription1.html.twig',[
-            'inscrit'=>1
-            ,'token' => $token
-        ]);
-    }
 
     public function registerCheck(){
         if($_POST AND $_SESSION['token'] == $_POST['token']){
@@ -122,7 +122,6 @@ class UserController extends  AbstractController {
         }
         else {
             $token = bin2hex(random_bytes(32));
-
             $_SESSION['token'] = $token;
             return $this->twig->render('User/inscription1.html.twig',
                 [
@@ -130,23 +129,12 @@ class UserController extends  AbstractController {
                 ]);
         }
     }
-    public function loginForm(){
-        if(isset($_SESSION['uti_mail'])) {
-            header('Location:/profil');
-        } else {
-            $token = bin2hex(random_bytes(32));
-            $_SESSION['token'] = $token;
-            return $this->twig->render('index.html.twig', [
-                'token' => $token
-            ]);
-        }
 
-    }
     public function loginCheck(){
         if($_POST AND $_SESSION['token'] == $_POST['token']){
             if(!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
                 $_SESSION['errorlogin'] = "Mail invalide";
-                header('Location:/register');
+                header('Location:/Register');
                 return;
             }
             $userModel = new User();
@@ -162,16 +150,12 @@ class UserController extends  AbstractController {
                 $_SESSION['uti_tel'] = $user['UTI_TEL'];
                 $_SESSION['uti_sexe'] = $user['UTI_SEXE'];
                 $_SESSION['uti_orientation'] = $user['UTI_ORIENTATION'];
-                //var_dump($_SESSION);
                 header('Location:/profil');
             }else {
                 $_SESSION['errorlogin'] = "Erreur d'Authentificationnn";
-                header('Location:/Login');
+                header('Location:/');
             }
         }
-    }
-    public function test(){
-        return $this->twig->render('index.html.twig');
     }
     public function ListAll(){
         $user = new User();
@@ -183,19 +167,16 @@ class UserController extends  AbstractController {
             ]
         );
     }
-    public function modifyForm(){
-        if(isset($_SESSION['uti_mail'])) {
-            return $this->twig->render('User/modify.html.twig');
-        }
-       header('Location:/Login');
-    }
-    public function profilShow(){
-        if(isset($_SESSION['uti_mail'])) {
-            return $this->twig->render('User/profil.html.twig');
-        }
-        header('Location:/Login');
-    }
 
+    public static function idTest($id_uti){
+        if (isset($_SESSION['uti_mail'])) {
+            if ($id_uti = ($_SESSION['id_uti'])) {
+                return;
+            }
+        }
+        $_SESSION['errorlogin'] = "Erreur";
+        header('Location:/');
+    }
 }
 
 

@@ -124,25 +124,7 @@ class User
             return array("1", "[ERREUR] ".$e->getMessage());
         }
     }
-    function logCheck(\PDO $bdd, $uti_mail, $passwordHash){
-        try{
-            $requete = $bdd->prepare("SELECT * FROM t_utilisateur 
-            WHERE UTI_MAIL = :mail AND UTI_MDP = :mdp ;");
-            $requete->execute(['mail'=>$uti_mail, 'mdp'=>$passwordHash]);
-            $idUser = $requete->fetch();
-            $user_id = $idUser['user_id'];
-            try{
-                $requete = $bdd->prepare('SELECT * FROM t_utilisateur WHERE user_id = :user_id ;');
-                $requete->execute(['user_id'=>$user_id]);
-                $arrayUserData = $requete->fetch();
-                return $arrayUserData;
-            }catch (\Exception $e){
-                return array("1", "[Une erreur est survenue] ".$e->getMessage());
-            }
-        }catch (\Exception $e){
-            return array("1", "[Erreur de connexion] ".$e->getMessage());
-        }
-    }
+
     public function SqlGetAllUser(\PDO $bdd){
         $requete = $bdd->prepare('SELECT * FROM t_utilisateur');
         $requete->execute();

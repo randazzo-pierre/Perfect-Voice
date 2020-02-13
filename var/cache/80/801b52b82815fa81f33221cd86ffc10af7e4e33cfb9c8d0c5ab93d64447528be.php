@@ -48,18 +48,18 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
 ";
         // line 15
         $this->displayBlock('body', $context, $blocks);
-        // line 88
+        // line 89
         echo "
 ";
-        // line 89
+        // line 90
         $this->displayBlock('footer', $context, $blocks);
-        // line 188
+        // line 189
         echo "
 
     ";
-        // line 190
+        // line 191
         $this->displayBlock('javascript', $context, $blocks);
-        // line 195
+        // line 196
         echo "
 ";
     }
@@ -130,6 +130,7 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
         </div>
     </nav>
 
+
     <div style=\"background:url(/asset/uploads/images/fond.jpg) no-repeat scroll 0 0 / 100% auto;\">
         <!-- Login -->
         <div class=\"container mt-5\" id=\"top\" >
@@ -148,7 +149,7 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
                                     <input type=\"password\" name=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"Password\" required>
                                     <label for=\"inputPassword\">Mot de passe</label>
                                     <input type='hidden' name =\"token\" value =\"";
-        // line 66
+        // line 67
         echo twig_escape_filter($this->env, ($context["token"] ?? null), "html", null, true);
         echo "\">
                                 </div>
@@ -174,11 +175,11 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
 ";
     }
 
-    // line 89
+    // line 90
     public function block_footer($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 90
+        // line 91
         echo "
     <div class=\"container\">
         <div class=\"row\">
@@ -279,11 +280,11 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
         ";
     }
 
-    // line 190
+    // line 191
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 191
+        // line 192
         echo "    <script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\" integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\" crossorigin=\"anonymous\"></script>
     <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
     <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\" integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\" crossorigin=\"anonymous\"></script>
@@ -297,7 +298,7 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
 
     public function getDebugInfo()
     {
-        return array (  287 => 191,  283 => 190,  182 => 90,  178 => 89,  152 => 66,  100 => 16,  96 => 15,  88 => 7,  84 => 6,  79 => 12,  77 => 6,  72 => 3,  68 => 2,  63 => 195,  61 => 190,  57 => 188,  55 => 89,  52 => 88,  50 => 15,  47 => 14,  45 => 2,  42 => 1,);
+        return array (  288 => 192,  284 => 191,  183 => 91,  179 => 90,  153 => 67,  100 => 16,  96 => 15,  88 => 7,  84 => 6,  79 => 12,  77 => 6,  72 => 3,  68 => 2,  63 => 196,  61 => 191,  57 => 189,  55 => 90,  52 => 89,  50 => 15,  47 => 14,  45 => 2,  42 => 1,);
     }
 
     public function getSourceContext()
@@ -349,6 +350,7 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
             </ul>
         </div>
     </nav>
+
 
     <div style=\"background:url(/asset/uploads/images/fond.jpg) no-repeat scroll 0 0 / 100% auto;\">
         <!-- Login -->

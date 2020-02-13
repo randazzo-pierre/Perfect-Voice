@@ -1,13 +1,16 @@
- {# {% block title %} console navbar {% endblock %} #}
-    {% block css %}
-        <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-        <link href="http://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" href="/asset/css/style.css">
-    {% endblock %}
 
+{% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=devide-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Perfect Voice</title>
+{% endblock %}
+{% block css %}
+    <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/asset/css/style.css">
+{% endblock %}
 {% block body %}
-    <!-- Barre Menu -->
     <nav id="nav" class="navbar navbar-expand-lg navbar-light bg-light d-flex sticky">
         <a class="navbar-brand mr-auto" href="#"><img src="/asset/uploads/images/logotexte.png" width="200px"
                                                       alt="Logo Perfect Voice"></a>
@@ -106,4 +109,15 @@
             </li>
         </ul>
     </div>
+    <!-- Fin navbar -->
+    <a href="/liked/{{ session.login.id }}">You like</a>
+    <a href="/like/{{ session.login.id }}">You'r liked by</a>
+
+    {% if likes['0'] is defined  %}
+        {% for like in likes %}
+            <h1>{{ like.userliked }}</h1>
+        {% endfor %}
+    {% else %}
+        <h1>Vous n'aimez personne</h1>
+    {% endif %}
 {% endblock %}
