@@ -26,7 +26,6 @@ class __TwigTemplate_f87bfc19b42dc68d4bd33140ef0a4a133adc55a0fb2684c909313d86362
 
         $this->blocks = [
             'head' => [$this, 'block_head'],
-            'title' => [$this, 'block_title'],
             'css' => [$this, 'block_css'],
             'body' => [$this, 'block_body'],
         ];
@@ -50,46 +49,34 @@ class __TwigTemplate_f87bfc19b42dc68d4bd33140ef0a4a133adc55a0fb2684c909313d86362
     {
         $macros = $this->macros;
         // line 4
-        echo "    ";
-        $this->displayBlock('title', $context, $blocks);
-        // line 5
         echo "
 
     ";
-        // line 7
+        // line 6
         $this->displayBlock('css', $context, $blocks);
     }
 
-    // line 4
-    public function block_title($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $this->displayParentBlock("title", $context, $blocks);
-        echo " - Connectez vous ";
-    }
-
-    // line 7
     public function block_css($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 8
+        // line 7
         echo "        <link rel=\"stylesheet\" href=\"/assets/css/login.css\">
         <link rel=\"stylesheet\" href=\"/assets/css/header.css\">
     ";
     }
 
-    // line 12
+    // line 11
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 13
+        // line 12
         echo "
 
     <form method=\"post\" action=\"/Login\">
         <input name=\"email\" type=\"email\"  placeholder=\"Email\"/>
         <input name=\"password\" type=\"password\" placeholder=\"Mot de passe\"/>
         <input type='hidden' name =\"token\" value =\"";
-        // line 18
+        // line 17
         echo twig_escape_filter($this->env, ($context["token"] ?? null), "html", null, true);
         echo "\">
         <button type=\"submit\" class=\"btn btn-secondary\">Connexion</button>
@@ -112,7 +99,7 @@ class __TwigTemplate_f87bfc19b42dc68d4bd33140ef0a4a133adc55a0fb2684c909313d86362
 
     public function getDebugInfo()
     {
-        return array (  93 => 18,  86 => 13,  82 => 12,  76 => 8,  72 => 7,  64 => 4,  60 => 7,  56 => 5,  53 => 4,  49 => 3,  38 => 1,);
+        return array (  80 => 17,  73 => 12,  69 => 11,  63 => 7,  56 => 6,  52 => 4,  48 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -120,7 +107,6 @@ class __TwigTemplate_f87bfc19b42dc68d4bd33140ef0a4a133adc55a0fb2684c909313d86362
         return new Source("{% extends \"index.html.twig\" %}
 
 {% block head %}
-    {% block title %}{{ parent() }} - Connectez vous {% endblock %}
 
 
     {% block css %}

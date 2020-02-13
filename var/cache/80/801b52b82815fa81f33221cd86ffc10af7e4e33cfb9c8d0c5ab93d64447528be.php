@@ -28,7 +28,6 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
 
         $this->blocks = [
             'head' => [$this, 'block_head'],
-            'title' => [$this, 'block_title'],
             'css' => [$this, 'block_css'],
             'body' => [$this, 'block_body'],
             'footer' => [$this, 'block_footer'],
@@ -40,39 +39,45 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
     {
         $macros = $this->macros;
         // line 1
+        echo "
+";
+        // line 2
         $this->displayBlock('head', $context, $blocks);
-        // line 6
-        $this->displayBlock('css', $context, $blocks);
-        // line 12
+        // line 14
+        echo "
+";
+        // line 15
         $this->displayBlock('body', $context, $blocks);
-        // line 80
+        // line 88
+        echo "
+";
+        // line 89
         $this->displayBlock('footer', $context, $blocks);
-        // line 176
+        // line 188
         echo "
 
-";
-        // line 178
+    ";
+        // line 190
         $this->displayBlock('javascript', $context, $blocks);
+        // line 195
+        echo "
+";
     }
 
-    // line 1
+    // line 2
     public function block_head($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 2
+        // line 3
         echo "    <meta charset=\"UTF-8\">
     <meta name=\"viewport\" content=\"width=devide-width, initial-scale=1.0, shrink-to-fit=no\">
-    <title>";
-        // line 4
-        $this->displayBlock('title', $context, $blocks);
-        echo "</title>
+    <title>Perfect Voice</title>
+    ";
+        // line 6
+        $this->displayBlock('css', $context, $blocks);
+        // line 12
+        echo "
 ";
-    }
-
-    public function block_title($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        echo "Perfect Voice";
     }
 
     // line 6
@@ -80,20 +85,21 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
     {
         $macros = $this->macros;
         // line 7
-        echo "    <link href=\"http://fonts.googleapis.com/css?family=Lato\" rel=\"stylesheet\" type=\"text/css\">
-    <link href=\"http://fonts.googleapis.com/css?family=Titillium+Web\" rel=\"stylesheet\" type=\"text/css\">
-    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\" integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">
-    <link rel=\"stylesheet\" href=\"/assets/css/style.css\">
-";
+        echo "        <link href=\"http://fonts.googleapis.com/css?family=Lato\" rel=\"stylesheet\" type=\"text/css\">
+        <link href=\"http://fonts.googleapis.com/css?family=Titillium+Web\" rel=\"stylesheet\" type=\"text/css\">
+        <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\" integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">
+        <link rel=\"stylesheet\" href=\"/asset/css/style.css\">
+    ";
     }
 
-    // line 12
+    // line 15
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 13
-        echo "    <nav id=\"nav\" class=\"navbar navbar-expand-lg navbar-light bg-light d-flex sticky\">
-        <a class=\"navbar-brand mr-auto\" href=\"#\"><img src=\"uploads/images/logotexte.png\" width=\"200px\" alt=\"Logo Perfect Voice\"></a>
+        // line 16
+        echo "
+    <nav id=\"nav\" class=\"navbar navbar-expand-lg navbar-light bg-light d-flex sticky\">
+        <a class=\"navbar-brand mr-auto\" href=\"#\"><img src=\"/asset/uploads/images/logotexte.png\" width=\"200px\" alt=\"Logo Perfect Voice\"></a>
         <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
             <span class=\"navbar-toggler-icon\"></span>
         </button>
@@ -108,6 +114,9 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
                 <li class=\"nav-item\">
                     <a class=\"nav-link\" href=\"#footer\">Contacts</a>
                 </li>
+                <li class=\"nav-item\">
+                    <a class=\"nav-link\" href=\"/Register\">Inscription</a>
+                </li>
                 <li class=\"nav-item dropdown\">
                     <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
                         Language
@@ -120,15 +129,16 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
             </ul>
         </div>
     </nav>
-    <div style=\"background:url(uploads/images/fond.jpg) no-repeat scroll 0 0 / 100% auto;\">
+
+    <div style=\"background:url(/asset/uploads/images/fond.jpg) no-repeat scroll 0 0 / 100% auto;\">
         <!-- Login -->
-        <div class=\"container\" id=\"top\">
+        <div class=\"container mt-5\" id=\"top\" >
             <div class=\"row\">
                 <div class=\"col-sm-9 col-md-7 col-lg-5\" id=\"login\">
                     <div class=\"card card-signin my-5\">
                         <div class=\"card-body\">
                             <h5 class=\"card-title text-center\">Se connecter</h5>
-                            <form class=\"form-signin\"method=\"post\" action=\"/Login\">
+                            <form class=\"form-signin\" method=\"post\" action=\"/\">
                                 <div class=\"form-label-group\">
                                     <input type=\"email\" name=\"email\" id=\"inputEmail\" class=\"form-control\" placeholder=\"Email address\" required autofocus>
                                     <label for=\"inputEmail\">Identifiant</label>
@@ -138,7 +148,7 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
                                     <input type=\"password\" name=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"Password\" required>
                                     <label for=\"inputPassword\">Mot de passe</label>
                                     <input type='hidden' name =\"token\" value =\"";
-        // line 58
+        // line 66
         echo twig_escape_filter($this->env, ($context["token"] ?? null), "html", null, true);
         echo "\">
                                 </div>
@@ -149,8 +159,8 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
                                 </div>
                                 <button class=\"btn btn-lg btn-primary btn-block text-uppercase\" type=\"submit\">Connexion</button>
                                 <hr class=\"my-4\">
-                                <button class=\"btn btn-lg btn-google btn-block text-uppercase\" type=\"submit\"><i class=\"fab fa-google mr-2\"></i> S'inscrire avec un e-mail</button>
-                                <button class=\"btn btn-lg btn-facebook btn-block text-uppercase\" type=\"submit\"><i class=\"fab fa-facebook-f mr-2\"></i> S'inscrire avec Facebook</button>
+                                <button class=\"btn btn-lg btn-google btn-block text-uppercase\"  type=\"submit\"><i class=\"fab fa-google mr-2\" href=\"\"></i> S'inscrire avec un e-mail</button>
+                                <button class=\"btn btn-lg btn-facebook btn-block text-uppercase\" type=\"submit\"><i class=\"fab fa-facebook-f mr-2\" href=\"\"></i> S'inscrire avec Facebook</button>
                             </form>
                         </div>
                     </div>
@@ -159,17 +169,64 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
         </div>
         <br/><br/><br/>
         <!-- Barre séparation -->
-        <div id=lignerouge></div>
+        <div id=lignerouge ></div>
     </div>
 ";
     }
 
-    // line 80
+    // line 89
     public function block_footer($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 81
-        echo "    <div class=\"container\">
+        // line 90
+        echo "
+    <div class=\"container\">
+        <div class=\"row\">
+            <h2 id=\"keske\">Qu'est-ce que Perfect Voice ?</h2>
+        </div>
+
+        <div class=\"block\">
+            <br/>
+            <div class=\"row\">
+            <div class=\"col-12\">
+                <div class=\"span1\">
+                    <img class=\"img-right \" src=\"/asset/uploads/images/boy.jpg\"/>
+                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class=\"row\">
+            <div class=\"col-12\">
+                <div class=\"span1\">
+                    <img class=\"img-left\"  src=\"/asset/uploads/images/girl.jpg\"/>
+                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class=\"row\">
+            <div class=\"col-12\">
+                <div class=\"span1\">
+                    <img class=\"img-right\" src=\"/asset/uploads/images/couple.jpg\" />
+                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Infos -->
+    <footer class=\"container\" id=\"footer\">
         <div class=\"row\">
             <div class=\"col-md-5\">
                 <h5><i class=\"fa fa-road\"></i>En savoir plus<br/><br/></h5>
@@ -212,69 +269,25 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
                         <textarea class=\"form-control\" id=\"exampleMessage\" placeholder=\"Message\"></textarea>
                     </fieldset>
                     <fieldset class=\"form-group text-xs-right\">
-                        <button type=\"button\" class=\"btn btn-secondary-outline btn-lg\">Send</button>
+                        <button type=\"button\" class=\"btn btn-secondary-outline btn-lg\">Envoyer</button>
                     </fieldset>
                 </form>
             </div>
         </div>
-    </div>
+    </footer>
 
-    <!-- Infos -->
-    <div class=\"container\">
-        <div class=\"row\">
-            <h2 id=\"keske\">Qu'est-ce que Perfect Voice ?</h2>
-        </div>
-
-        <div class=\"block\">
-            <br/>
-            <divclass=\"row\">
-            <div class=\"col-12\">
-                <div class=\"span1\">
-                    <img class=\"img-right\" src=\"uploads/images/boy.jpg\"/>
-                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                </div>
-            </div>
-        </div>
-        <br/>
-        <div class=\"row\">
-            <div class=\"col-12\">
-                <div class=\"span1\">
-                    <img class=\"img-left\" src=\"uploads/images/girl.jpg\"/>
-                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                </div>
-            </div>
-        </div>
-        <br/>
-        <div class=\"row\">
-            <div class=\"col-12\">
-                <div class=\"span1\">
-                    <img class=\"img-right\" src=\"uploads/images/couple.jpg\"/>
-                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-";
+        ";
     }
 
-    // line 178
+    // line 190
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 179
+        // line 191
         echo "    <script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\" integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\" crossorigin=\"anonymous\"></script>
     <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
     <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\" integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\" crossorigin=\"anonymous\"></script>
-";
+    ";
     }
 
     public function getTemplateName()
@@ -284,25 +297,29 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
 
     public function getDebugInfo()
     {
-        return array (  274 => 179,  270 => 178,  172 => 81,  168 => 80,  142 => 58,  95 => 13,  91 => 12,  83 => 7,  79 => 6,  67 => 4,  63 => 2,  59 => 1,  55 => 178,  51 => 176,  49 => 80,  47 => 12,  45 => 6,  43 => 1,);
+        return array (  287 => 191,  283 => 190,  182 => 90,  178 => 89,  152 => 66,  100 => 16,  96 => 15,  88 => 7,  84 => 6,  79 => 12,  77 => 6,  72 => 3,  68 => 2,  63 => 195,  61 => 190,  57 => 188,  55 => 89,  52 => 88,  50 => 15,  47 => 14,  45 => 2,  42 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% block head %}
+        return new Source("
+{% block head %}
     <meta charset=\"UTF-8\">
     <meta name=\"viewport\" content=\"width=devide-width, initial-scale=1.0, shrink-to-fit=no\">
-    <title>{% block title %}Perfect Voice{% endblock %}</title>
+    <title>Perfect Voice</title>
+    {% block css %}
+        <link href=\"http://fonts.googleapis.com/css?family=Lato\" rel=\"stylesheet\" type=\"text/css\">
+        <link href=\"http://fonts.googleapis.com/css?family=Titillium+Web\" rel=\"stylesheet\" type=\"text/css\">
+        <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\" integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">
+        <link rel=\"stylesheet\" href=\"/asset/css/style.css\">
+    {% endblock %}
+
 {% endblock %}
-{% block css %}
-    <link href=\"http://fonts.googleapis.com/css?family=Lato\" rel=\"stylesheet\" type=\"text/css\">
-    <link href=\"http://fonts.googleapis.com/css?family=Titillium+Web\" rel=\"stylesheet\" type=\"text/css\">
-    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\" integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">
-    <link rel=\"stylesheet\" href=\"/assets/css/style.css\">
-{% endblock %}
+
 {% block body %}
+
     <nav id=\"nav\" class=\"navbar navbar-expand-lg navbar-light bg-light d-flex sticky\">
-        <a class=\"navbar-brand mr-auto\" href=\"#\"><img src=\"uploads/images/logotexte.png\" width=\"200px\" alt=\"Logo Perfect Voice\"></a>
+        <a class=\"navbar-brand mr-auto\" href=\"#\"><img src=\"/asset/uploads/images/logotexte.png\" width=\"200px\" alt=\"Logo Perfect Voice\"></a>
         <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
             <span class=\"navbar-toggler-icon\"></span>
         </button>
@@ -317,6 +334,9 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
                 <li class=\"nav-item\">
                     <a class=\"nav-link\" href=\"#footer\">Contacts</a>
                 </li>
+                <li class=\"nav-item\">
+                    <a class=\"nav-link\" href=\"/Register\">Inscription</a>
+                </li>
                 <li class=\"nav-item dropdown\">
                     <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
                         Language
@@ -329,15 +349,16 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
             </ul>
         </div>
     </nav>
-    <div style=\"background:url(uploads/images/fond.jpg) no-repeat scroll 0 0 / 100% auto;\">
+
+    <div style=\"background:url(/asset/uploads/images/fond.jpg) no-repeat scroll 0 0 / 100% auto;\">
         <!-- Login -->
-        <div class=\"container\" id=\"top\">
+        <div class=\"container mt-5\" id=\"top\" >
             <div class=\"row\">
                 <div class=\"col-sm-9 col-md-7 col-lg-5\" id=\"login\">
                     <div class=\"card card-signin my-5\">
                         <div class=\"card-body\">
                             <h5 class=\"card-title text-center\">Se connecter</h5>
-                            <form class=\"form-signin\"method=\"post\" action=\"/Login\">
+                            <form class=\"form-signin\" method=\"post\" action=\"/\">
                                 <div class=\"form-label-group\">
                                     <input type=\"email\" name=\"email\" id=\"inputEmail\" class=\"form-control\" placeholder=\"Email address\" required autofocus>
                                     <label for=\"inputEmail\">Identifiant</label>
@@ -355,8 +376,8 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
                                 </div>
                                 <button class=\"btn btn-lg btn-primary btn-block text-uppercase\" type=\"submit\">Connexion</button>
                                 <hr class=\"my-4\">
-                                <button class=\"btn btn-lg btn-google btn-block text-uppercase\" type=\"submit\"><i class=\"fab fa-google mr-2\"></i> S'inscrire avec un e-mail</button>
-                                <button class=\"btn btn-lg btn-facebook btn-block text-uppercase\" type=\"submit\"><i class=\"fab fa-facebook-f mr-2\"></i> S'inscrire avec Facebook</button>
+                                <button class=\"btn btn-lg btn-google btn-block text-uppercase\"  type=\"submit\"><i class=\"fab fa-google mr-2\" href=\"\"></i> S'inscrire avec un e-mail</button>
+                                <button class=\"btn btn-lg btn-facebook btn-block text-uppercase\" type=\"submit\"><i class=\"fab fa-facebook-f mr-2\" href=\"\"></i> S'inscrire avec Facebook</button>
                             </form>
                         </div>
                     </div>
@@ -365,11 +386,59 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
         </div>
         <br/><br/><br/>
         <!-- Barre séparation -->
-        <div id=lignerouge></div>
+        <div id=lignerouge ></div>
     </div>
 {% endblock %}
+
 {% block footer %}
+
     <div class=\"container\">
+        <div class=\"row\">
+            <h2 id=\"keske\">Qu'est-ce que Perfect Voice ?</h2>
+        </div>
+
+        <div class=\"block\">
+            <br/>
+            <div class=\"row\">
+            <div class=\"col-12\">
+                <div class=\"span1\">
+                    <img class=\"img-right \" src=\"/asset/uploads/images/boy.jpg\"/>
+                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class=\"row\">
+            <div class=\"col-12\">
+                <div class=\"span1\">
+                    <img class=\"img-left\"  src=\"/asset/uploads/images/girl.jpg\"/>
+                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class=\"row\">
+            <div class=\"col-12\">
+                <div class=\"span1\">
+                    <img class=\"img-right\" src=\"/asset/uploads/images/couple.jpg\" />
+                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Infos -->
+    <footer class=\"container\" id=\"footer\">
         <div class=\"row\">
             <div class=\"col-md-5\">
                 <h5><i class=\"fa fa-road\"></i>En savoir plus<br/><br/></h5>
@@ -412,65 +481,22 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
                         <textarea class=\"form-control\" id=\"exampleMessage\" placeholder=\"Message\"></textarea>
                     </fieldset>
                     <fieldset class=\"form-group text-xs-right\">
-                        <button type=\"button\" class=\"btn btn-secondary-outline btn-lg\">Send</button>
+                        <button type=\"button\" class=\"btn btn-secondary-outline btn-lg\">Envoyer</button>
                     </fieldset>
                 </form>
             </div>
         </div>
-    </div>
+    </footer>
 
-    <!-- Infos -->
-    <div class=\"container\">
-        <div class=\"row\">
-            <h2 id=\"keske\">Qu'est-ce que Perfect Voice ?</h2>
-        </div>
-
-        <div class=\"block\">
-            <br/>
-            <divclass=\"row\">
-            <div class=\"col-12\">
-                <div class=\"span1\">
-                    <img class=\"img-right\" src=\"uploads/images/boy.jpg\"/>
-                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                </div>
-            </div>
-        </div>
-        <br/>
-        <div class=\"row\">
-            <div class=\"col-12\">
-                <div class=\"span1\">
-                    <img class=\"img-left\" src=\"uploads/images/girl.jpg\"/>
-                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                </div>
-            </div>
-        </div>
-        <br/>
-        <div class=\"row\">
-            <div class=\"col-12\">
-                <div class=\"span1\">
-                    <img class=\"img-right\" src=\"uploads/images/couple.jpg\"/>
-                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-{% endblock %}
+        {% endblock %}
 
 
-{% block javascript %}
+    {% block javascript %}
     <script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\" integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\" crossorigin=\"anonymous\"></script>
     <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
     <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\" integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\" crossorigin=\"anonymous\"></script>
-{% endblock %}
+    {% endblock %}
+
 ", "index.html.twig", "C:\\dev\\www\\git\\templates\\index.html.twig");
     }
 }

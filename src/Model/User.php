@@ -113,7 +113,7 @@ class User
             die('Erreur : ' . $e->getMessage());
         }
     }
-   public function getAllUser(\PDO $bdd, $email){
+    public function getAllUser(\PDO $bdd, $email){
         try{
             $requete = $bdd->prepare('SELECT * FROM t_utilisateur WHERE UTI_MAIL = ?');
             $requete->execute(array($email));
@@ -148,7 +148,7 @@ class User
         $requete->execute();
         $arrayUsers = $requete->fetchAll();
 
-        $listUsers = [];
+        $listUser = [];
         foreach ($arrayUsers as $userSQL){
             $user = new User();
             $user->setIdUti($userSQL['ID_UTI']);
@@ -164,9 +164,9 @@ class User
             $user->setUtiOrientation($userSQL['UTI_ORIENTATION']);
             $user->setUtiHeurecon($userSQL['UTI_HEURECON']);
             $user->setUtiStatutcon($userSQL['UTI_STATUTCON']);
-            $listArticle[] = $user;
+            $listUser[] = $user;
         }
-        return $listUsers;
+        return $listUser;
     }
     /**
      * @return mixed

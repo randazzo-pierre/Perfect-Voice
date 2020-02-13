@@ -107,7 +107,6 @@ class UserController extends  AbstractController {
     }
 
     public function registerCheck(){
-
         if($_POST AND $_SESSION['token'] == $_POST['token']){
             if (isset($_POST['uti_prenom']) && isset($_POST['uti_nom'])
                 && isset($_POST['uti_ville']) && isset($_POST['uti_tel'])
@@ -123,6 +122,7 @@ class UserController extends  AbstractController {
         }
         else {
             $token = bin2hex(random_bytes(32));
+
             $_SESSION['token'] = $token;
             return $this->twig->render('User/inscription1.html.twig',
                 [
@@ -131,13 +131,17 @@ class UserController extends  AbstractController {
         }
     }
     public function loginForm(){
-        $token = bin2hex(random_bytes(32));
-        $_SESSION['token'] = $token;
-        return $this->twig->render('index.html.twig', [
-            'token' => $token
-        ]);
-    }
+        if(isset($_SESSION['uti_mail'])) {
+            header('Location:/profil');
+        } else {
+            $token = bin2hex(random_bytes(32));
+            $_SESSION['token'] = $token;
+            return $this->twig->render('index.html.twig', [
+                'token' => $token
+            ]);
+        }
 
+    }
     public function loginCheck(){
         if($_POST AND $_SESSION['token'] == $_POST['token']){
             if(!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
@@ -158,20 +162,40 @@ class UserController extends  AbstractController {
                 $_SESSION['uti_tel'] = $user['UTI_TEL'];
                 $_SESSION['uti_sexe'] = $user['UTI_SEXE'];
                 $_SESSION['uti_orientation'] = $user['UTI_ORIENTATION'];
-                var_dump($_SESSION);
-               // header('Location:/Yeah');
+                //var_dump($_SESSION);
+                header('Location:/profil');
             }else {
-
-                $_SESSION['errorlogin'] = "Erreur d'Authentification";
+                $_SESSION['errorlogin'] = "Erreur d'Authentificationnn";
                 header('Location:/Login');
-
             }
         }
     }
-
     public function test(){
         return $this->twig->render('index.html.twig');
     }
+    public function ListAll(){
+        $user = new User();
+        $listUser = $user->SqlGetAllUser(Bdd::GetInstance());
+        //Lancer la vue TWIG
+        return $this->twig->render(
+            'User/list.html.twig',[
+                'userList' => $listUser
+            ]
+        );
+    }
+    public function modifyForm(){
+        if(isset($_SESSION['uti_mail'])) {
+            return $this->twig->render('User/modify.html.twig');
+        }
+       header('Location:/Login');
+    }
+    public function profilShow(){
+        if(isset($_SESSION['uti_mail'])) {
+            return $this->twig->render('User/profil.html.twig');
+        }
+        header('Location:/Login');
+    }
+
 }
 
 

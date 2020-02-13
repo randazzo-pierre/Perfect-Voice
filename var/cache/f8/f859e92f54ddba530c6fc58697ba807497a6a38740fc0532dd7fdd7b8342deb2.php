@@ -119,7 +119,6 @@ class __TwigTemplate_547cb9ecd1070254d51bad16265554fa92305a1e81564a8425be60228b5
             // line 35
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 35), "html", null, true);
             echo "\"><i class=\"fas fa-file-download\"></i></a>
-
                 </td>
             </tr>
         ";
@@ -127,7 +126,7 @@ class __TwigTemplate_547cb9ecd1070254d51bad16265554fa92305a1e81564a8425be60228b5
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 40
+        // line 39
         echo "
         </tbody>
     </table>
@@ -149,7 +148,7 @@ class __TwigTemplate_547cb9ecd1070254d51bad16265554fa92305a1e81564a8425be60228b5
 
     public function getDebugInfo()
     {
-        return array (  131 => 40,  120 => 35,  114 => 32,  108 => 29,  104 => 28,  100 => 27,  94 => 26,  91 => 25,  87 => 24,  69 => 8,  65 => 7,  60 => 4,  56 => 3,  48 => 2,  37 => 1,);
+        return array (  130 => 39,  120 => 35,  114 => 32,  108 => 29,  104 => 28,  100 => 27,  94 => 26,  91 => 25,  87 => 24,  69 => 8,  65 => 7,  60 => 4,  56 => 3,  48 => 2,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -189,7 +188,6 @@ class __TwigTemplate_547cb9ecd1070254d51bad16265554fa92305a1e81564a8425be60228b5
 
                     </div>
                     <a class=\"btn btn-secondary\" href=\"/Article/WriteOne/{{ article.id }}\"><i class=\"fas fa-file-download\"></i></a>
-
                 </td>
             </tr>
         {% endfor %}
