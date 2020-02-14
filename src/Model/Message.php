@@ -3,6 +3,7 @@
 
 namespace src\Model;
 
+use src\Model\Bdd;
 
 class Message
 {
@@ -10,10 +11,28 @@ class Message
     private $oth_id_uti;
     private $mes_message;
 
-    public function sendMessage($id_uti, $oth_id_uti, $msg)
+    public function SqlgetMessage(\PDO $bdd,$id_uti, $oth_id_uti)
+    {
+        $requete = $bdd->prepare("SELECT * FROM t_message WHERE (ID_UTI=:id_uti AND OTH_ID_UTI=:oth_id_uti) OR (ID_UTI=:oth_id_uti AND OTH_ID_UTI=:id_uti)");
+        $requete->execute([
+            'id_uti' => $id_uti,
+            'oth_id_uti' => $oth_id_uti
+        ]);
+        $listMessage = $requete->fetchAll();
+        $messages=[];
+        foreach ($listMessage as $mess){
+            $message = new Message();
+            $message->setIdUti($mess['ID_UTI']);
+            $message->setOthIdUti($mess['OTH_ID_UTI']);
+            $message->setMesMessage($mess['MES_MESSAGE']);
+            $messages[] = $message;
+        }
+        return $messages;
+
+    }
+    public function sendMessage(\PDO $bdd,$id_uti, $oth_id_uti, $msg)
     {
 
-        $bdd = Bdd::GetInstance();
         $envoyer = $bdd->prepare("INSERT INTO `t_message` (`ID_UTI`, `OTH_ID_UTI`, `MES_MESSAGE`) 
         VALUES (:id_uti, :oth_id_uti, :msg)");
         $rSql = $envoyer->execute([
