@@ -9,8 +9,8 @@
     <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/asset/css/style.css">
-    <link rel="stylesheet" href="/assets/css/header.css">
 {% endblock %}
 
 {% block body %}
@@ -93,7 +93,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/contateznous" class="nav-link text-dark font-italic">
+                <a href="/contacteznous" class="nav-link text-dark font-italic">
                     <i class="fa fa-bar-chart mr-3 text-primary fa-fw"></i>
                     Contactez-nous
                 </a>
@@ -113,38 +113,158 @@
         </ul>
     </div>
     <!-- Fin navbar -->
+    <br /><br />
+    <div class="container" style="width:900px;">
+        <h3 align="center">Gallerie</h3>
+        <br />
+        <div align="right">
+            <button type="button" name="add" id="add" class="btn btn-success">Add</button>
+        </div>
+        <br />
+        <div id="image_data">
 
-    <div class="jumbotron">
-        <h1 class="display-4">Liste des Photo</h1>
+        </div>
     </div>
-    <div class="container">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th scope="col">#</th>
+    </body>
+    </html>
 
-            </tr>
-            </thead>
-            <tbody>
-            {% for Photo in PhotoList %}
-                <tr>
-                    <th scope="row"><a href="/Photo/Show/{{ session.id_uti }}">#{{ session.id_uti }}</a></th>
-                    <td>{{ Photo.pho_photo }}</td>
+    <div id="imageModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add Image</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="image_form" method="post" enctype="multipart/form-data">
+                        <p><label>Select Image</label>
+                            <input type="file" name="image" id="image" /></p><br />
+                        <input type="hidden" name="action" id="action" value="insert" />
+                        <input type="hidden" name="image_id" id="image_id" />
+                        <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-info" />
 
-                    <td>
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <a class="btn btn-success" href="/Photo/Show/{{ Photo.iduti }}"><i class="far fa-eye"></i></a>
-                            <a class="btn btn-warning" href="/Photo/Update/{{ Photo.iduti }}"><i class="fas fa-edit"></i></a>
-                            <a class="btn btn-danger" href="/Photo/Delete/{{ Photo.iduti }}"><i class="fas fa-trash"></i></a>
-
-                        </div>
-
-                    </td>
-                </tr>
-            {% endfor %}
-
-            </tbody>
-        </table>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <table class="table table-bordered table-striped">
+    <tr>
+        <th width="5%">ID</th>
+        <th width="5%">Image</th>
+        <th width="5%">Change</th>
+        <th width="5%">Remove</th>
+    </tr>
+    <tr>
+        <td>'.$row["id"].'</td>
+        <td>
+            <img src="" height="60" width="75" class="img-thumbnail" />
+        </td>
+        <td><button type="button" name="update" class="btn btn-warning bt-xs update" id="'.$row["id"].'">Change</button></td>
+        <td><button type="button" name="delete" class="btn btn-danger bt-xs delete" id="'.$row["id"].'">Remove</button></td>
+    </tr>
+    <script>
+        $(document).ready(function(){
+
+            fetch_data();
+
+            function fetch_data()
+            {
+                var action = "fetch";
+                $.ajax({
+                    url:"PhotoController.php",
+                    method:"POST",
+                    data:{action:action},
+                    success:function(data)
+                    {
+                        $('#image_data').html(data);
+                    }
+                })
+            }
+            $('#add').click(function(){
+                $('#imageModal').modal('show');
+                $('#image_form')[0].reset();
+                $('.modal-title').text("Add Image");
+                $('#image_id').val('');
+                $('#action').val('insert');
+                $('#insert').val("Insert");
+            });
+            $('#image_form').submit(function(event){
+                event.preventDefault();
+                var image_name = $('#image').val();
+                if(image_name == '')
+                {
+                    alert("Please Select Image");
+                    return false;
+                }
+                else
+                {
+                    var extension = $('#image').val().split('.').pop().toLowerCase();
+                    if(jQuery.inArray(extension, ['gif','png','jpg','jpeg']) == -1)
+                    {
+                        alert("Invalid Image File");
+                        $('#image').val('');
+                        return false;
+                    }
+                    else
+                    {
+                        $.ajax({
+                            url:"PhotoController.php",
+                            method:"POST",
+                            data:new FormData(this),
+                            contentType:false,
+                            processData:false,
+                            success:function(data)
+                            {
+                                alert(data);
+                                fetch_data();
+                                $('#image_form')[0].reset();
+                                $('#imageModal').modal('hide');
+                            }
+                        });
+                    }
+                }
+            });
+            $(document).on('click', '.update', function(){
+                $('#image_id').val($(this).attr("id"));
+                $('#action').val("update");
+                $('.modal-title').text("Update Image");
+                $('#insert').val("Update");
+                $('#imageModal').modal("show");
+            });
+            $(document).on('click', '.delete', function(){
+                var image_id = $(this).attr("id");
+                var action = "delete";
+                if(confirm("confirmé la suppression ?"))
+                {
+                    $.ajax({
+                        url:"PhotoController.php",
+                        method:"POST",
+                        data:{image_id:image_id, action:action},
+                        success:function(data)
+                        {
+                            alert(data);
+                            fetch_data();
+                        }
+                    })
+                }
+                else
+                {
+                    return false;
+                }
+            });
+        });
+    </script>
+
+  {% block javascript %}
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  {% endblock %}
 {% endblock %}

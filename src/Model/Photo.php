@@ -37,6 +37,59 @@ class Photo extends User {
             return false;
         }
     }
+
+    public function SqlAllPhoto(\PDO $bdd){
+        //requete all photo
+        $requete = $bdd->prepare('SELECT * FROM t_photo');
+        $requete->execute();
+        $arrayPhoto = $requete->fetchAll();
+
+        $listPhoto = [];
+        foreach ($arrayPhoto as $PhotoSQL){
+            $Photo = new Photo();
+            $Photo->setIdUti($PhotoSQL['iduti']);
+            $Photo->setPhoPhoto($PhotoSQL['Photo']);
+
+            $listPhoto[] = $Photo;
+        }
+        return $listPhoto;
+    }
+
+    public function SqlDelete (\PDO $bdd,$id_uti){
+        try{
+            $requete = $bdd->prepare('DELETE FROM t_photo where Id = :iduti');
+            $requete->execute([
+                'iduti' => $id_uti
+            ]);
+            return true;
+        }catch (\Exception $e){
+            return false;
+        }
+    }
+
+public function SqlAllCUD (\PDO $bdd,$id_uti){
+if ($_POST["Photo"] == "fetch") {
+$requete = "SELECT * FROM t_photo ORDER BY ID_UTI DESC";
+
+if ($_POST["Photo"] == "insert") {
+$file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));
+$requete = "INSERT INTO t_photo(PHO_PHOTO) VALUES ('$file')";
+
+}
+
+if ($_POST["Photo"] == "update") {
+    $file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));
+    $requete = "UPDATE t_photo SET PHO_PHOTO = '$file' WHERE ID_UTI = '" . $_POST["image_id"] . "'";
+}
+
+if ($_POST["Photo"] == "delete") {
+    $requete = "DELETE FROM t_Photo WHERE ID_UTI = '" . $_POST["image_id"] . "'";
+        }
+    }
+}
+
+
+
     /**
      * @return mixed
      */

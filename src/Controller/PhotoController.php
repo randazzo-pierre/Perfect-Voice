@@ -8,10 +8,9 @@ use src\Model\Photo;
 use src\Model\Gallerie;
 use DateTime;
 
-class PhotoController extends UserController
-{
+class PhotoController extends AbstractController{
 
-    public function addPhoto(){
+    public function AddPhoto(){
         if ($_POST AND $_SESSION['token'] == $_POST['token']) {
             $sqlRepository = null;
             $pho_photo = null;
@@ -29,4 +28,23 @@ class PhotoController extends UserController
             }
         }
     }
+
+
+    public function DeletePhoto($id_uti){
+        $PhotoSQL = new Photo();
+        $Photo = $PhotoSQL->SqlGet(BDD::getInstance(),$id_uti);
+        $Photo->SqlDelete(BDD::getInstance(),$id_uti);
+        if($Photo->getPhoPhoto() != ''){
+            unlink('./uploads/images/');
+        }
+
+        header('Location:/');
+    }
+
+
+public function SqlAllCUD(){
+
+    return $this->twig->render('User/Photolist.html.twig');
+  }
+
 }
