@@ -21,25 +21,9 @@
         <input type="text" name="uti_tel" value="{{ session.uti_tel }}"/>
         <input type="text" name="uti_sexe" value="{{ session.uti_sexe }}"/>
         <input type="text" name="uti_orientation" value="{{ session.uti_orientation }}"/>
+        <input type="number" name="uti_age" value="{{ session.uti_age }}"/>
         <input type="email" name="uti_mail" value="{{ session.uti_mail }}"/>
-        <input type='hidden' name="token" value ="{{token}}">
-        <label>
-            <input id="check" type="checkbox" class="checkbox" required
-                   aria-required="true">
-            <svg width="30px" height="30px">
-                <path class="path-back"
-                      d="M1.5,6.021V2.451C1.5,2.009,1.646,1.5,2.3,1.5h18.4c0.442,0,0.8,0.358,0.8,0.801v18.398c0,0.442-0.357,0.801-0.8,0.801H2.3c-0.442,0-0.8-0.358-0.8-0.801V6">
-                </path>
-
-                <path class="path-moving"
-                      d="M24.192,3.813L11.818,16.188L1.5,6.021V2.451C1.5,2.009,1.646,1.5,2.3,1.5h18.4c0.442,0,0.8,0.358,0.8,0.801v18.398c0,0.442-0.357,0.801-0.8,0.801H2.3c-0.442,0-0.8-0.358-0.8-0.801V6">
-                </path>
-            </svg>
-
-
-        </label>
-
-        <button>Creer un compte</button>
+        <button>Sauvegarder</button>
 
     </form>
     {% block javascript %}
