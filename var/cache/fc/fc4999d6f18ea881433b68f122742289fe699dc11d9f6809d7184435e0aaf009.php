@@ -48,18 +48,18 @@ class __TwigTemplate_43b0df3f53db8adb8341cc208effa54b8f6e739a92ec189e43a0e47e2d4
 ";
         // line 15
         $this->displayBlock('body', $context, $blocks);
-        // line 92
+        // line 89
         echo "
 ";
-        // line 93
+        // line 90
         $this->displayBlock('footer', $context, $blocks);
-        // line 192
+        // line 189
         echo "
 
     ";
-        // line 194
+        // line 191
         $this->displayBlock('javascript', $context, $blocks);
-        // line 199
+        // line 196
         echo "
 ";
     }
@@ -97,7 +97,8 @@ class __TwigTemplate_43b0df3f53db8adb8341cc208effa54b8f6e739a92ec189e43a0e47e2d4
     {
         $macros = $this->macros;
         // line 16
-        echo "    <nav id=\"nav\" class=\"navbar navbar-expand-lg navbar-light bg-light d-flex sticky\">
+        echo "
+    <nav id=\"nav\" class=\"navbar navbar-expand-lg navbar-light bg-light d-flex sticky\">
         <a class=\"navbar-brand mr-auto\" href=\"#\"><img src=\"/asset/uploads/images/logotexte.png\" width=\"200px\" alt=\"Logo Perfect Voice\"></a>
         <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
             <span class=\"navbar-toggler-icon\"></span>
@@ -116,12 +117,6 @@ class __TwigTemplate_43b0df3f53db8adb8341cc208effa54b8f6e739a92ec189e43a0e47e2d4
                 <li class=\"nav-item\">
                     <a class=\"nav-link\" href=\"/Register\">Inscription</a>
                 </li>
-                <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"/Profil\">Profil</a>
-                </li>
-                <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"/Search\">recherche</a>
-                </li>
                 <li class=\"nav-item dropdown\">
                     <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
                         Language
@@ -134,6 +129,8 @@ class __TwigTemplate_43b0df3f53db8adb8341cc208effa54b8f6e739a92ec189e43a0e47e2d4
             </ul>
         </div>
     </nav>
+
+
     <div style=\"background:url(/asset/uploads/images/fond.jpg) no-repeat scroll 0 0 / 100% auto;\">
         <!-- Login -->
         <div class=\"container mt-5\" id=\"top\" >
@@ -152,7 +149,7 @@ class __TwigTemplate_43b0df3f53db8adb8341cc208effa54b8f6e739a92ec189e43a0e47e2d4
                                     <input type=\"password\" name=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"Password\" required>
                                     <label for=\"inputPassword\">Mot de passe</label>
                                     <input type='hidden' name =\"token\" value =\"";
-        // line 70
+        // line 67
         echo twig_escape_filter($this->env, ($context["token"] ?? null), "html", null, true);
         echo "\">
                                 </div>
@@ -178,11 +175,11 @@ class __TwigTemplate_43b0df3f53db8adb8341cc208effa54b8f6e739a92ec189e43a0e47e2d4
 ";
     }
 
-    // line 93
+    // line 90
     public function block_footer($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 94
+        // line 91
         echo "
     <div class=\"container\">
         <div class=\"row\">
@@ -283,11 +280,11 @@ class __TwigTemplate_43b0df3f53db8adb8341cc208effa54b8f6e739a92ec189e43a0e47e2d4
         ";
     }
 
-    // line 194
+    // line 191
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 195
+        // line 192
         echo "    <script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\" integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\" crossorigin=\"anonymous\"></script>
     <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
     <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\" integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\" crossorigin=\"anonymous\"></script>
@@ -301,7 +298,7 @@ class __TwigTemplate_43b0df3f53db8adb8341cc208effa54b8f6e739a92ec189e43a0e47e2d4
 
     public function getDebugInfo()
     {
-        return array (  291 => 195,  287 => 194,  186 => 94,  182 => 93,  156 => 70,  100 => 16,  96 => 15,  88 => 7,  84 => 6,  79 => 12,  77 => 6,  72 => 3,  68 => 2,  63 => 199,  61 => 194,  57 => 192,  55 => 93,  52 => 92,  50 => 15,  47 => 14,  45 => 2,  42 => 1,);
+        return array (  288 => 192,  284 => 191,  183 => 91,  179 => 90,  153 => 67,  100 => 16,  96 => 15,  88 => 7,  84 => 6,  79 => 12,  77 => 6,  72 => 3,  68 => 2,  63 => 196,  61 => 191,  57 => 189,  55 => 90,  52 => 89,  50 => 15,  47 => 14,  45 => 2,  42 => 1,);
     }
 
     public function getSourceContext()
@@ -321,6 +318,7 @@ class __TwigTemplate_43b0df3f53db8adb8341cc208effa54b8f6e739a92ec189e43a0e47e2d4
 {% endblock %}
 
 {% block body %}
+
     <nav id=\"nav\" class=\"navbar navbar-expand-lg navbar-light bg-light d-flex sticky\">
         <a class=\"navbar-brand mr-auto\" href=\"#\"><img src=\"/asset/uploads/images/logotexte.png\" width=\"200px\" alt=\"Logo Perfect Voice\"></a>
         <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
@@ -340,12 +338,6 @@ class __TwigTemplate_43b0df3f53db8adb8341cc208effa54b8f6e739a92ec189e43a0e47e2d4
                 <li class=\"nav-item\">
                     <a class=\"nav-link\" href=\"/Register\">Inscription</a>
                 </li>
-                <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"/Profil\">Profil</a>
-                </li>
-                <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"/Search\">recherche</a>
-                </li>
                 <li class=\"nav-item dropdown\">
                     <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
                         Language
@@ -358,6 +350,8 @@ class __TwigTemplate_43b0df3f53db8adb8341cc208effa54b8f6e739a92ec189e43a0e47e2d4
             </ul>
         </div>
     </nav>
+
+
     <div style=\"background:url(/asset/uploads/images/fond.jpg) no-repeat scroll 0 0 / 100% auto;\">
         <!-- Login -->
         <div class=\"container mt-5\" id=\"top\" >

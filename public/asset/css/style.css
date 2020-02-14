@@ -337,6 +337,12 @@ footer .form-control {
 	margin: 0;
 }
 
+@media (min-width: 769px) {
+	.mediaq {
+		display: none;
+	}
+}
+
 @media (max-width: 768px) {
 	#sidebar {
 		margin-left: -17rem;
@@ -460,7 +466,7 @@ footer .form-control {
 	border-radius: 3px;
 	cursor: pointer;
 	transition: ease .3s;
-	align-items: normal;
+	align-items: baseline;
 }
 
 .button2:hover {
@@ -475,4 +481,14 @@ footer .form-control {
 
 #effacervoix {
 	text-decoration: underline;
+}
+
+/* Profil */
+.profile-header {
+	transform: translateY(5rem);
+}
+
+.imgpro {
+	height: 150px;
+	width: auto;
 }
