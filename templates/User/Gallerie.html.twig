@@ -1,0 +1,141 @@
+{% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=devide-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Perfect Voice</title>
+
+    {% block css %}
+        <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="/asset/css/style.css">
+    {% endblock %}
+{% endblock %}
+
+
+{% block body %}
+    <nav id="nav" class="navbar navbar-expand-lg navbar-light bg-light d-flex sticky">
+        <a class="navbar-brand mr-auto" href="#"><img src="/asset/uploads/images/logotexte.png" width="200px"
+                                                      alt="Logo Perfect Voice"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-end" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Language
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Français</a>
+                        <a class="dropdown-item" href="#">Anglais</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Vertical navbar -->
+    <div class="vertical-nav bg-white" id="sidebar">
+        <div class="py-4 px-3 mb-4 bg-light">
+            <div class="media d-flex align-items-center">
+                <div class="media-body">
+                    <h5 class="m-0">{{ session.uti_prenom }} {{ session.uti_nom }}</h5>
+                </div>
+            </div>
+        </div>
+
+        <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Mon compte</p>
+
+        <ul class="nav flex-column bg-white mb-0">
+            <li class="nav-item">
+                <a href="/Mesvoix" class="nav-link text-light font-italic bg-danger">
+                    <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+                    Mes voix
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/Match" class="nav-link text-light font-italic bg-danger">
+                    <i class="fa fa-picture-o mr-3 text-primary fa-fw"></i>
+                    Mes matchs
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/Profil" class="nav-link text-light font-italic bg-danger">
+                    <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
+                    Mon profil
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/Messages" class="nav-link text-light font-italic bg-danger">
+                    <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
+                    Messages
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/Rechercher" class="nav-link text-light font-italic bg-danger">
+                    <i class="fa fa-picture-o mr-3 text-primary fa-fw"></i>
+                    Rechercher
+                </a>
+            </li>
+
+        </ul>
+
+        <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Autres</p>
+
+        <ul class="nav flex-column bg-white mb-0">
+            <li class="nav-item">
+                <a href="/apropos" class="nav-link text-dark font-italic">
+                    <i class="fa fa-area-chart mr-3 text-primary fa-fw"></i>
+                    A propos
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/contateznous" class="nav-link text-dark font-italic">
+                    <i class="fa fa-bar-chart mr-3 text-primary fa-fw"></i>
+                    Contactez-nous
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link text-dark font-italic">
+                    <i class="fa fa-pie-chart mr-3 text-primary fa-fw"></i>
+                    Paramètres
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/Logout" class="nav-link text-dark font-italic">
+                    <i class="fa fa-pie-chart mr-3 text-primary fa-fw"></i>
+                    Se déconnecter
+                </a>
+            </li>
+        </ul>
+    </div>
+<div class="row py-5 px-4">
+    <div class="mt-5 col-xl-4 col-md-6 col-sm-10 mx-auto">
+        <div class="bg-white shadow rounded overflow-hidden">
+            <div class="px-4 pt-0 pb-4 bg-white">
+                <div class="media align-items-end profile-header">
+<form action="BDDPhotos_admin_add_rub.php" enctype="multipart/form-data"
+      method="post">
+    Nom:<br/>
+    <textarea name="frm_textarea_desc" rows="5" cols="40"></textarea>
+    <br/><br/>
+    <input type="submit" value="Ajouter un album"/>
+</form>
+
+<form action='BDDPhotos_admin_add_img.php'
+      enctype='multipart/form-data' method='post'>
+    Répertoire des images:<br/>
+    <input type='text' name='frm_files_folder' size='40' value='../photos'/>
+    <br/><br/>
+    Album: ";
+    <select name='gal_nom'>
+
+
+{% block javascript %}
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+{% endblock %}
+{% endblock %}

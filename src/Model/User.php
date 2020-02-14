@@ -168,7 +168,16 @@ class User
         }
         return $listUsers;
     }
-    /**
+
+    public function SqlGetAllsearch(\PDO $bdd){$requete = $bdd->prepare('SELECT UTI_NOM, UTI_PRENOM FROM t_utilisateur
+INNER JOIN t_aime ON t_utilisateur.ID_UTI = t_aime.ID_UTI');
+                $requete->execute();
+        $arrayUsers = $requete->fetchAll();
+    }
+
+
+
+/**
      * @return mixed
      */
     public function getIdUti()
