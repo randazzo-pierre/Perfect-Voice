@@ -69,10 +69,11 @@ class User
         return $listUser;
     }
 
-    public function SqlUpdate(\PDO $bdd){
+    public function SqlUpdate(\PDO $bdd, $id){
         try{
             $requete = $bdd->prepare('UPDATE t_utilisateur SET UTI_MDP=:UTI_MDP,UTI_MAIL=:UTI_MAIL, UTI_NOM=:UTI_NOM, UTI_PRENOM=:UTI_PRENOM, UTI_NAISSANCE=:UTI_NAISSANCE,UTI_VILLE=:UTI_VILLE, UTI_TEL=:UTI_TEL, UTI_INSCRIPTION=:UTI_INSCRIPTION, UTI_SEXE=:UTI_SEXE,UTI_ORIENTATION=:UTI_ORIENTATION WHERE ID_UTI =:ID_UTI');
             $requete->execute([
+                "ID_UTI" => $id,
                 "UTI_MDP" => $this->getUtiMdp(),
                 "UTI_MAIL" => $this->getUtiMail(),
                 "UTI_NOM" => $this->getUtiNom(),
@@ -84,7 +85,8 @@ class User
                 'UTI_ORIENTATION' => $this->getUtiOrientation(),
                 'UTI_HEURECON' => $this->getUtiHeurecon()
             ]);
-            return array("result"=>true);
+            $userDatas = $requete->fetch();
+            return $userDatas;
         }catch (\Exception $e){
             return array("result"=>false,"message"=>$e->getMessage());
         }
@@ -95,9 +97,9 @@ class User
         $datas = $requete ->fetch();
         return $datas;
     }
-    function registerUser(\PDO $bdd, $uti_prenom, $uti_nom, $uti_ville, $uti_tel, $uti_sexe, $uti_orientation, $uti_mail, $mdp){
+    function registerUser(\PDO $bdd, $uti_prenom, $uti_nom, $uti_ville, $uti_tel, $uti_sexe, $uti_orientation, $uti_age, $uti_mail, $mdp){
         try{
-            $requete=$bdd->prepare("INSERT INTO t_utilisateur (UTI_PRENOM, UTI_NOM, UTI_VILLE, UTI_TEL, UTI_SEXE, UTI_ORIENTATION, UTI_MAIL, UTI_MDP) VALUES (:prenom, :nom, :ville, :tel, :sexe, :orientation, :mail, :mdp);");
+            $requete=$bdd->prepare("INSERT INTO t_utilisateur (UTI_PRENOM, UTI_NOM, UTI_VILLE, UTI_TEL, UTI_SEXE, UTI_ORIENTATION, UTI_AGE, UTI_MAIL, UTI_MDP) VALUES (:prenom, :nom, :ville, :tel, :sexe, :orientation, :age, :mail, :mdp);");
             $requete->execute([
                 'prenom' => $uti_prenom,
                 'nom' => $uti_nom,
@@ -105,9 +107,31 @@ class User
                 'tel' => $uti_tel,
                 'sexe' => $uti_sexe,
                 'orientation' => $uti_orientation,
+                'age' => $uti_age,
                 'mail' => $uti_mail,
                 'mdp' => $mdp
             ]);
+            return;
+        }catch (\Exception $e){
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
+    function modifyUser(\PDO $bdd, $uti_prenom, $uti_nom, $uti_ville, $uti_tel, $uti_sexe, $uti_orientation, $uti_age, $uti_mail){
+        $id = $_SESSION['id_uti'];
+        try{
+            $requete=$bdd->prepare('UPDATE t_utilisateur SET UTI_PRENOM=:prenom, UTI_NOM=:nom, UTI_VILLE=:ville, UTI_TEL=:tel, UTI_SEXE=:sexe, UTI_ORIENTATION=:orientation, UTI_AGE=:age, UTI_MAIL=:mail WHERE ID_UTI=:id;');
+            $requete->execute([
+                'prenom' => $uti_prenom,
+                'nom' => $uti_nom,
+                'ville' => $uti_ville,
+                'tel' => $uti_tel,
+                'sexe' => $uti_sexe,
+                'orientation' => $uti_orientation,
+                'age' => $uti_age,
+                'mail' => $uti_mail,
+                'id' => $id
+            ]);
+
             return;
         }catch (\Exception $e){
             die('Erreur : ' . $e->getMessage());

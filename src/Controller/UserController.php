@@ -49,10 +49,7 @@ class UserController extends  AbstractController {
         return $this->twig->render('Article/inscription.html.twig');
     }
     public function modifyForm(){
-        if(isset($_SESSION['uti_mail'])) {
             return $this->twig->render('User/modify.html.twig');
-        }
-        header('Location:/');
     }
     public function profilShow(){
         if(isset($_SESSION['uti_mail'])) {
@@ -71,29 +68,34 @@ class UserController extends  AbstractController {
             ]
         );
     }
-
-
-    public static function roleTest()
+    public function modifyCheck()
     {
-        if (isset($_SESSION['email']) AND $_SESSION['password']) {
-            $emailUser = $_SESSION['email'];
-            $passwordUser = $_SESSION['password'];
-            $user = new User();
-            $userData = $user->logCheck(Bdd::GetInstance(), $emailUser, $passwordUser);
-            $userRole = $userData['user_role'];
+        if (isset($_POST['uti_prenom']) && isset($_POST['uti_nom'])
+            && isset($_POST['uti_ville']) && isset($_POST['uti_tel'])
+            && isset($_POST['uti_sexe']) && isset($_POST['uti_orientation']) && isset($_POST['uti_age'])
+            && isset($_POST['uti_mail'])) {
 
-            if ($userRole == 0) {
-                $roleP = "0";
-                return $roleP;
-            } else if ($userRole == 1) {
-                $roleP = "1";
-                return $roleP;
-            } else if ($userRole == 2) {
-                $roleP = "2";
-                return $roleP;
-            }
+            $log = new User();
+            $log->modifyUser(Bdd::GetInstance(), $_POST['uti_prenom'], $_POST['uti_nom'],
+                $_POST['uti_ville'], $_POST['uti_tel'], $_POST['uti_sexe'],
+                $_POST['uti_orientation'], $_POST['uti_age'], $_POST['uti_mail']);
+            $id = $_SESSION['id_uti'];
+            /*$userModelu = new User();
+            $user = $userModelu->SqlUpdate(Bdd::GetInstance(), $id);
+            $_SESSION['uti_mail'] = $user['UTI_MAIL'];
+            $_SESSION['uti_mdp'] = $user['UTI_MDP'];
+            $_SESSION['id_uti'] = $user['ID_UTI'];
+            $_SESSION['uti_nom'] = $user['UTI_NOM'];
+            $_SESSION['uti_prenom'] = $user['UTI_PRENOM'];
+            $_SESSION['uti_ville'] = $user['UTI_VILLE'];
+            $_SESSION['uti_tel'] = $user['UTI_TEL'];
+            $_SESSION['uti_sexe'] = $user['UTI_SEXE'];
+            $_SESSION['uti_orientation'] = $user['UTI_ORIENTATION'];
+            $_SESSION['uti_age'] = $user['UTI_AGE'];*/
+            header('Location:/logout');
         }
     }
+
 
     public function logout(){
         session_destroy();
@@ -110,15 +112,15 @@ class UserController extends  AbstractController {
         if($_POST AND $_SESSION['token'] == $_POST['token']){
             if (isset($_POST['uti_prenom']) && isset($_POST['uti_nom'])
                 && isset($_POST['uti_ville']) && isset($_POST['uti_tel'])
-                && isset($_POST['uti_sexe']) && isset($_POST['uti_orientation'])
+                && isset($_POST['uti_sexe']) && isset($_POST['uti_orientation']) && isset($_POST['uti_age'])
                 && isset($_POST['uti_mail']) && isset($_POST['uti_mdp'])) {
                 $mdp = password_hash($_POST['uti_mdp'], PASSWORD_BCRYPT);
                 $log = new User();
                 $log->registerUser(Bdd::GetInstance(), $_POST['uti_prenom'], $_POST['uti_nom'],
                     $_POST['uti_ville'], $_POST['uti_tel'], $_POST['uti_sexe'],
-                    $_POST['uti_orientation'], $_POST['uti_mail'], $mdp);
+                    $_POST['uti_orientation'], $_POST['uti_age'], $_POST['uti_mail'], $mdp);
                     return $this->twig->render('User/inscription2.html.twig');
-                }
+            }
         }
         else {
             $token = bin2hex(random_bytes(32));
@@ -145,17 +147,31 @@ class UserController extends  AbstractController {
                 $_SESSION['id_uti'] = $user['ID_UTI'];
                 $_SESSION['uti_nom'] = $user['UTI_NOM'];
                 $_SESSION['uti_prenom'] = $user['UTI_PRENOM'];
-                $_SESSION['uti_naissance'] = $user['UTI_NAISSANCE'];
                 $_SESSION['uti_ville'] = $user['UTI_VILLE'];
                 $_SESSION['uti_tel'] = $user['UTI_TEL'];
                 $_SESSION['uti_sexe'] = $user['UTI_SEXE'];
                 $_SESSION['uti_orientation'] = $user['UTI_ORIENTATION'];
+                $_SESSION['uti_age'] = $user['UTI_AGE'];
                 header('Location:/profil');
             }else {
                 $_SESSION['errorlogin'] = "Erreur d'Authentificationnn";
                 header('Location:/');
             }
         }
+    }
+    public function loginModifyCheck(){
+        $userModel = new User();
+        $user = $userModel->getAllUser(Bdd::GetInstance(), $_SESSION['uti_mail']);
+        $_SESSION['uti_mdp'] = $user['UTI_MDP'];
+        $_SESSION['id_uti'] = $user['ID_UTI'];
+        $_SESSION['uti_nom'] = $user['UTI_NOM'];
+        $_SESSION['uti_prenom'] = $user['UTI_PRENOM'];
+        $_SESSION['uti_ville'] = $user['UTI_VILLE'];
+        $_SESSION['uti_tel'] = $user['UTI_TEL'];
+        $_SESSION['uti_sexe'] = $user['UTI_SEXE'];
+        $_SESSION['uti_orientation'] = $user['UTI_ORIENTATION'];
+        $_SESSION['uti_age'] = $user['UTI_AGE'];
+        header('Location:/profil');
     }
     public function ListAll(){
         $user = new User();
@@ -169,13 +185,23 @@ class UserController extends  AbstractController {
     }
 
     public static function idTest($id_uti){
+      //  if (isset($_SESSION['uti_mail'])) {
+        //    if ($id_uti = ($_SESSION['id_uti'])) {
+           //     return;
+            //}
+      //  }else{
+    //        $_SESSION['errorlogin'] = "Erreur";
+        //    header('Location:/');
+        //}
         if (isset($_SESSION['uti_mail'])) {
-            if ($id_uti = ($_SESSION['id_uti'])) {
-                return;
+            if ($id_uti != ($_SESSION['id_uti'])) {
+                $_SESSION['errorlogin'] = "Le compte n°" . $id_uti . " ne vous appartient pas";
+                header('Location:/');
             }
+        } else {
+            $_SESSION['errorlogin'] = "Veuillez-vous identifier";
+            header('Location:/');
         }
-        $_SESSION['errorlogin'] = "Erreur";
-        header('Location:/');
     }
 }
 

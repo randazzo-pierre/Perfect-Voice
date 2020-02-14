@@ -19,7 +19,7 @@ $router = new \src\Router\Router($_GET['url']);
 $router->get('/', "User#loginForm");
 $router->post('/', 'User#loginCheck');
 $router->get('/list', 'User#ListAll');
-$router->get('/Mesvoix', 'User#ListAll');
+$router->get('/Mesvoix/:id_uti', 'Match#ShowMatchOTH#id_uti');
 $router->get('/Article', "Article#ListAll");
 $router->get('/Article/Update/:id', "Article#Update#id");
 $router->post('/Article/Update/:id', "Article#Update#id");

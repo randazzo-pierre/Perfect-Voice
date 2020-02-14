@@ -1,5 +1,6 @@
 <?php
 namespace src\Model;
+use src\Model\Bdd;
 use mysql_xdevapi\Exception;
 
 class Match implements \JsonSerializable
@@ -145,18 +146,17 @@ class Match implements \JsonSerializable
     }
 
     public function SqlGetOTH(\PDO $bdd , $id_uti){
-        $query = $bdd->prepare('SELECT * FROM t_match WHERE OTH_ID_UTI=:id_uti');
-        $query->execute([
+        $uti = $bdd->prepare('SELECT * FROM t_match WHERE OTH_ID_UTI=:id_uti');
+        $uti->execute([
             'id_uti'=>$id_uti
         ]);
-        $ArrayLike=$query->fetchAll();
-
+        $ArrayLike=$uti->fetchAll();
         $listOTH=[];
         foreach ($ArrayLike as $likeSQL){
             $oth = new Match();
             $oth->setIdUti($likeSQL['id_uti']);
             $oth->setOthIdUti($likeSQL['oth_id_uti']);
-            $oth->setMatDate($likeSQL['like_date']);
+           // $oth->setMatDate($likeSQL['like_date']);
 
             $listOTH[]=$oth;
         }
@@ -167,9 +167,9 @@ class Match implements \JsonSerializable
     {
         // Requete Delete match
         try {
-            $requete = $bdd->prepare('DELETE FROM t_match where ID_UTI =:ID_USER');
+            $requete = $bdd->prepare('DELETE FROM t_match where ID_UTI =:ID_UTI');
             $requete->execute([
-                'ID_USER' => $id_uti
+                'ID_UTI' => $id_uti
             ]);
             return true;
         } catch (\Exception $e) {
