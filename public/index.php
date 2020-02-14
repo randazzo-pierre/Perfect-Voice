@@ -50,7 +50,7 @@ $router->post('/Register', 'User#registerCheck');
 $router->get('/Modify', 'User#modifyForm');
 $router->post('/Modify', 'User#modifyCheck');
 $router->get('/Profil', 'User#profilShow');
-$router->get('/Profil/Photo', 'Photo#ShowallPhoto');
+$router->get('/Profil/Photo', 'Photo#SqlAllCUD');
 $router->get('/Photo/AddPhoto', "Photo#AddPhoto");
 $router->post('/Photo/AddPhoto', "Photo#AddPhoto");
 $router->get('/Photo/UpdatePhoto/:id', "Photo#UpdatePhoto#id");

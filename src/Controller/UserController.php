@@ -195,6 +195,12 @@ class UserController extends  AbstractController {
         }
     }
 
+    public function Search(){
+        return $this->twig->render(
+            'User/recherche.html.twig'
+        );
+    }
+
 }
 
 

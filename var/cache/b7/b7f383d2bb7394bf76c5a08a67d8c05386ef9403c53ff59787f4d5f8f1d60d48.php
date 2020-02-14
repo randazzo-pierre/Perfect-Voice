@@ -199,8 +199,6 @@ class __TwigTemplate_6abc7091a8b3210df161cfff8596a9f22cd66229a7563259a5619383d45
 
         </div>
     </div>
-    </body>
-    </html>
 
     <div id=\"imageModal\" class=\"modal fade\" role=\"dialog\">
         <div class=\"modal-dialog\">
@@ -335,14 +333,14 @@ class __TwigTemplate_6abc7091a8b3210df161cfff8596a9f22cd66229a7563259a5619383d45
     </script>
 
   ";
-        // line 263
+        // line 261
         $this->displayBlock('javascript', $context, $blocks);
     }
 
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 264
+        // line 262
         echo "  <script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\" integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\" crossorigin=\"anonymous\"></script>
       <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
       <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\" integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\" crossorigin=\"anonymous\"></script>
@@ -358,7 +356,7 @@ class __TwigTemplate_6abc7091a8b3210df161cfff8596a9f22cd66229a7563259a5619383d45
 
     public function getDebugInfo()
     {
-        return array (  346 => 264,  339 => 263,  116 => 45,  86 => 17,  82 => 16,  73 => 9,  69 => 8,  62 => 3,  58 => 2,  54 => 16,  51 => 15,  49 => 8,  46 => 7,  44 => 2,  41 => 1,);
+        return array (  344 => 262,  337 => 261,  116 => 45,  86 => 17,  82 => 16,  73 => 9,  69 => 8,  62 => 3,  58 => 2,  54 => 16,  51 => 15,  49 => 8,  46 => 7,  44 => 2,  41 => 1,);
     }
 
     public function getSourceContext()
@@ -490,8 +488,6 @@ class __TwigTemplate_6abc7091a8b3210df161cfff8596a9f22cd66229a7563259a5619383d45
 
         </div>
     </div>
-    </body>
-    </html>
 
     <div id=\"imageModal\" class=\"modal fade\" role=\"dialog\">
         <div class=\"modal-dialog\">
