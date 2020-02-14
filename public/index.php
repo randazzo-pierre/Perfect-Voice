@@ -25,7 +25,7 @@ $router->get('/Article/Update/:id', "Article#Update#id");
 $router->post('/Article/Update/:id', "Article#Update#id");
 $router->get('/Article/Add', "Article#Add");
 $router->post('/Article/Add', "Article#Add");
-$router->get('/Article/Delete/:id', "Article#Delete#id");
+$router->get('/Photo/Delete/:id', "Photo#Delete#id");
 $router->get('/Article/Fixtures', "Article#Fixtures");
 $router->get('/Article/Write', "Article#Write");
 $router->get('/Article/Read', "Article#Read");
@@ -42,11 +42,20 @@ $router->post('/Contact/sendMail', 'Contact#sendMail');
 $router->get('/Logout', 'User#logout');
 $router->get('/Api/Article/Last','Api#ArticleGetLast');
 
+
 $router->get('/Register', 'User#registerForm');
 $router->post('/Register', 'User#registerCheck');
 $router->get('/Modify', 'User#modifyForm');
 $router->post('/Modify', 'User#modifyCheck');
 $router->get('/Profil', 'User#profilShow');
+$router->get('/Profil/Photo', 'Photo#ShowallPhoto');
+$router->get('/Photo/AddPhoto', "Photo#AddPhoto");
+$router->post('/Photo/AddPhoto', "Photo#AddPhoto");
+$router->get('/Photo/UpdatePhoto/:id', "Photo#UpdatePhoto#id");
+$router->post('/Photo/UpdatePhoto/:id', "Photo#UpdatePhoto#id");
+$router->get('/Photo/DeletePhoto/:id', "Photo#DeletePhoto#id");
+$router->get('/Profil/Search', 'User#Search');
+
 
 $router->get('/Admin', "Article#ListAllAdmin");
 $router->get('/AdminUser', "User#ListAllUser");
