@@ -185,24 +185,16 @@ class UserController extends  AbstractController {
     }
 
     public static function idTest($id_uti){
-      //  if (isset($_SESSION['uti_mail'])) {
-        //    if ($id_uti = ($_SESSION['id_uti'])) {
-           //     return;
-            //}
-      //  }else{
-    //        $_SESSION['errorlogin'] = "Erreur";
-        //    header('Location:/');
-        //}
         if (isset($_SESSION['uti_mail'])) {
-            if ($id_uti != ($_SESSION['id_uti'])) {
-                $_SESSION['errorlogin'] = "Le compte n°" . $id_uti . " ne vous appartient pas";
-                header('Location:/');
+            if ($id_uti = ($_SESSION['id_uti'])) {
+                return;
             }
-        } else {
-            $_SESSION['errorlogin'] = "Veuillez-vous identifier";
+        }else{
+            $_SESSION['errorlogin'] = "Erreur";
             header('Location:/');
         }
     }
+
 }
 
 

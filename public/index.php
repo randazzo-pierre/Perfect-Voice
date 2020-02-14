@@ -20,7 +20,9 @@ $router->get('/', "User#loginForm");
 $router->post('/', 'User#loginCheck');
 $router->get('/list', 'User#ListAll');
 $router->get('/Mesvoix/:id_uti', 'Match#ShowMatchOTH#id_uti');
-$router->get('/Article', "Article#ListAll");
+
+$router->get('/Messages/:oth_id_uti', "User#Messages#oth_id_uti");
+$router->post('/Messages/:oth_id_uti', "Message#sendMsg#oth_id_uti");
 $router->get('/Article/Update/:id', "Article#Update#id");
 $router->post('/Article/Update/:id', "Article#Update#id");
 $router->get('/Article/Add', "Article#Add");

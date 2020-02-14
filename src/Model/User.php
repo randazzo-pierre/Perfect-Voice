@@ -9,7 +9,7 @@ class User
     private $uti_mail;
     private $uti_nom;
     private $uti_prenom;
-    private $uti_naissance;
+    private $uti_age;
     private $uti_ville;
     private $uti_tel;
     private $uti_inscription;
@@ -71,14 +71,14 @@ class User
 
     public function SqlUpdate(\PDO $bdd, $id){
         try{
-            $requete = $bdd->prepare('UPDATE t_utilisateur SET UTI_MDP=:UTI_MDP,UTI_MAIL=:UTI_MAIL, UTI_NOM=:UTI_NOM, UTI_PRENOM=:UTI_PRENOM, UTI_NAISSANCE=:UTI_NAISSANCE,UTI_VILLE=:UTI_VILLE, UTI_TEL=:UTI_TEL, UTI_INSCRIPTION=:UTI_INSCRIPTION, UTI_SEXE=:UTI_SEXE,UTI_ORIENTATION=:UTI_ORIENTATION WHERE ID_UTI =:ID_UTI');
+            $requete = $bdd->prepare('UPDATE t_utilisateur SET UTI_MDP=:UTI_MDP,UTI_MAIL=:UTI_MAIL, UTI_NOM=:UTI_NOM, UTI_PRENOM=:UTI_PRENOM, UTI_AGE=:UTI_AGE,UTI_VILLE=:UTI_VILLE, UTI_TEL=:UTI_TEL, UTI_INSCRIPTION=:UTI_INSCRIPTION, UTI_SEXE=:UTI_SEXE,UTI_ORIENTATION=:UTI_ORIENTATION WHERE ID_UTI =:ID_UTI');
             $requete->execute([
                 "ID_UTI" => $id,
                 "UTI_MDP" => $this->getUtiMdp(),
                 "UTI_MAIL" => $this->getUtiMail(),
                 "UTI_NOM" => $this->getUtiNom(),
                 "UTI_PRENOM" => $this->getUtiPrenom(),
-                'UTI_NAISSANCE' => $this->getUtiNaissance(),
+                'UTI_AGE' => $this->getUtiAge(),
                 'UTI_VILLE' => $this->getUtiVille(),
                 'UTI_TEL' => $this->getUtiTel(),
                 'UTI_SEXE' => $this->getUtiSexe(),
@@ -162,11 +162,11 @@ class User
             $user->setUtiMail($userSQL['UTI_MAIL']);
             $user->setUtiNom($userSQL['UTI_NOM']);
             $user->setUtiPrenom($userSQL['UTI_PRENOM']);
-            $user->setUtiNaissance($userSQL['UTI_NAISSANCE']);
             $user->setUtiVille($userSQL['UTI_VILLE']);
             $user->setUtiTel($userSQL['UTI_TEL']);
             $user->setUtiInscription($userSQL['UTI_INSCRIPTION']);
             $user->setUtiSexe($userSQL['UTI_SEXE']);
+            $user->setUtiAge($userSQL['UTI_AGE']);
             $user->setUtiOrientation($userSQL['UTI_ORIENTATION']);
             $user->setUtiHeurecon($userSQL['UTI_HEURECON']);
             $user->setUtiStatutcon($userSQL['UTI_STATUTCON']);
@@ -257,17 +257,17 @@ class User
     /**
      * @return mixed
      */
-    public function getUtiNaissance()
+    public function getUtiAge()
     {
-        return $this->uti_naissance;
+        return $this->uti_age;
     }
 
     /**
-     * @param mixed $uti_naissance
+     * @param mixed $uti_age
      */
-    public function setUtiNaissance($uti_naissance)
+    public function setUtiAge($uti_age)
     {
-        $this->uti_naissance = $uti_naissance;
+        $this->uti_age = $uti_age;
     }
 
     /**
