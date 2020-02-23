@@ -1,6 +1,6 @@
 body {
 	margin: 0;
-	font-family: "Lato";
+	font-family: "Lato", serif;
 }
 
 a {
@@ -207,7 +207,7 @@ a:hover {
 	}
 }
 
-/* Bloc séparateur */
+/* Bloc sÃ©parateur */
 
 #lignerouge {
 	display:flex;
@@ -308,7 +308,7 @@ footer .form-control {
 	padding: 0.7em 1em;
 }
 
-/* menu connecté*/
+/* menu connectÃ©*/
 .vertical-nav {
 	min-width: 17rem;
 	width: 17rem;
@@ -335,12 +335,6 @@ footer .form-control {
 #content.active {
 	width: 100%;
 	margin: 0;
-}
-
-@media (min-width: 769px) {
-	.mediaq {
-		display: none;
-	}
 }
 
 @media (max-width: 768px) {
@@ -384,7 +378,7 @@ footer .form-control {
 }
 
 #search-banner {
-	margin-left: 250px;
+	margin-left: 350px;
 }
 
 #recherchevoix {
@@ -466,7 +460,7 @@ footer .form-control {
 	border-radius: 3px;
 	cursor: pointer;
 	transition: ease .3s;
-	align-items: baseline;
+	align-items: right;
 }
 
 .button2:hover {
@@ -491,4 +485,19 @@ footer .form-control {
 .imgpro {
 	height: 150px;
 	width: auto;
+}
+
+#modif{
+
+	margin-bottom: 16px;
+	margin-top: 150px;
+	border-left-width: 50px;
+	margin-left: 150px;
+	padding-left: 150px;
+
+}
+
+#container{
+	padding-left: 150px;
+
 }

@@ -7,13 +7,107 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="/assets/css/login.css">
         <link rel="stylesheet" href="/assets/css/header.css">
+        <link rel="stylesheet" href="/asset/css/style.css">
     {% endblock %}
 {% endblock %}
 {% block body %}
+    <nav id="nav" class="navbar navbar-expand-lg navbar-light bg-light d-flex sticky">
+        <a class="navbar-brand mr-auto" href="#"><img src="/asset/uploads/images/logotexte.png" width="200px"
+                                                      alt="Logo Perfect Voice"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-end" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Language
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Français</a>
+                        <a class="dropdown-item" href="#">Anglais</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
+    <!-- Vertical navbar -->
+    <div class="vertical-nav bg-white" id="sidebar">
+        <div class="py-4 px-3 mb-4 bg-light">
+            <div class="media d-flex align-items-center">
+                <div class="media-body">
+                    <img src="" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+                    <h4 class="m-0">{{ session.uti_prenom }} {{ session.uti_nom }}</h4>
+                </div>
+            </div>
+        </div>
 
-    <div class="login-page">
-    <div class="form">
+        <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Mon compte</p>
+
+        <ul class="nav flex-column bg-white mb-0">
+            <li class="nav-item">
+                <a href="Profil/Mesvoix/:id_uti" class="nav-link text-light font-italic bg-danger">
+                    <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+                    Mes voix
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/Profil" class="nav-link text-light font-italic bg-danger">
+                    <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
+                    Mon profil
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/Profil/Messages" class="nav-link text-light font-italic bg-danger">
+                    <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
+                    Messages
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/Profil/Search" class="nav-link text-light font-italic bg-danger">
+                    <i class="fa fa-picture-o mr-3 text-primary fa-fw"></i>
+                    Rechercher
+                </a>
+            </li>
+
+        </ul>
+
+        <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Autres</p>
+
+        <ul class="nav flex-column bg-white mb-0">
+            <li class="nav-item">
+                <a href="/apropos" class="nav-link text-dark font-italic">
+                    <i class="fa fa-area-chart mr-3 text-primary fa-fw"></i>
+                    A propos
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/contacteznous" class="nav-link text-dark font-italic">
+                    <i class="fa fa-bar-chart mr-3 text-primary fa-fw"></i>
+                    Contactez-nous
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link text-dark font-italic">
+                    <i class="fa fa-pie-chart mr-3 text-primary fa-fw"></i>
+                    Paramètres
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/Logout" class="nav-link text-dark font-italic">
+                    <i class="fa fa-pie-chart mr-3 text-primary fa-fw"></i>
+                    Se déconnecter
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="login-page ">
+
+    <div class="form" id="modif">
     <form method="post" action="/Modify">
         <input type="text" name="uti_prenom" value="{{ session.uti_prenom }}"/>
         <input type="text" name="uti_nom" value="{{ session.uti_nom }}"/>
@@ -21,9 +115,8 @@
         <input type="text" name="uti_tel" value="{{ session.uti_tel }}"/>
         <input type="text" name="uti_sexe" value="{{ session.uti_sexe }}"/>
         <input type="text" name="uti_orientation" value="{{ session.uti_orientation }}"/>
-        <input type="number" name="uti_age" value="{{ session.uti_age }}"/>
         <input type="email" name="uti_mail" value="{{ session.uti_mail }}"/>
-        <button>Sauvegarder</button>
+        <button> Sauvegarder</button>
 
     </form>
     {% block javascript %}

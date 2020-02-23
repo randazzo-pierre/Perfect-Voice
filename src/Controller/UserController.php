@@ -1,9 +1,9 @@
 <?php
 namespace src\Controller;
 
-use src\Model\Article;
 use src\Model\Bdd;
 use src\Model\User;
+use src\model\Aime;
 use DateTime;
 
 class UserController extends  AbstractController {
@@ -36,27 +36,33 @@ class UserController extends  AbstractController {
             'token' => $token
         ]);
     }
+
     public function utilisateur(){
         unset($_SESSION['errorlogin']);
         return $this->twig->render('Article/utilisateur.html.twig');
     }
+
     public function Validation(){
         unset($_SESSION['errorlogin']);
         return $this->twig->render('Article/Validation.html.twig');
     }
+
     public function InscriptionValidation(){
         unset($_SESSION['errorlogin']);
         return $this->twig->render('Article/inscription.html.twig');
     }
+
     public function modifyForm(){
             return $this->twig->render('User/modify.html.twig');
     }
+
     public function profilShow(){
         if(isset($_SESSION['uti_mail'])) {
             return $this->twig->render('User/profil.html.twig');
         }
         header('Location:/');
     }
+
     public function ListAllAdminUser(){
         $user = new User();
         $listUser = $user->SqlGetAll(Bdd::GetInstance());
@@ -72,13 +78,13 @@ class UserController extends  AbstractController {
     {
         if (isset($_POST['uti_prenom']) && isset($_POST['uti_nom'])
             && isset($_POST['uti_ville']) && isset($_POST['uti_tel'])
-            && isset($_POST['uti_sexe']) && isset($_POST['uti_orientation']) && isset($_POST['uti_age'])
+            && isset($_POST['uti_sexe']) && isset($_POST['uti_orientation'])
             && isset($_POST['uti_mail'])) {
 
             $log = new User();
             $log->modifyUser(Bdd::GetInstance(), $_POST['uti_prenom'], $_POST['uti_nom'],
                 $_POST['uti_ville'], $_POST['uti_tel'], $_POST['uti_sexe'],
-                $_POST['uti_orientation'], $_POST['uti_age'], $_POST['uti_mail']);
+                $_POST['uti_orientation'], $_POST['uti_mail']);
             $id = $_SESSION['id_uti'];
             /*$userModelu = new User();
             $user = $userModelu->SqlUpdate(Bdd::GetInstance(), $id);
@@ -101,6 +107,7 @@ class UserController extends  AbstractController {
         session_destroy();
         header('Location: ../');
     }
+
     public function verifyToken($token) {
         if(!isset($_SESSION['token'])) {return false;}
         if(!isset($_POST['token'])) {return false;}
@@ -112,13 +119,13 @@ class UserController extends  AbstractController {
         if($_POST AND $_SESSION['token'] == $_POST['token']){
             if (isset($_POST['uti_prenom']) && isset($_POST['uti_nom'])
                 && isset($_POST['uti_ville']) && isset($_POST['uti_tel'])
-                && isset($_POST['uti_sexe']) && isset($_POST['uti_orientation']) && isset($_POST['uti_age'])
+                && isset($_POST['uti_sexe']) && isset($_POST['uti_orientation'])
                 && isset($_POST['uti_mail']) && isset($_POST['uti_mdp'])) {
                 $mdp = password_hash($_POST['uti_mdp'], PASSWORD_BCRYPT);
                 $log = new User();
                 $log->registerUser(Bdd::GetInstance(), $_POST['uti_prenom'], $_POST['uti_nom'],
                     $_POST['uti_ville'], $_POST['uti_tel'], $_POST['uti_sexe'],
-                    $_POST['uti_orientation'], $_POST['uti_age'], $_POST['uti_mail'], $mdp);
+                    $_POST['uti_orientation'], $_POST['uti_mail'], $mdp);
                     return $this->twig->render('User/inscription2.html.twig');
             }
         }
@@ -139,6 +146,7 @@ class UserController extends  AbstractController {
                 header('Location:/Register');
                 return;
             }
+
             $userModel = new User();
             $user = $userModel->getAllUser(Bdd::GetInstance(), $_POST['email']);
             if (password_verify($_POST['password'], $user['UTI_MDP'])) {
@@ -151,7 +159,6 @@ class UserController extends  AbstractController {
                 $_SESSION['uti_tel'] = $user['UTI_TEL'];
                 $_SESSION['uti_sexe'] = $user['UTI_SEXE'];
                 $_SESSION['uti_orientation'] = $user['UTI_ORIENTATION'];
-                $_SESSION['uti_age'] = $user['UTI_AGE'];
                 header('Location:/profil');
             }else {
                 $_SESSION['errorlogin'] = "Erreur d'Authentificationnn";
@@ -159,6 +166,7 @@ class UserController extends  AbstractController {
             }
         }
     }
+
     public function loginModifyCheck(){
         $userModel = new User();
         $user = $userModel->getAllUser(Bdd::GetInstance(), $_SESSION['uti_mail']);
@@ -170,9 +178,9 @@ class UserController extends  AbstractController {
         $_SESSION['uti_tel'] = $user['UTI_TEL'];
         $_SESSION['uti_sexe'] = $user['UTI_SEXE'];
         $_SESSION['uti_orientation'] = $user['UTI_ORIENTATION'];
-        $_SESSION['uti_age'] = $user['UTI_AGE'];
         header('Location:/profil');
     }
+
     public function ListAll(){
         $user = new User();
         $listUser = $user->SqlGetAllUser(Bdd::GetInstance());
@@ -195,12 +203,30 @@ class UserController extends  AbstractController {
         }
     }
 
-    public function Search(){
+    public function motorSearch(){
+        $Search = new User();
+        $UserList = $Search->SqlSearch(Bdd::GetInstance());
         return $this->twig->render(
-            'User/recherche.html.twig'
+            'User/recherche.html.twig',[
+                'UserList' => $UserList
+            ]
         );
     }
 
+    public function Search(){
+        $Search = new User();
+        $UserList = $Search->SqlSearch(Bdd::GetInstance());
+        return $this->twig->render(
+            'User/Resultat.html.twig',[
+                'UserList' => $UserList
+            ]
+        );
+    }
+
+    public function photo()
+    {
+
+    }
 }
 
 

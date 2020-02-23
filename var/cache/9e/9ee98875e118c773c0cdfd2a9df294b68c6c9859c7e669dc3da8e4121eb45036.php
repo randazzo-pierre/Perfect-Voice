@@ -47,10 +47,10 @@ class __TwigTemplate_c926b3490f7addd0b050745da1137f10976dc409de3581cc45fb7ffac7c
 ";
         // line 8
         $this->displayBlock('css', $context, $blocks);
-        // line 15
+        // line 14
         echo "
 ";
-        // line 16
+        // line 15
         $this->displayBlock('body', $context, $blocks);
     }
 
@@ -73,16 +73,15 @@ class __TwigTemplate_c926b3490f7addd0b050745da1137f10976dc409de3581cc45fb7ffac7c
         echo "    <link href=\"http://fonts.googleapis.com/css?family=Lato\" rel=\"stylesheet\" type=\"text/css\">
     <link href=\"http://fonts.googleapis.com/css?family=Titillium+Web\" rel=\"stylesheet\" type=\"text/css\">
     <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\" integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">
-    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" />
     <link rel=\"stylesheet\" href=\"/asset/css/style.css\">
 ";
     }
 
-    // line 16
+    // line 15
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 17
+        // line 16
         echo "    <nav id=\"nav\" class=\"navbar navbar-expand-lg navbar-light bg-light d-flex sticky\">
         <a class=\"navbar-brand mr-auto\" href=\"#\"><img src=\"/asset/uploads/images/logotexte.png\" width=\"200px\"
                                                       alt=\"Logo Perfect Voice\"></a>
@@ -111,6 +110,7 @@ class __TwigTemplate_c926b3490f7addd0b050745da1137f10976dc409de3581cc45fb7ffac7c
         <div class=\"py-4 px-3 mb-4 bg-light\">
             <div class=\"media d-flex align-items-center\">
                 <div class=\"media-body\">
+                    <img src=\"\" alt=\"...\" width=\"65\" class=\"mr-3 rounded-circle img-thumbnail shadow-sm\">
                     <h5 class=\"m-0\">";
         // line 45
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "uti_prenom", [], "any", false, false, false, 45), "html", null, true);
@@ -131,12 +131,6 @@ class __TwigTemplate_c926b3490f7addd0b050745da1137f10976dc409de3581cc45fb7ffac7c
                 </a>
             </li>
             <li class=\"nav-item\">
-                <a href=\"/Match\" class=\"nav-link text-light font-italic bg-danger\">
-                    <i class=\"fa fa-picture-o mr-3 text-primary fa-fw\"></i>
-                    Mes matchs
-                </a>
-            </li>
-            <li class=\"nav-item\">
                 <a href=\"/Profil\" class=\"nav-link text-light font-italic bg-danger\">
                     <i class=\"fa fa-address-card mr-3 text-primary fa-fw\"></i>
                     Mon profil
@@ -149,7 +143,7 @@ class __TwigTemplate_c926b3490f7addd0b050745da1137f10976dc409de3581cc45fb7ffac7c
                 </a>
             </li>
             <li class=\"nav-item\">
-                <a href=\"/Search\" class=\"nav-link text-light font-italic bg-danger\">
+                <a href=\"/Profil/Search\" class=\"nav-link text-light font-italic bg-danger\">
                     <i class=\"fa fa-picture-o mr-3 text-primary fa-fw\"></i>
                     Rechercher
                 </a>
@@ -188,68 +182,28 @@ class __TwigTemplate_c926b3490f7addd0b050745da1137f10976dc409de3581cc45fb7ffac7c
     </div>
     <!-- Fin navbar -->
 
-  <div style=\"background:url(images/fond.jpg) no-repeat scroll 0 0 / 100% auto;\">
+  <div style=\"background:url(/asset/uploads/images/fond.jpg) no-repeat scroll 0 0 / 100% auto;\">
   
     <!-- Recherche -->
     <br/><br/><br/><br/><br/><br/><br/>
     <section class=\"search-banner text-white py-3 form-arka-plan\" id=\"search-banner\">
     <div class=\"container py-5 my-5\">
-        <div class=\"row text-center pb-4\">
+        <div class=\"row text-center pb-8\">
             <div class=\"col-md-12\">
             </div>
         </div>
         <div class=\"row\">
-          <h2 id=\"recherchevoix\">Quelle voix cherches-tu ?</h2>
-            <div class=\"col-md-12\">
+          <h2 id=\"recherchevoix\"> Que recherche tu ?</h2>
+            <div class=\"col-md-10\">
                 <div class=\"card acik-renk-form\">
                     <div class=\"card-body\">
-                        <div class=\"row\">
-                            <div class=\"col-md-4\">
-                                <div class=\"form-group \">
-                                    <select id=\"iller\" class=\"form-control\" >
-                                        <option selected>Timbre de la voix</option>
-                                        <option>Très aïgue</option>
-                                        <option>Aïgue</option>
-                                        <option>Moyenne</option>
-                                        <option>Grave</option>
-                                        <option>Très grave</option>
-                                        <option>Peut importe</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class=\"col-md-4\">
-                                <div class=\"form-group \">
-                                    <select id=\"ilceler\" class=\"form-control\" >
-                                        <option selected>Accent</option>
-                                        <option>Du Sud</option>
-                                        <option>Du Nord</option>
-                                        <option>Québéquois</option>
-                                        <option>Chti</option>
-                                        <option>Parisien</option>
-                                        <option>Sans</option>
-                                        <option>Peut importe</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class=\"col-md-4\">
-                                <div class=\"form-group \">
-                                    <select id=\"arac-turu\" class=\"form-control\" >
-                                        <option selected>Autres options</option>
-                                        <option>Suave</option>
-                                        <option>Douce</option>
-                                        <option>Rauque</option>
-                                        <option>Cristalline</option>
-                                        <option>Basse</option>
-                                        <option>Sans option</option>
-
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
                         <p class=\"font-weight-light text-dark\"></p>
                         <div class=\"row\">
-                            <div class=\"col-md-3\">
-                                <button type=\"button\" class=\"btn btn-danger pl-5 pr-5 findsearch\">Trouver ma voix</button>
+                            <form class=\"form-inline\" method=\"get\" action=\"/Profil/Search/\">
+                                <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"il/elle aime\" name=\"search\">
+                                <input type=\"submit\"  class=\"btn btn-danger pl-5 pr-5 findsearch\" value=\"Trouver ma voix\"
+                                       name=\"searchSubmit\">
+                            </form>
                             </div>
                         </div>
                     </div>
@@ -257,9 +211,41 @@ class __TwigTemplate_c926b3490f7addd0b050745da1137f10976dc409de3581cc45fb7ffac7c
 
             </div>
         </div>
-    </div>
 </section>
-
+      <div class=\"container ml-auto\">
+          <table class=\"table table-striped\">
+              <thead>
+              <tr>
+                  <th scope=\"col\">Nom</th>
+                  <th scope=\"col\">Prénom</th>
+              </tr>
+              </thead>
+              <tbody>
+              ";
+        // line 150
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(($context["listAime"] ?? null));
+        foreach ($context['_seq'] as $context["_key"] => $context["User"]) {
+            // line 151
+            echo "                  <tr>
+                      <td>";
+            // line 152
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["User"], "uti_nom", [], "any", false, false, false, 152), "html", null, true);
+            echo "</td>
+                      <td>";
+            // line 153
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["User"], "uti_prenom", [], "any", false, false, false, 153), "html", null, true);
+            echo "</td>
+                  </tr>
+              ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['User'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 156
+        echo "              </tbody>
+          </table>
+      </div>
 <br/><br/><br/><br/><br/>
 
   </div>
@@ -304,14 +290,14 @@ class __TwigTemplate_c926b3490f7addd0b050745da1137f10976dc409de3581cc45fb7ffac7c
 </script>
 
   ";
-        // line 232
+        // line 202
         $this->displayBlock('javascript', $context, $blocks);
     }
 
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 233
+        // line 203
         echo "  <script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\" integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\" crossorigin=\"anonymous\"></script>
   <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
   <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\" integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\" crossorigin=\"anonymous\"></script>
@@ -325,7 +311,7 @@ class __TwigTemplate_c926b3490f7addd0b050745da1137f10976dc409de3581cc45fb7ffac7c
 
     public function getDebugInfo()
     {
-        return array (  315 => 233,  308 => 232,  116 => 45,  86 => 17,  82 => 16,  73 => 9,  69 => 8,  62 => 3,  58 => 2,  54 => 16,  51 => 15,  49 => 8,  46 => 7,  44 => 2,  41 => 1,);
+        return array (  301 => 203,  294 => 202,  246 => 156,  237 => 153,  233 => 152,  230 => 151,  226 => 150,  116 => 45,  85 => 16,  81 => 15,  73 => 9,  69 => 8,  62 => 3,  58 => 2,  54 => 15,  51 => 14,  49 => 8,  46 => 7,  44 => 2,  41 => 1,);
     }
 
     public function getSourceContext()
@@ -341,7 +327,6 @@ class __TwigTemplate_c926b3490f7addd0b050745da1137f10976dc409de3581cc45fb7ffac7c
     <link href=\"http://fonts.googleapis.com/css?family=Lato\" rel=\"stylesheet\" type=\"text/css\">
     <link href=\"http://fonts.googleapis.com/css?family=Titillium+Web\" rel=\"stylesheet\" type=\"text/css\">
     <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\" integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">
-    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" />
     <link rel=\"stylesheet\" href=\"/asset/css/style.css\">
 {% endblock %}
 
@@ -374,6 +359,7 @@ class __TwigTemplate_c926b3490f7addd0b050745da1137f10976dc409de3581cc45fb7ffac7c
         <div class=\"py-4 px-3 mb-4 bg-light\">
             <div class=\"media d-flex align-items-center\">
                 <div class=\"media-body\">
+                    <img src=\"\" alt=\"...\" width=\"65\" class=\"mr-3 rounded-circle img-thumbnail shadow-sm\">
                     <h5 class=\"m-0\">{{ session.uti_prenom }} {{ session.uti_nom }}</h5>
                 </div>
             </div>
@@ -389,12 +375,6 @@ class __TwigTemplate_c926b3490f7addd0b050745da1137f10976dc409de3581cc45fb7ffac7c
                 </a>
             </li>
             <li class=\"nav-item\">
-                <a href=\"/Match\" class=\"nav-link text-light font-italic bg-danger\">
-                    <i class=\"fa fa-picture-o mr-3 text-primary fa-fw\"></i>
-                    Mes matchs
-                </a>
-            </li>
-            <li class=\"nav-item\">
                 <a href=\"/Profil\" class=\"nav-link text-light font-italic bg-danger\">
                     <i class=\"fa fa-address-card mr-3 text-primary fa-fw\"></i>
                     Mon profil
@@ -407,7 +387,7 @@ class __TwigTemplate_c926b3490f7addd0b050745da1137f10976dc409de3581cc45fb7ffac7c
                 </a>
             </li>
             <li class=\"nav-item\">
-                <a href=\"/Search\" class=\"nav-link text-light font-italic bg-danger\">
+                <a href=\"/Profil/Search\" class=\"nav-link text-light font-italic bg-danger\">
                     <i class=\"fa fa-picture-o mr-3 text-primary fa-fw\"></i>
                     Rechercher
                 </a>
@@ -446,68 +426,28 @@ class __TwigTemplate_c926b3490f7addd0b050745da1137f10976dc409de3581cc45fb7ffac7c
     </div>
     <!-- Fin navbar -->
 
-  <div style=\"background:url(images/fond.jpg) no-repeat scroll 0 0 / 100% auto;\">
+  <div style=\"background:url(/asset/uploads/images/fond.jpg) no-repeat scroll 0 0 / 100% auto;\">
   
     <!-- Recherche -->
     <br/><br/><br/><br/><br/><br/><br/>
     <section class=\"search-banner text-white py-3 form-arka-plan\" id=\"search-banner\">
     <div class=\"container py-5 my-5\">
-        <div class=\"row text-center pb-4\">
+        <div class=\"row text-center pb-8\">
             <div class=\"col-md-12\">
             </div>
         </div>
         <div class=\"row\">
-          <h2 id=\"recherchevoix\">Quelle voix cherches-tu ?</h2>
-            <div class=\"col-md-12\">
+          <h2 id=\"recherchevoix\"> Que recherche tu ?</h2>
+            <div class=\"col-md-10\">
                 <div class=\"card acik-renk-form\">
                     <div class=\"card-body\">
-                        <div class=\"row\">
-                            <div class=\"col-md-4\">
-                                <div class=\"form-group \">
-                                    <select id=\"iller\" class=\"form-control\" >
-                                        <option selected>Timbre de la voix</option>
-                                        <option>Très aïgue</option>
-                                        <option>Aïgue</option>
-                                        <option>Moyenne</option>
-                                        <option>Grave</option>
-                                        <option>Très grave</option>
-                                        <option>Peut importe</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class=\"col-md-4\">
-                                <div class=\"form-group \">
-                                    <select id=\"ilceler\" class=\"form-control\" >
-                                        <option selected>Accent</option>
-                                        <option>Du Sud</option>
-                                        <option>Du Nord</option>
-                                        <option>Québéquois</option>
-                                        <option>Chti</option>
-                                        <option>Parisien</option>
-                                        <option>Sans</option>
-                                        <option>Peut importe</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class=\"col-md-4\">
-                                <div class=\"form-group \">
-                                    <select id=\"arac-turu\" class=\"form-control\" >
-                                        <option selected>Autres options</option>
-                                        <option>Suave</option>
-                                        <option>Douce</option>
-                                        <option>Rauque</option>
-                                        <option>Cristalline</option>
-                                        <option>Basse</option>
-                                        <option>Sans option</option>
-
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
                         <p class=\"font-weight-light text-dark\"></p>
                         <div class=\"row\">
-                            <div class=\"col-md-3\">
-                                <button type=\"button\" class=\"btn btn-danger pl-5 pr-5 findsearch\">Trouver ma voix</button>
+                            <form class=\"form-inline\" method=\"get\" action=\"/Profil/Search/\">
+                                <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"il/elle aime\" name=\"search\">
+                                <input type=\"submit\"  class=\"btn btn-danger pl-5 pr-5 findsearch\" value=\"Trouver ma voix\"
+                                       name=\"searchSubmit\">
+                            </form>
                             </div>
                         </div>
                     </div>
@@ -515,9 +455,25 @@ class __TwigTemplate_c926b3490f7addd0b050745da1137f10976dc409de3581cc45fb7ffac7c
 
             </div>
         </div>
-    </div>
 </section>
-
+      <div class=\"container ml-auto\">
+          <table class=\"table table-striped\">
+              <thead>
+              <tr>
+                  <th scope=\"col\">Nom</th>
+                  <th scope=\"col\">Prénom</th>
+              </tr>
+              </thead>
+              <tbody>
+              {% for User in listAime %}
+                  <tr>
+                      <td>{{ User.uti_nom }}</td>
+                      <td>{{ User.uti_prenom }}</td>
+                  </tr>
+              {% endfor %}
+              </tbody>
+          </table>
+      </div>
 <br/><br/><br/><br/><br/>
 
   </div>

@@ -10,6 +10,7 @@ use DateTime;
 class GallerieController extends  AbstractController {
 
     public function Gallerie()
+        // acces à la gallerie
     {
         if (isset($_POST['galnom'])) {
             $gal_nom = $_POST['galnom'];
