@@ -75,34 +75,152 @@ class __TwigTemplate_ba262d8b6cee540dc56c40a3d9423aa9271b02e921e5e1a02d51568867e
     {
         $macros = $this->macros;
         // line 14
-        echo "
+        echo "    <!-- Barre Menu -->
+    <nav id=\"nav\" class=\"navbar navbar-expand-lg navbar-light bg-light d-flex sticky\">
+        <a class=\"navbar-brand mr-auto\" href=\"#\"><img src=\"\\asset\\uploads\\images\\logotexte.png\" width=\"200px\" alt=\"Logo Perfect Voice\"></a>
+        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+            <span class=\"navbar-toggler-icon\"></span>
+        </button>
+        <div class=\"collapse navbar-collapse justify-end\" id=\"navbarNavDropdown\">
+            <ul class=\"navbar-nav\">
+                <li class=\"nav-item dropdown\">
+                    <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" role=\"button\"
+                       data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                        Language
+                    </a>
+                    <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\">
+                        <a class=\"dropdown-item\" href=\"#\">Français</a>
+                        <a class=\"dropdown-item\" href=\"#\">Anglais</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Vertical navbar -->
+    <div class=\"vertical-nav bg-white\" id=\"sidebar\">
+        <div class=\"py-4 px-3 mb-4 bg-light\">
+            <div class=\"media d-flex align-items-center\">
+                <div class=\"media-body\">
+                    <h5 class=\"m-0\">";
+        // line 41
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "uti_prenom", [], "any", false, false, false, 41), "html", null, true);
+        echo " ";
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "uti_nom", [], "any", false, false, false, 41), "html", null, true);
+        echo "</h5>
+                </div>
+            </div>
+        </div>
+
+        <p class=\"text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0\">Mon compte</p>
+
+        <ul class=\"nav flex-column bg-white mb-0\">
+            <li class=\"nav-item\">
+                <a href=\"/Mesvoix\" class=\"nav-link text-light font-italic bg-danger\">
+                    <i class=\"fa fa-th-large mr-3 text-primary fa-fw\"></i>
+                    Mes voix
+                </a>
+            </li>
+            <li class=\"nav-item\">
+                <a href=\"/Votrevoix\" class=\"nav-link text-light font-italic bg-danger\">
+                    <i class=\"fa fa-th-large mr-3 text-primary fa-fw\"></i>
+                    Votre voix
+                </a>
+            </li>
+            <li class=\"nav-item\">
+                <a href=\"/Match\" class=\"nav-link text-light font-italic bg-danger\">
+                    <i class=\"fa fa-picture-o mr-3 text-primary fa-fw\"></i>
+                    Mes matchs
+                </a>
+            </li>
+            <li class=\"nav-item\">
+                <a href=\"/Profil\" class=\"nav-link text-light font-italic bg-danger\">
+                    <i class=\"fa fa-address-card mr-3 text-primary fa-fw\"></i>
+                    Mon profil
+                </a>
+            </li>
+            <li class=\"nav-item\">
+                <a href=\"/list\" class=\"nav-link text-light font-italic bg-danger\">
+                    <i class=\"fa fa-cubes mr-3 text-primary fa-fw\"></i>
+                    Messages
+                </a>
+            </li>
+            <li class=\"nav-item\">
+                <a href=\"/Rechercher\" class=\"nav-link text-light font-italic bg-danger\">
+                    <i class=\"fa fa-picture-o mr-3 text-primary fa-fw\"></i>
+                    Rechercher
+                </a>
+            </li>
+
+        </ul>
+
+        <p class=\"text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0\">Autres</p>
+
+        <ul class=\"nav flex-column bg-white mb-0\">
+            <li class=\"nav-item\">
+                <a href=\"/apropos\" class=\"nav-link text-dark font-italic\">
+                    <i class=\"fa fa-area-chart mr-3 text-primary fa-fw\"></i>
+                    A propos
+                </a>
+            </li>
+            <li class=\"nav-item\">
+                <a href=\"/contacteznous\" class=\"nav-link text-dark font-italic\">
+                    <i class=\"fa fa-bar-chart mr-3 text-primary fa-fw\"></i>
+                    Contactez-nous
+                </a>
+            </li>
+            <li class=\"nav-item\">
+                <a href=\"#\" class=\"nav-link text-dark font-italic\">
+                    <i class=\"fa fa-pie-chart mr-3 text-primary fa-fw\"></i>
+                    Paramètres
+                </a>
+            </li>
+            <li class=\"nav-item\">
+                <a href=\"/Logout\" class=\"nav-link text-dark font-italic\">
+                    <i class=\"fa fa-pie-chart mr-3 text-primary fa-fw\"></i>
+                    Se déconnecter
+                </a>
+            </li>
+        </ul>
+    </div>
     <!-- Fin navbar -->
+    <div class=\"row py-5 px-4\">
+        <div class=\"col-xl-4 col-md-6 col-sm-10 mx-auto\">
+            <div class=\"jumbotron\">
+                <h3>Ces profils ont aimé votre voix : </h3>
+            </div>
+            <div class=\"container\">
 
 
-    ";
-        // line 18
-        if (twig_get_attribute($this->env, $this->source, ($context["matchs"] ?? null), "0", [], "array", true, true, false, 18)) {
-            // line 19
-            echo "        ";
+                ";
+        // line 126
+        if (twig_get_attribute($this->env, $this->source, ($context["matchs"] ?? null), "0", [], "array", true, true, false, 126)) {
+            // line 127
+            echo "                    ";
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["matchs"] ?? null));
             foreach ($context['_seq'] as $context["_key"] => $context["match"]) {
-                // line 20
-                echo "            <a class=\"btn btn-success\" href=\"/Profil/";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["match"], "iduti", [], "any", false, false, false, 20), "html", null, true);
+                // line 128
+                echo "                        <a class=\"btn btn-success\" href=\"/Profil/";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["match"], "iduti", [], "any", false, false, false, 128), "html", null, true);
                 echo "\"><i class=\"far fa-eye\"></i>Profil</a>
-        ";
+                    ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['match'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 22
-            echo "    ";
+            // line 130
+            echo "                ";
         } else {
-            // line 23
-            echo "        <h1>Vous n'aimez personne</h1>
-    ";
+            // line 131
+            echo "                    <h1>Personne n'aime votre voix...</h1>
+                ";
         }
+        // line 133
+        echo "            </div>
+        </div>
+    </div>
+";
     }
 
     public function getTemplateName()
@@ -112,7 +230,7 @@ class __TwigTemplate_ba262d8b6cee540dc56c40a3d9423aa9271b02e921e5e1a02d51568867e
 
     public function getDebugInfo()
     {
-        return array (  103 => 23,  100 => 22,  91 => 20,  86 => 19,  84 => 18,  78 => 14,  74 => 13,  66 => 8,  62 => 7,  55 => 3,  51 => 2,  47 => 13,  45 => 7,  43 => 2,  40 => 1,);
+        return array (  220 => 133,  216 => 131,  213 => 130,  204 => 128,  199 => 127,  197 => 126,  107 => 41,  78 => 14,  74 => 13,  66 => 8,  62 => 7,  55 => 3,  51 => 2,  47 => 13,  45 => 7,  43 => 2,  40 => 1,);
     }
 
     public function getSourceContext()
@@ -130,17 +248,128 @@ class __TwigTemplate_ba262d8b6cee540dc56c40a3d9423aa9271b02e921e5e1a02d51568867e
     <link rel=\"stylesheet\" href=\"/asset/css/style.css\">
 {% endblock %}
 {% block body %}
+    <!-- Barre Menu -->
+    <nav id=\"nav\" class=\"navbar navbar-expand-lg navbar-light bg-light d-flex sticky\">
+        <a class=\"navbar-brand mr-auto\" href=\"#\"><img src=\"\\asset\\uploads\\images\\logotexte.png\" width=\"200px\" alt=\"Logo Perfect Voice\"></a>
+        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+            <span class=\"navbar-toggler-icon\"></span>
+        </button>
+        <div class=\"collapse navbar-collapse justify-end\" id=\"navbarNavDropdown\">
+            <ul class=\"navbar-nav\">
+                <li class=\"nav-item dropdown\">
+                    <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" role=\"button\"
+                       data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                        Language
+                    </a>
+                    <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\">
+                        <a class=\"dropdown-item\" href=\"#\">Français</a>
+                        <a class=\"dropdown-item\" href=\"#\">Anglais</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
+    <!-- Vertical navbar -->
+    <div class=\"vertical-nav bg-white\" id=\"sidebar\">
+        <div class=\"py-4 px-3 mb-4 bg-light\">
+            <div class=\"media d-flex align-items-center\">
+                <div class=\"media-body\">
+                    <h5 class=\"m-0\">{{ session.uti_prenom }} {{ session.uti_nom }}</h5>
+                </div>
+            </div>
+        </div>
+
+        <p class=\"text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0\">Mon compte</p>
+
+        <ul class=\"nav flex-column bg-white mb-0\">
+            <li class=\"nav-item\">
+                <a href=\"/Mesvoix\" class=\"nav-link text-light font-italic bg-danger\">
+                    <i class=\"fa fa-th-large mr-3 text-primary fa-fw\"></i>
+                    Mes voix
+                </a>
+            </li>
+            <li class=\"nav-item\">
+                <a href=\"/Votrevoix\" class=\"nav-link text-light font-italic bg-danger\">
+                    <i class=\"fa fa-th-large mr-3 text-primary fa-fw\"></i>
+                    Votre voix
+                </a>
+            </li>
+            <li class=\"nav-item\">
+                <a href=\"/Match\" class=\"nav-link text-light font-italic bg-danger\">
+                    <i class=\"fa fa-picture-o mr-3 text-primary fa-fw\"></i>
+                    Mes matchs
+                </a>
+            </li>
+            <li class=\"nav-item\">
+                <a href=\"/Profil\" class=\"nav-link text-light font-italic bg-danger\">
+                    <i class=\"fa fa-address-card mr-3 text-primary fa-fw\"></i>
+                    Mon profil
+                </a>
+            </li>
+            <li class=\"nav-item\">
+                <a href=\"/list\" class=\"nav-link text-light font-italic bg-danger\">
+                    <i class=\"fa fa-cubes mr-3 text-primary fa-fw\"></i>
+                    Messages
+                </a>
+            </li>
+            <li class=\"nav-item\">
+                <a href=\"/Rechercher\" class=\"nav-link text-light font-italic bg-danger\">
+                    <i class=\"fa fa-picture-o mr-3 text-primary fa-fw\"></i>
+                    Rechercher
+                </a>
+            </li>
+
+        </ul>
+
+        <p class=\"text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0\">Autres</p>
+
+        <ul class=\"nav flex-column bg-white mb-0\">
+            <li class=\"nav-item\">
+                <a href=\"/apropos\" class=\"nav-link text-dark font-italic\">
+                    <i class=\"fa fa-area-chart mr-3 text-primary fa-fw\"></i>
+                    A propos
+                </a>
+            </li>
+            <li class=\"nav-item\">
+                <a href=\"/contacteznous\" class=\"nav-link text-dark font-italic\">
+                    <i class=\"fa fa-bar-chart mr-3 text-primary fa-fw\"></i>
+                    Contactez-nous
+                </a>
+            </li>
+            <li class=\"nav-item\">
+                <a href=\"#\" class=\"nav-link text-dark font-italic\">
+                    <i class=\"fa fa-pie-chart mr-3 text-primary fa-fw\"></i>
+                    Paramètres
+                </a>
+            </li>
+            <li class=\"nav-item\">
+                <a href=\"/Logout\" class=\"nav-link text-dark font-italic\">
+                    <i class=\"fa fa-pie-chart mr-3 text-primary fa-fw\"></i>
+                    Se déconnecter
+                </a>
+            </li>
+        </ul>
+    </div>
     <!-- Fin navbar -->
+    <div class=\"row py-5 px-4\">
+        <div class=\"col-xl-4 col-md-6 col-sm-10 mx-auto\">
+            <div class=\"jumbotron\">
+                <h3>Ces profils ont aimé votre voix : </h3>
+            </div>
+            <div class=\"container\">
 
 
-    {% if matchs['0'] is defined  %}
-        {% for match in matchs %}
-            <a class=\"btn btn-success\" href=\"/Profil/{{ match.iduti }}\"><i class=\"far fa-eye\"></i>Profil</a>
-        {% endfor %}
-    {% else %}
-        <h1>Vous n'aimez personne</h1>
-    {% endif %}
+                {% if matchs['0'] is defined  %}
+                    {% for match in matchs %}
+                        <a class=\"btn btn-success\" href=\"/Profil/{{ match.iduti }}\"><i class=\"far fa-eye\"></i>Profil</a>
+                    {% endfor %}
+                {% else %}
+                    <h1>Personne n'aime votre voix...</h1>
+                {% endif %}
+            </div>
+        </div>
+    </div>
 {% endblock %}", "Match/votrevoix.html.twig", "C:\\dev\\www\\git\\templates\\Match\\votrevoix.html.twig");
     }
 }

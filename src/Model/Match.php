@@ -109,20 +109,15 @@ class Match implements \JsonSerializable
 
     public function SqlUpdateMat(\PDO $bdd)
     {
-        // Requete update match
-        try {
-            $requete = $bdd->prepare('UPDATE t_match set ID_MAT=:ID_MAT, OTH_ID_UTI=:OTH_ID_UTI, MAT_LIKE=:MAT_LIKE, MAT_DATE=:MAT_DATE, MAT_SCORE=:MAT_SCORE WHERE ID_UTI=:ID_UTI');
-            $requete->execute([
-                "ID_MAT" => $this->getIdMat(),
-                "OTH_ID_UTI" => $this->getOthIdUti(),
-                "MAT_LIKE" => $this->getMatLike(),
-                "MAT_DATE" => $this->getMatDate(),
-                "MAT_SCORE" => $this->getMatScore(),
-            ]);
-            return array("0", "[OK] Update");
-        } catch (\Exception $e) {
-            return array("1", "[ERREUR] " . $e->getMessage());
-        }
+        $requete = $bdd->prepare('UPDATE t_match set ID_MAT=:ID_MAT, OTH_ID_UTI=:OTH_ID_UTI, MAT_LIKE=:MAT_LIKE, MAT_DATE=:MAT_DATE, MAT_SCORE=:MAT_SCORE WHERE ID_UTI=:ID_UTI');
+        $requete->execute([
+            "ID_MAT" => $this->getIdMat(),
+            "OTH_ID_UTI" => $this->getOthIdUti(),
+            "MAT_LIKE" => $this->getMatLike(),
+            "MAT_DATE" => $this->getMatDate(),
+            "MAT_SCORE" => $this->getMatScore(),
+        ]);
+        return;
     }
 
     public function SqlGetOTH(\PDO $bdd , $id){
@@ -158,12 +153,11 @@ class Match implements \JsonSerializable
 
     public function SqlDeleteMat(\PDO $bdd, $id_uti)
     {
-        // Requete Delete match
             $requete = $bdd->prepare('DELETE FROM t_match where ID_UTI =:ID_UTI');
             $requete->execute([
                 'ID_UTI' => $id_uti
             ]);
-            return true;
+            return;
     }
     public function SqlGetAll(\PDO $bdd, $id) {
         $requete = $bdd->prepare('SELECT * FROM t_match WHERE ID_UTI =:ID_UTI');

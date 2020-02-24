@@ -75,7 +75,7 @@ $router->get('/Article/Val/:id', 'Article#Val#id');
 $router->get('/Article/Show/:id', "Article#View#id");
 $router->post('/Article/Recherche', "Article#Recherche");
 $router->get('/erreur/', "User#Erreur");
-
+$router->get('/Profil/Search/test', 'User#motorSearch');
 $router->get('/user/utilisateur','User#utilisateur');
 
 $router->get('/Article/CategorieArticle','User#CategorieArticle');

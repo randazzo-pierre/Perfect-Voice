@@ -1,147 +1,177 @@
-{% extends "index.html.twig" %}
-{% block title %}{{ parent() }} - console admin {% endblock %}
 
+{% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=devide-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Perfect Voice</title>
+{% endblock %}
 
+{% block css %}
+    <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/asset/css/style.css">
+{% endblock %}
 
 {% block body %}
-    <head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    </head>
-    {% block css%}
-        <link rel="stylesheet" href="/assets/css/dashboard.css">
-    {% endblock %}
-    <body>
-    <nav class="navbar navbar-default no-margin">
-
-
-
-        <div class="navbar-header fixed-brand">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" id="menu-toggle">
-                <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
-            </button>
-            <a class="navbar-brand" href="/"><i class="fa fa-rocket fa-4"></i> Blogi</a>
-        </div>
-
-
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li class="active">
-                    <button class="navbar-toggle collapse in" data-toggle="collapse" id="menu-toggle-2"> <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
-                    </button>
+<!-- Barre Menu -->
+    <nav id="nav" class="navbar navbar-expand-lg navbar-light bg-light d-flex sticky">
+        <a class="navbar-brand mr-auto" href="#"><img src="\asset\uploads\images\logotexte.png" width="200px" alt="Logo Perfect Voice"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-end" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Language
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Français</a>
+                        <a class="dropdown-item" href="#">Anglais</a>
+                    </div>
                 </li>
             </ul>
         </div>
-
-
-
-
     </nav>
-<div id="wrapper">
-    <div id="sidebar-wrapper">
-        <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
-            <li class="active">
-                <a href="/Admin"><span class="fa-stack fa-lg pull-left"><i class="fa fa-dashboard fa-stack-1x "></i></span> Dashboard</a>
-                <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                    <li><a href="/Article/Edit">Edit Css</a></li>
-                    <li><a href="/Article/Validation">Articles attente Validation</a></li>
-                    <li><a href="/Article/GestionArticle">Gestion articles</a></li>
-                    <li><a href="/Article/InscriptionValidation">Confirmations inscription</a></li>
-                    <li><a href="/Article/utilisateur">Liste utilisateurs</a></li>
-                    <li><a href="/Article/CategorieArticle">Gestion Categorie</a></li>
 
-                </ul>
-            </li>
-
-
-        </ul>
-    </div>
-
-
-
-
-
-
-    <div id="page-content-wrapper">
-        <div class="container-fluid xyz">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="container-fluid mt-2">
-
-
-
-
-                        <div class="row pb-4 ml-2">
-                            <div class="col-lg-5 mx-auto card p-0 maxvh">
-                                <label class="text-primary text-center p-2"><h3>Gestion utilisateurs</h3></label>
-                                <table class="table table-striped">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Prenom</th>
-                                        <th scope="col">Nom</th>
-                                        <th scope="col">Roles</th>
-                                        <th scope="col" class="text-center">Editer</th>
-                                        <th scope="col" class="text-center">Bannir</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    {% for user in listUser %}
-                                        {% if 'administrateur' in user.utirole %}
-
-                                        {% endif %}
-                                        {% if 'redacteur' in user.utirole %}
-
-                                        {% endif %}
-                                        <tr>
-                                            <th scope="row"> {{ user.iduti }}</th>
-                                            <td> {{ user.utiprenom }}</td>
-                                            <td> {{ user.utinom }}</td>
-                                            <td>
-                                                {% if 'administrateur' in user.utirole %}
-                                                    <span>Admin </span>
-                                                {% endif %}
-                                                {% if 'redacteur' in user.utirole %}
-                                                    <span>Rédacteur </span>
-                                                {% endif %}
-                                            </td>
-                                            {% if session.login.id != user.iduti %}
-                                                <td class="text-center row">
-                                                    <select name="role" form="updateUser{{ user.iduti }}">
-                                                        {% if 'administrateur' not in user.utirole %}
-                                                            <option value="administrateur">Admin</option>
-                                                        {% endif %}
-                                                        {% if 'redacteur' not in user.utirole %}
-                                                            <option value="redacteur">Rédacteur</option>
-                                                        {% endif %}
-                                                        <option value="">Retirer tous les droits</option>
-                                                    </select>
-                                                    <form action="/User/update/{{ user.iduti }}" method="post" id="updateUser{{ user.iduti }}">
-                                                        <button type="submit" class="btn btn-warning"><i class="far fa-edit"></i></button>
-                                                    </form>
-                                                </td>
-                                                <td class="text-center">
-                                                    <form action="/User/Banned/{{ user.iduti }}" method="post">
-                                                        <button type="submit" name="banUser" class="btn btn-danger"><i class="fas fa-user-slash"></i></button>
-                                                    </form>
-                                                </td>
-                                            {% else %}
-                                                <td class="text-center">
-                                                    <button type="button" class="btn btn-warning" disabled><i class="far fa-edit"></i></button>
-                                                </td>
-                                                <td class="text-center">
-                                                    <button type="button" name="deleteCategorie" disabled class="btn btn-danger"><i class="fas fa-user-slash"></i></button>
-                                                </td>
-                                            {% endif %}
-                                        </tr>
-                                    {% endfor %}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+    <!-- Vertical navbar -->
+    <div class="vertical-nav bg-white" id="sidebar">
+        <div class="py-4 px-3 mb-4 bg-light">
+            <div class="media d-flex align-items-center">
+                <div class="media-body">
+                    <h5 class="m-0">{{ session.uti_prenom }} {{ session.uti_nom }}</h5>
                 </div>
             </div>
+        </div>
 
-    </html>
+        <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Mon compte</p>
+
+        <ul class="nav flex-column bg-white mb-0">
+            <li class="nav-item">
+                <a href="/Mesvoix" class="nav-link text-light font-italic bg-danger">
+                    <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+                    Mes voix
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/Votrevoix" class="nav-link text-light font-italic bg-danger">
+                    <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+                    Votre voix
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/Match" class="nav-link text-light font-italic bg-danger">
+                    <i class="fa fa-picture-o mr-3 text-primary fa-fw"></i>
+                    Mes matchs
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/Profil" class="nav-link text-light font-italic bg-danger">
+                    <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
+                    Mon profil
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/list" class="nav-link text-light font-italic bg-danger">
+                    <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
+                    Messages
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/Rechercher" class="nav-link text-light font-italic bg-danger">
+                    <i class="fa fa-picture-o mr-3 text-primary fa-fw"></i>
+                    Rechercher
+                </a>
+            </li>
+
+        </ul>
+
+        <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Autres</p>
+
+        <ul class="nav flex-column bg-white mb-0">
+            <li class="nav-item">
+                <a href="/apropos" class="nav-link text-dark font-italic">
+                    <i class="fa fa-area-chart mr-3 text-primary fa-fw"></i>
+                    A propos
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/contacteznous" class="nav-link text-dark font-italic">
+                    <i class="fa fa-bar-chart mr-3 text-primary fa-fw"></i>
+                    Contactez-nous
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link text-dark font-italic">
+                    <i class="fa fa-pie-chart mr-3 text-primary fa-fw"></i>
+                    Paramètres
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/Logout" class="nav-link text-dark font-italic">
+                    <i class="fa fa-pie-chart mr-3 text-primary fa-fw"></i>
+                    Se déconnecter
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- Fin navbar -->
+    <div class="row py-5 px-4">
+        <div class="col-xl-4 col-md-6 col-sm-10 mx-auto">
+
+            <div class="jumbotron">
+                <h3>Profil : </h3>
+            </div>
+            <div class="container">
+                <table class="table table-striped">
+                    <tbody>
+                    <tr>
+                        <th>Prenom</th>
+                        <td>{{ userData.UTI_PRENOM }}</td>
+                    </tr>
+                    <tr>
+                        <th>Nom</th>
+                        <td>{{ userData.UTI_NOM }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ userData.UTI_MAIL }}</td>
+                    </tr>
+                    <tr>
+                        <th>Sexe</th>
+                        <td>{{ userData.UTI_SEXE }}</td>
+                    </tr>
+                    <tr>
+                        <th>Age</th>
+                        <td>{{ userData.UTI_AGE }}</td>
+                    </tr>
+                    <tr>
+                        <th>Ville</th>
+                        <td>{{ userData.UTI_VILLE }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date d'incription</th>
+                        <td>{{ userData.UTI_INSCRIPTION }}</td>
+                    </tr>
+                    <tr>
+                        <th>Derniere connection</th>
+                        <td>{{ userData.UTI_STATUTCON }}</td>
+                    </tr>
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <h5 class="mb-0">Tu aimes cette voix ?</h5><a href="/Match/{{ userData.ID_UTI }}" class="btn btn-link text-muted">J'aime</a>
+                    </div>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+        {% block javascript %}
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        {% endblock %}
 {% endblock %}
