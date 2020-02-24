@@ -38,21 +38,19 @@ class Photo extends User {
         }
     }
 
-    public function SqlAllPhoto(\PDO $bdd){
+    public function SqlAllPhoto(\PDO $bdd,$id_uti){
         //requete all photo
-        $requete = $bdd->prepare('SELECT * FROM t_photo');
+        $requete = $bdd->prepare('SELECT PHO_PHOTO,UTI_NOM,UTI_PRENOM FROM t_photo 
+                                            INNER JOIN t_utilisateur ON t_photo.ID_GAL = T_utilisateur.ID_UTI  ');
         $requete->execute();
         $arrayPhoto = $requete->fetchAll();
-
         $listPhoto = [];
         foreach ($arrayPhoto as $PhotoSQL){
             $Photo = new Photo();
-            $Photo->setIdUti($PhotoSQL['iduti']);
-            $Photo->setPhoPhoto($PhotoSQL['Photo']);
-
             $listPhoto[] = $Photo;
+            //var_dump($PhotoSQL);
         }
-        return $listPhoto;
+        return $PhotoSQL;
     }
 
     public function SqlDelete (\PDO $bdd,$id_uti){
@@ -67,27 +65,27 @@ class Photo extends User {
         }
     }
 
-public function SqlAllCUD (\PDO $bdd,$id_uti){
-if ($_POST["Photo"] == "fetch") {
-$requete = "SELECT * FROM t_photo ORDER BY ID_UTI DESC";
-
-if ($_POST["Photo"] == "insert") {
-$file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));
-$requete = "INSERT INTO t_photo(PHO_PHOTO) VALUES ('$file')";
-
-}
-
-if ($_POST["Photo"] == "update") {
+/*    public function SqlAllCUD (\PDO $bdd,$id_uti){
+    if ($_POST["Photo"] == "fetch") {
+    $requete = "SELECT * FROM t_photo WHERE t_aime.ID_UTI = T_utilisateur.ID_UTI";
+    
+    if ($_POST["Photo"] == "insert") {
     $file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));
-    $requete = "UPDATE t_photo SET PHO_PHOTO = '$file' WHERE ID_UTI = '" . $_POST["image_id"] . "'";
-}
-
-if ($_POST["Photo"] == "delete") {
-    $requete = "DELETE FROM t_Photo WHERE ID_UTI = '" . $_POST["image_id"] . "'";
+    $requete = "INSERT INTO t_photo(PHO_PHOTO) VALUES ('$file')";
+    
+    }
+    
+    if ($_POST["Photo"] == "update") {
+        $file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));
+        $requete = "UPDATE t_photo SET PHO_PHOTO = '$file' WHERE ID_UTI = '" . $_POST["image_id"] . "'";
+    }
+    
+    if ($_POST["Photo"] == "delete") {
+        $requete = "DELETE FROM t_Photo WHERE ID_UTI = '" . $_POST["image_id"] . "'";
+            }
         }
     }
-}
-
+    */
 
 
     /**

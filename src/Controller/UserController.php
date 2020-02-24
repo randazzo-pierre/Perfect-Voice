@@ -37,10 +37,16 @@ class UserController extends  AbstractController {
         ]);
     }
 
+    public function utilisateur(){
+        unset($_SESSION['errorlogin']);
+        return $this->twig->render('Article/utilisateur.html.twig');
+    }
+
     public function Validation(){
         unset($_SESSION['errorlogin']);
         return $this->twig->render('Article/Validation.html.twig');
     }
+
     public function InscriptionValidation(){
         unset($_SESSION['errorlogin']);
         return $this->twig->render('Article/inscription.html.twig');
@@ -122,13 +128,13 @@ class UserController extends  AbstractController {
         if($_POST AND $_SESSION['token'] == $_POST['token']){
             if (isset($_POST['uti_prenom']) && isset($_POST['uti_nom'])
                 && isset($_POST['uti_ville']) && isset($_POST['uti_tel'])
-                && isset($_POST['uti_sexe']) && isset($_POST['uti_orientation'])
+                && isset($_POST['uti_sexe']) && isset($_POST['uti_orientation']) && isset($_POST['uti_age'])
                 && isset($_POST['uti_mail']) && isset($_POST['uti_mdp'])) {
                 $mdp = password_hash($_POST['uti_mdp'], PASSWORD_BCRYPT);
                 $log = new User();
                 $log->registerUser(Bdd::GetInstance(), $_POST['uti_prenom'], $_POST['uti_nom'],
                     $_POST['uti_ville'], $_POST['uti_tel'], $_POST['uti_sexe'],
-                    $_POST['uti_orientation'], $_POST['uti_mail'], $mdp);
+                    $_POST['uti_orientation'], $_POST['uti_age'], $_POST['uti_mail'], $mdp);
                     return $this->twig->render('User/inscription2.html.twig');
             }
         }
@@ -204,8 +210,30 @@ class UserController extends  AbstractController {
             header('Location:/');
         }
     }
+
+    public function motorSearch(){
+        $Search = new User();
+        $UserList = $Search->SqlSearch(Bdd::GetInstance());
+        return $this->twig->render(
+            'User/recherche.html.twig',[
+                'UserList' => $UserList
+            ]
+        );
+    }
+
     public function Search(){
-        return $this->twig->render('User/Recherche.html.twig');
+        $Search = new User();
+        $UserList = $Search->SqlSearch(Bdd::GetInstance());
+        return $this->twig->render(
+            'User/Resultat.html.twig',[
+                'UserList' => $UserList
+            ]
+        );
+    }
+
+    public function photo()
+    {
+
     }
 }
 

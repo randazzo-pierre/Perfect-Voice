@@ -111,12 +111,13 @@ class __TwigTemplate_6abc7091a8b3210df161cfff8596a9f22cd66229a7563259a5619383d45
         <div class=\"py-4 px-3 mb-4 bg-light\">
             <div class=\"media d-flex align-items-center\">
                 <div class=\"media-body\">
-                    <h5 class=\"m-0\">";
-        // line 45
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "uti_prenom", [], "any", false, false, false, 45), "html", null, true);
+                    <img src=\"\" alt=\"...\" width=\"65\" class=\"mr-3 rounded-circle img-thumbnail shadow-sm\">
+                    <h4 class=\"m-0\">";
+        // line 46
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "uti_prenom", [], "any", false, false, false, 46), "html", null, true);
         echo " ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "uti_nom", [], "any", false, false, false, 45), "html", null, true);
-        echo "</h5>
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "uti_nom", [], "any", false, false, false, 46), "html", null, true);
+        echo "</h4>
                 </div>
             </div>
         </div>
@@ -130,12 +131,7 @@ class __TwigTemplate_6abc7091a8b3210df161cfff8596a9f22cd66229a7563259a5619383d45
                     Mes voix
                 </a>
             </li>
-            <li class=\"nav-item\">
-                <a href=\"/Match\" class=\"nav-link text-light font-italic bg-danger\">
-                    <i class=\"fa fa-picture-o mr-3 text-primary fa-fw\"></i>
-                    Mes matchs
-                </a>
-            </li>
+
             <li class=\"nav-item\">
                 <a href=\"/Profil\" class=\"nav-link text-light font-italic bg-danger\">
                     <i class=\"fa fa-address-card mr-3 text-primary fa-fw\"></i>
@@ -149,7 +145,7 @@ class __TwigTemplate_6abc7091a8b3210df161cfff8596a9f22cd66229a7563259a5619383d45
                 </a>
             </li>
             <li class=\"nav-item\">
-                <a href=\"/Rechercher\" class=\"nav-link text-light font-italic bg-danger\">
+                <a href=\"/search\" class=\"nav-link text-light font-italic bg-danger\">
                     <i class=\"fa fa-picture-o mr-3 text-primary fa-fw\"></i>
                     Rechercher
                 </a>
@@ -188,6 +184,7 @@ class __TwigTemplate_6abc7091a8b3210df161cfff8596a9f22cd66229a7563259a5619383d45
     </div>
     <!-- Fin navbar -->
     <br /><br />
+    <div style=\"background:url(/asset/uploads/images/fond.jpg) no-repeat scroll 0 0 / 100% auto;\">
     <div class=\"container\" style=\"width:900px;\">
         <h3 align=\"center\">Gallerie</h3>
         <br />
@@ -199,8 +196,6 @@ class __TwigTemplate_6abc7091a8b3210df161cfff8596a9f22cd66229a7563259a5619383d45
 
         </div>
     </div>
-    </body>
-    </html>
 
     <div id=\"imageModal\" class=\"modal fade\" role=\"dialog\">
         <div class=\"modal-dialog\">
@@ -211,10 +206,9 @@ class __TwigTemplate_6abc7091a8b3210df161cfff8596a9f22cd66229a7563259a5619383d45
                 </div>
                 <div class=\"modal-body\">
                     <form id=\"image_form\" method=\"post\" enctype=\"multipart/form-data\">
-                        <p><label>Select Image</label>
+                        <p>
                             <input type=\"file\" name=\"image\" id=\"image\" /></p><br />
                         <input type=\"hidden\" name=\"action\" id=\"action\" value=\"insert\" />
-                        <input type=\"hidden\" name=\"image_id\" id=\"image_id\" />
                         <input type=\"submit\" name=\"insert\" id=\"insert\" value=\"Insert\" class=\"btn btn-info\" />
 
                     </form>
@@ -234,7 +228,10 @@ class __TwigTemplate_6abc7091a8b3210df161cfff8596a9f22cd66229a7563259a5619383d45
         <th width=\"5%\">Remove</th>
     </tr>
     <tr>
-        <td>'.\$row[\"id\"].'</td>
+        <td>";
+        // line 157
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["User"] ?? null), "pho_photo", [], "any", false, false, false, 157), "html", null, true);
+        echo "</td>
         <td>
             <img src=\"\" height=\"60\" width=\"75\" class=\"img-thumbnail\" />
         </td>
@@ -334,15 +331,16 @@ class __TwigTemplate_6abc7091a8b3210df161cfff8596a9f22cd66229a7563259a5619383d45
         });
     </script>
 
+
   ";
-        // line 263
+        // line 258
         $this->displayBlock('javascript', $context, $blocks);
     }
 
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 264
+        // line 259
         echo "  <script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\" integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\" crossorigin=\"anonymous\"></script>
       <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
       <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\" integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\" crossorigin=\"anonymous\"></script>
@@ -358,7 +356,7 @@ class __TwigTemplate_6abc7091a8b3210df161cfff8596a9f22cd66229a7563259a5619383d45
 
     public function getDebugInfo()
     {
-        return array (  346 => 264,  339 => 263,  116 => 45,  86 => 17,  82 => 16,  73 => 9,  69 => 8,  62 => 3,  58 => 2,  54 => 16,  51 => 15,  49 => 8,  46 => 7,  44 => 2,  41 => 1,);
+        return array (  344 => 259,  337 => 258,  233 => 157,  117 => 46,  86 => 17,  82 => 16,  73 => 9,  69 => 8,  62 => 3,  58 => 2,  54 => 16,  51 => 15,  49 => 8,  46 => 7,  44 => 2,  41 => 1,);
     }
 
     public function getSourceContext()
@@ -407,7 +405,8 @@ class __TwigTemplate_6abc7091a8b3210df161cfff8596a9f22cd66229a7563259a5619383d45
         <div class=\"py-4 px-3 mb-4 bg-light\">
             <div class=\"media d-flex align-items-center\">
                 <div class=\"media-body\">
-                    <h5 class=\"m-0\">{{ session.uti_prenom }} {{ session.uti_nom }}</h5>
+                    <img src=\"\" alt=\"...\" width=\"65\" class=\"mr-3 rounded-circle img-thumbnail shadow-sm\">
+                    <h4 class=\"m-0\">{{ session.uti_prenom }} {{ session.uti_nom }}</h4>
                 </div>
             </div>
         </div>
@@ -421,12 +420,7 @@ class __TwigTemplate_6abc7091a8b3210df161cfff8596a9f22cd66229a7563259a5619383d45
                     Mes voix
                 </a>
             </li>
-            <li class=\"nav-item\">
-                <a href=\"/Match\" class=\"nav-link text-light font-italic bg-danger\">
-                    <i class=\"fa fa-picture-o mr-3 text-primary fa-fw\"></i>
-                    Mes matchs
-                </a>
-            </li>
+
             <li class=\"nav-item\">
                 <a href=\"/Profil\" class=\"nav-link text-light font-italic bg-danger\">
                     <i class=\"fa fa-address-card mr-3 text-primary fa-fw\"></i>
@@ -440,7 +434,7 @@ class __TwigTemplate_6abc7091a8b3210df161cfff8596a9f22cd66229a7563259a5619383d45
                 </a>
             </li>
             <li class=\"nav-item\">
-                <a href=\"/Rechercher\" class=\"nav-link text-light font-italic bg-danger\">
+                <a href=\"/search\" class=\"nav-link text-light font-italic bg-danger\">
                     <i class=\"fa fa-picture-o mr-3 text-primary fa-fw\"></i>
                     Rechercher
                 </a>
@@ -479,6 +473,7 @@ class __TwigTemplate_6abc7091a8b3210df161cfff8596a9f22cd66229a7563259a5619383d45
     </div>
     <!-- Fin navbar -->
     <br /><br />
+    <div style=\"background:url(/asset/uploads/images/fond.jpg) no-repeat scroll 0 0 / 100% auto;\">
     <div class=\"container\" style=\"width:900px;\">
         <h3 align=\"center\">Gallerie</h3>
         <br />
@@ -490,8 +485,6 @@ class __TwigTemplate_6abc7091a8b3210df161cfff8596a9f22cd66229a7563259a5619383d45
 
         </div>
     </div>
-    </body>
-    </html>
 
     <div id=\"imageModal\" class=\"modal fade\" role=\"dialog\">
         <div class=\"modal-dialog\">
@@ -502,10 +495,9 @@ class __TwigTemplate_6abc7091a8b3210df161cfff8596a9f22cd66229a7563259a5619383d45
                 </div>
                 <div class=\"modal-body\">
                     <form id=\"image_form\" method=\"post\" enctype=\"multipart/form-data\">
-                        <p><label>Select Image</label>
+                        <p>
                             <input type=\"file\" name=\"image\" id=\"image\" /></p><br />
                         <input type=\"hidden\" name=\"action\" id=\"action\" value=\"insert\" />
-                        <input type=\"hidden\" name=\"image_id\" id=\"image_id\" />
                         <input type=\"submit\" name=\"insert\" id=\"insert\" value=\"Insert\" class=\"btn btn-info\" />
 
                     </form>
@@ -525,7 +517,7 @@ class __TwigTemplate_6abc7091a8b3210df161cfff8596a9f22cd66229a7563259a5619383d45
         <th width=\"5%\">Remove</th>
     </tr>
     <tr>
-        <td>'.\$row[\"id\"].'</td>
+        <td>{{ User.pho_photo }}</td>
         <td>
             <img src=\"\" height=\"60\" width=\"75\" class=\"img-thumbnail\" />
         </td>
@@ -624,6 +616,7 @@ class __TwigTemplate_6abc7091a8b3210df161cfff8596a9f22cd66229a7563259a5619383d45
             });
         });
     </script>
+
 
   {% block javascript %}
   <script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\" integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\" crossorigin=\"anonymous\"></script>

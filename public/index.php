@@ -52,6 +52,7 @@ $router->get('/Modify', 'User#modifyForm');
 $router->post('/Modify', 'User#modifyCheck');
 
 $router->get('/Profil', 'User#profilShow');
+$router->get('/Profil/Photo', 'Photo#SqlAllCUD');
 $router->get('/Profil/:id', 'User#Profil#id ');
 $router->get('/Profil/Photo', 'Photo#SqlAllCUD');
 $router->get('/Photo/AddPhoto', "Photo#AddPhoto");
@@ -59,7 +60,8 @@ $router->post('/Photo/AddPhoto', "Photo#AddPhoto");
 $router->get('/Photo/UpdatePhoto/:id', "Photo#UpdatePhoto#id");
 $router->post('/Photo/UpdatePhoto/:id', "Photo#UpdatePhoto#id");
 $router->get('/Photo/DeletePhoto/:id', "Photo#DeletePhoto#id");
-$router->get('/Profil/Search', 'User#Search');
+$router->get('/Profil/Search', 'User#motorSearch');
+$router->get('/Profil/Search/Resultat', 'User#Search');
 
 $router->get('/Match/:id', 'Match#MatchAdd#id');
 $router->get('/Mesvoix', 'Match#MatchMesvoix');
@@ -73,12 +75,12 @@ $router->get('/Article/Val/:id', 'Article#Val#id');
 $router->get('/Article/Show/:id', "Article#View#id");
 $router->post('/Article/Recherche', "Article#Recherche");
 $router->get('/erreur/', "User#Erreur");
-$router->post('/Article/Show', 'Article#search');
+
 $router->get('/user/utilisateur','User#utilisateur');
-$router->get('/Article/Validation','User#Validation');
+
 $router->get('/Article/CategorieArticle','User#CategorieArticle');
 $router->get('/Article/GestionArticle','User#GestionArticle');
-$router->get('/Article/InscriptionValidation','User#InscriptionValidation');
+
 
 echo $router->run();
 

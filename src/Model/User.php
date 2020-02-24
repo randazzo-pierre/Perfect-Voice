@@ -9,7 +9,6 @@ class User
     private $uti_mail;
     private $uti_nom;
     private $uti_prenom;
-    private $uti_age;
     private $uti_ville;
     private $uti_tel;
     private $uti_inscription;
@@ -71,14 +70,13 @@ class User
 
     public function SqlUpdate(\PDO $bdd, $id){
         try{
-            $requete = $bdd->prepare('UPDATE t_utilisateur SET UTI_MDP=:UTI_MDP,UTI_MAIL=:UTI_MAIL, UTI_NOM=:UTI_NOM, UTI_PRENOM=:UTI_PRENOM, UTI_AGE=:UTI_AGE,UTI_VILLE=:UTI_VILLE, UTI_TEL=:UTI_TEL, UTI_INSCRIPTION=:UTI_INSCRIPTION, UTI_SEXE=:UTI_SEXE,UTI_ORIENTATION=:UTI_ORIENTATION WHERE ID_UTI =:ID_UTI');
+            $requete = $bdd->prepare('UPDATE t_utilisateur SET UTI_MDP=:UTI_MDP,UTI_MAIL=:UTI_MAIL, UTI_NOM=:UTI_NOM, UTI_PRENOM=:UTI_PRENOM,UTI_VILLE=:UTI_VILLE, UTI_TEL=:UTI_TEL, UTI_INSCRIPTION=:UTI_INSCRIPTION, UTI_SEXE=:UTI_SEXE,UTI_ORIENTATION=:UTI_ORIENTATION WHERE ID_UTI =:ID_UTI');
             $requete->execute([
                 "ID_UTI" => $id,
                 "UTI_MDP" => $this->getUtiMdp(),
                 "UTI_MAIL" => $this->getUtiMail(),
                 "UTI_NOM" => $this->getUtiNom(),
                 "UTI_PRENOM" => $this->getUtiPrenom(),
-                'UTI_AGE' => $this->getUtiAge(),
                 'UTI_VILLE' => $this->getUtiVille(),
                 'UTI_TEL' => $this->getUtiTel(),
                 'UTI_SEXE' => $this->getUtiSexe(),
@@ -115,10 +113,11 @@ class User
             die('Erreur : ' . $e->getMessage());
         }
     }
-    function modifyUser(\PDO $bdd, $uti_prenom, $uti_nom, $uti_ville, $uti_tel, $uti_sexe, $uti_orientation, $uti_age, $uti_mail){
+
+    function modifyUser(\PDO $bdd, $uti_prenom, $uti_nom, $uti_ville, $uti_tel, $uti_sexe, $uti_orientation, $uti_mail){
         $id = $_SESSION['id_uti'];
         try{
-            $requete=$bdd->prepare('UPDATE t_utilisateur SET UTI_PRENOM=:prenom, UTI_NOM=:nom, UTI_VILLE=:ville, UTI_TEL=:tel, UTI_SEXE=:sexe, UTI_ORIENTATION=:orientation, UTI_AGE=:age, UTI_MAIL=:mail WHERE ID_UTI=:id;');
+            $requete=$bdd->prepare('UPDATE t_utilisateur SET UTI_PRENOM=:prenom, UTI_NOM=:nom, UTI_VILLE=:ville, UTI_TEL=:tel, UTI_SEXE=:sexe, UTI_ORIENTATION=:orientation, UTI_MAIL=:mail WHERE ID_UTI=:id;');
             $requete->execute([
                 'prenom' => $uti_prenom,
                 'nom' => $uti_nom,
@@ -126,7 +125,6 @@ class User
                 'tel' => $uti_tel,
                 'sexe' => $uti_sexe,
                 'orientation' => $uti_orientation,
-                'age' => $uti_age,
                 'mail' => $uti_mail,
                 'id' => $id
             ]);
@@ -176,7 +174,6 @@ class User
             $user->setUtiTel($userSQL['UTI_TEL']);
             $user->setUtiInscription($userSQL['UTI_INSCRIPTION']);
             $user->setUtiSexe($userSQL['UTI_SEXE']);
-            $user->setUtiAge($userSQL['UTI_AGE']);
             $user->setUtiOrientation($userSQL['UTI_ORIENTATION']);
             $user->setUtiHeurecon($userSQL['UTI_HEURECON']);
             $user->setUtiStatutcon($userSQL['UTI_STATUTCON']);
@@ -184,6 +181,32 @@ class User
         }
         return $listUser;
     }
+
+    public function SqlSearch(\PDO $bdd)
+    {
+        try {
+            $search = $_GET['search'];
+                $requete = $bdd->prepare('SELECT UTI_NOM, UTI_PRENOM FROM t_utilisateur 
+                                                    INNER JOIN t_aime ON t_aime.ID_UTI = T_utilisateur.ID_UTI WHERE AIM_MUSIC_PREF LIKE :search OR AIM_FILM_PREF LIKE :search OR AIM_EVENT_PREF LIKE :search OR AIM_SPORT_PREF LIKE :search OR AIM_LIVRE_PREF LIKE :search OR AIM_CUISINE_PREF LIKE :search OR AIM_JEUXVIDEO_PREF LIKE :search OR AIM_MANUEL_PREF LIKE :search OR AIM_ANIMAUX_PREF LIKE :search');
+            $requete->execute([
+                'search' => '%'.$search.'%'
+            ]);
+            $arrayUser = $requete->fetchAll();
+            foreach ($arrayUser as $UserSQL) {
+                $User = new User();
+                $User->setUtiNom($UserSQL['UTI_NOM']);
+                $User->setUtiPrenom($UserSQL['UTI_PRENOM']);
+                $listAime[] = $User;
+
+                var_dump($UserSQL);
+            }
+            return $UserSQL;
+
+        } catch (\Exception $e) {
+            return array("result" => false, "message" => $e->getMessage());
+        }
+    }
+
     /**
      * @return mixed
      */
@@ -264,21 +287,6 @@ class User
         $this->uti_prenom = $uti_prenom;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getUtiAge()
-    {
-        return $this->uti_age;
-    }
-
-    /**
-     * @param mixed $uti_age
-     */
-    public function setUtiAge($uti_age)
-    {
-        $this->uti_age = $uti_age;
-    }
 
     /**
      * @return mixed
