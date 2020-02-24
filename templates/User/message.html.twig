@@ -116,39 +116,23 @@
         <br><br><br><br>
         <div class="container">
             <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th scope="col">Prenom</th>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Ville</th>
-                    <th scope="col">Sexe</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Orientation</th>
-                </tr>
-                </thead>
-                <tbody>
 
-                {% for msg in allMsg %}
-                    {% if msg.id_uti == session.iduti %}
+
+                {% for msg in listMessage %}
                         <div class="media w-50 mt-3">
-                            <a href="/Mate/Profile/{{ user.oth_id_uti }}" class="no-hover"><img
-                                        alt="{{ user.uti_prenom }} {{ user.uti_nom }}"
-                                        width="50" class="rounded-circle"></a>
                             <div class="media-body ml-3">
                                 <div class="bg-light rounded py-2 px-3 mb-2">
-                                    <p class="text-small mb-0 text-muted">{{ msg.msg_message }}</p>
+                                    <p class="text-small mb-0 text-muted">{{ msg.MES_MESSAGE }}</p>
                                 </div>
-                                <p class="small text-muted">{{ msg.MES_DATE }}</p>
                             </div>
                         </div>
 
-                    {% elseif msg.oth_id_uti == session.oth_id_uti %}
+                    {% if msg.OTH_ID_UTI == msg.OTH_ID_UTI %}
                         <div class="media w-50 ml-auto mt-3">
                             <div class="media-body">
                                 <div class="bg-fmm rounded py-2 px-3 mb-2">
-                                    <p class="text-small mb-0 text-white">{{ msg.MES_CONTENU }}</p>
+                                    <p class="text-small mb-0 text-white">{{ msg.MES_MESSAGE }}</p>
                                 </div>
-                                <p class="small text-muted">{{ msg.MES_DATE }}</p>
                             </div>
                         </div>
                     {% endif %}
@@ -158,7 +142,7 @@
         </div>
 
         <div class="p-fixed">
-            <form action="/Messages/" method="post" class="bg-light">
+            <form action="/Messages/{{ userz.oth_id_uti }}" method="post" class="bg-light">
                 <div class="input-group">
                     <a href="/Messages/" class="btn btn-link my-auto"><i class="fas fa-chevron-circle-left"></i></a>
                     <input value="" type="text" name="msg" placeholder="Envoyer un message" aria-describedby="button-addon2"
@@ -168,8 +152,7 @@
                         </button>
                     </div>
                 </div>
-                <input type="hidden" name="sendToUser" value="{{ user.UID }}">
-                <input type="hidden" name="crsf" value="{{ token }}">
+                <input type="hidden" name="sendToUser" value="{{ userz.oth_id_uti }}">
             </form>
         </div>
 

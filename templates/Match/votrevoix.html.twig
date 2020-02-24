@@ -17,9 +17,9 @@
 
     {% if matchs['0'] is defined  %}
         {% for match in matchs %}
-            <a class="btn btn-success" href="/Profil/{{ match.othiduti }}"><i class="far fa-eye"></i>Profil</a>
+            <a class="btn btn-success" href="/Profil/{{ match.iduti }}"><i class="far fa-eye"></i>Profil</a>
         {% endfor %}
     {% else %}
-        <h1>Vous n'aimez aucun voix...</h1>
+        <h1>Personne n'aime votre voix...</h1>
     {% endif %}
 {% endblock %}

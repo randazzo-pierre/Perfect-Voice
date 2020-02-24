@@ -27,6 +27,7 @@ class Message
             $message->setMesMessage($mess['MES_MESSAGE']);
             $messages[] = $message;
         }
+        //var_dump($messages);
         return $messages;
 
     }

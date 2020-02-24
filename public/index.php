@@ -47,10 +47,13 @@ $router->get('/Api/Article/Last','Api#ArticleGetLast');
 
 $router->get('/Register', 'User#registerForm');
 $router->post('/Register', 'User#registerCheck');
+
 $router->get('/Modify', 'User#modifyForm');
 $router->post('/Modify', 'User#modifyCheck');
+
 $router->get('/Profil', 'User#profilShow');
-$router->get('/Profil/Photo', 'Photo#ShowallPhoto');
+$router->get('/Profil/:id', 'User#Profil#id ');
+$router->get('/Profil/Photo', 'Photo#SqlAllCUD');
 $router->get('/Photo/AddPhoto', "Photo#AddPhoto");
 $router->post('/Photo/AddPhoto', "Photo#AddPhoto");
 $router->get('/Photo/UpdatePhoto/:id', "Photo#UpdatePhoto#id");
@@ -58,6 +61,9 @@ $router->post('/Photo/UpdatePhoto/:id', "Photo#UpdatePhoto#id");
 $router->get('/Photo/DeletePhoto/:id', "Photo#DeletePhoto#id");
 $router->get('/Profil/Search', 'User#Search');
 
+$router->get('/Match/:id', 'Match#MatchAdd#id');
+$router->get('/Mesvoix', 'Match#MatchMesvoix');
+$router->get('/Votrevoix', 'Match#MatchVotrevoix');
 
 $router->get('/Admin', "Article#ListAllAdmin");
 $router->get('/AdminUser', "User#ListAllUser");

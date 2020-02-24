@@ -192,10 +192,10 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
             <div class=\"col-12\">
                 <div class=\"span1\">
                     <img class=\"img-right \" src=\"/asset/uploads/images/boy.jpg\"/>
-                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <div class=\"content-heading\"><h3>La bonne voix &nbsp </h3></div>
+                    <p>Avez-vous déjà rencontrés quelqu'un dont vous trouviez la voix insupportable ?</p>
+                    <p>Ou au contraire, rencontrer quelqu'un avec une voix de rêve ?</p>
+                    <p>Avez-vous déjà trouver la façon de parler de quelqu'un attroce ?</p>
                 </div>
             </div>
         </div>
@@ -204,10 +204,10 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
             <div class=\"col-12\">
                 <div class=\"span1\">
                     <img class=\"img-left\"  src=\"/asset/uploads/images/girl.jpg\"/>
-                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <div class=\"content-heading\"><h3>Testez &nbsp </h3></div>
+                    <p>Venez tester notre systeme de matching à la voix</p>
+                    <p>Ecoutez, jugez, profitez, aimez la voix et la façon de parler des gens autour de vous</p>
+                    <p>Trouvez l'amour sans juger le physique</p>
                 </div>
             </div>
         </div>
@@ -216,10 +216,10 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
             <div class=\"col-12\">
                 <div class=\"span1\">
                     <img class=\"img-right\" src=\"/asset/uploads/images/couple.jpg\" />
-                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <div class=\"content-heading\"><h3>Croyez en la voix de l'amour &nbsp </h3></div>
+                    <p>Attiré par les voix graves ?</p>
+                    <p>Marre des accents surprise ?</p>
+                    <p>Perfect Voice est là, pour toi, pour vous.</p>
                 </div>
             </div>
         </div>
@@ -405,10 +405,10 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
             <div class=\"col-12\">
                 <div class=\"span1\">
                     <img class=\"img-right \" src=\"/asset/uploads/images/boy.jpg\"/>
-                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <div class=\"content-heading\"><h3>La bonne voix &nbsp </h3></div>
+                    <p>Avez-vous déjà rencontrés quelqu'un dont vous trouviez la voix insupportable ?</p>
+                    <p>Ou au contraire, rencontrer quelqu'un avec une voix de rêve ?</p>
+                    <p>Avez-vous déjà trouver la façon de parler de quelqu'un attroce ?</p>
                 </div>
             </div>
         </div>
@@ -417,10 +417,10 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
             <div class=\"col-12\">
                 <div class=\"span1\">
                     <img class=\"img-left\"  src=\"/asset/uploads/images/girl.jpg\"/>
-                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <div class=\"content-heading\"><h3>Testez &nbsp </h3></div>
+                    <p>Venez tester notre systeme de matching à la voix</p>
+                    <p>Ecoutez, jugez, profitez, aimez la voix et la façon de parler des gens autour de vous</p>
+                    <p>Trouvez l'amour sans juger le physique</p>
                 </div>
             </div>
         </div>
@@ -429,10 +429,10 @@ class __TwigTemplate_6b22b3abb6960e1f2c942ef7628f8e72bf51876313578376dcbee3e7388
             <div class=\"col-12\">
                 <div class=\"span1\">
                     <img class=\"img-right\" src=\"/asset/uploads/images/couple.jpg\" />
-                    <div class=\"content-heading\"><h3>Experience &nbsp </h3></div>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <div class=\"content-heading\"><h3>Croyez en la voix de l'amour &nbsp </h3></div>
+                    <p>Attiré par les voix graves ?</p>
+                    <p>Marre des accents surprise ?</p>
+                    <p>Perfect Voice est là, pour toi, pour vous.</p>
                 </div>
             </div>
         </div>

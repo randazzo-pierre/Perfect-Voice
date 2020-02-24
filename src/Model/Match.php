@@ -107,26 +107,6 @@ class Match implements \JsonSerializable
         $this->mat_score = $mat_score;
     }
 
-
-    public function SqlAddMat(\PDO $bdd)
-    {
-        // Requete d'ajout match
-        try {
-            $requete = $bdd->prepare('INSERT INTO t_match (ID_MAT, OTH_ID_UTI, MAT_LIKE, MAT_TEMP, MAT_SCORE)
-                VALUES(:ID_MAT, :OTH_ID_UTI, :MAT_LIKE, :MAT_TEMP, :MAT_SCORE)');
-            $requete->execute([
-                "IdMat" => $this->getIdMat(),
-                "OthIdUti" => $this->getOthIdUti(),
-                "MatLike" => $this->getMatLike(),
-                "MatTemp" => $this->getMatDate(),
-                "MatScore" => $this->getMatScore(),
-            ]);
-            return array("result" => true, "message" => $bdd->lastInsertId());
-        } catch (\Exception $e) {
-            return array("result" => false, "message" => $e->getMessage());
-        }
-    }
-
     public function SqlUpdateMat(\PDO $bdd)
     {
         // Requete update match
@@ -145,19 +125,32 @@ class Match implements \JsonSerializable
         }
     }
 
-    public function SqlGetOTH(\PDO $bdd , $id_uti){
-        $uti = $bdd->prepare('SELECT * FROM t_match WHERE OTH_ID_UTI=:id_uti');
+    public function SqlGetOTH(\PDO $bdd , $id){
+        $uti = $bdd->prepare('SELECT * FROM t_match WHERE ID_UTI=:id_uti');
         $uti->execute([
-            'id_uti'=>$id_uti
+            'id_uti'=>$id
         ]);
         $ArrayLike=$uti->fetchAll();
         $listOTH=[];
         foreach ($ArrayLike as $likeSQL){
             $oth = new Match();
-            $oth->setIdUti($likeSQL['id_uti']);
-            $oth->setOthIdUti($likeSQL['oth_id_uti']);
-           // $oth->setMatDate($likeSQL['like_date']);
-
+            $oth->setIdUti($likeSQL['ID_UTI']);
+            $oth->setOthIdUti($likeSQL['OTH_ID_UTI']);
+            $listOTH[]=$oth;
+        }
+        return $listOTH;
+    }
+    public function SqlGetUTI(\PDO $bdd , $id){
+        $uti = $bdd->prepare('SELECT * FROM t_match WHERE OTH_ID_UTI=:id_uti');
+        $uti->execute([
+            'id_uti'=>$id
+        ]);
+        $ArrayLike=$uti->fetchAll();
+        $listOTH=[];
+        foreach ($ArrayLike as $likeSQL){
+            $oth = new Match();
+            $oth->setIdUti($likeSQL['ID_UTI']);
+            $oth->setOthIdUti($likeSQL['OTH_ID_UTI']);
             $listOTH[]=$oth;
         }
         return $listOTH;
@@ -166,17 +159,31 @@ class Match implements \JsonSerializable
     public function SqlDeleteMat(\PDO $bdd, $id_uti)
     {
         // Requete Delete match
-        try {
             $requete = $bdd->prepare('DELETE FROM t_match where ID_UTI =:ID_UTI');
             $requete->execute([
                 'ID_UTI' => $id_uti
             ]);
             return true;
-        } catch (\Exception $e) {
-            return false;
-        }
     }
+    public function SqlGetAll(\PDO $bdd, $id) {
+        $requete = $bdd->prepare('SELECT * FROM t_match WHERE ID_UTI =:ID_UTI');
+        $requete->execute(['ID_UTI' => $id]);
+        $data = $requete->fetchAll();
+        $list = [];
+        foreach ($data as $match) {
+            $list[] = $match['ID_UTI'];
+        }
 
+        return $list;
+    }
+    public function SqlAdd(\PDO $bdd, $id)
+    {
+        $requete = $bdd->prepare('INSERT INTO t_match (ID_UTI, OTH_ID_UTI) VALUES (:ID_UTI, :OTH_ID_UTI)');
+        $requete->execute([
+            'ID_UTI' => $_SESSION['id_uti'],
+            'OTH_ID_UTI' => $id]);
+        return;
+    }
 
     /**
      * @inheritDoc

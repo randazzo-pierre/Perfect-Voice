@@ -97,9 +97,9 @@ class User
         $datas = $requete ->fetch();
         return $datas;
     }
-    function registerUser(\PDO $bdd, $uti_prenom, $uti_nom, $uti_ville, $uti_tel, $uti_sexe, $uti_orientation, $uti_age, $uti_mail, $mdp){
+    function registerUser(\PDO $bdd, $uti_prenom, $uti_nom, $uti_ville, $uti_tel, $uti_sexe, $uti_orientation, $uti_mail, $mdp){
         try{
-            $requete=$bdd->prepare("INSERT INTO t_utilisateur (UTI_PRENOM, UTI_NOM, UTI_VILLE, UTI_TEL, UTI_SEXE, UTI_ORIENTATION, UTI_AGE, UTI_MAIL, UTI_MDP) VALUES (:prenom, :nom, :ville, :tel, :sexe, :orientation, :age, :mail, :mdp);");
+            $requete=$bdd->prepare("INSERT INTO t_utilisateur (UTI_PRENOM, UTI_NOM, UTI_VILLE, UTI_TEL, UTI_SEXE, UTI_ORIENTATION, UTI_MAIL, UTI_MDP) VALUES (:prenom, :nom, :ville, :tel, :sexe, :orientation, :mail, :mdp);");
             $requete->execute([
                 'prenom' => $uti_prenom,
                 'nom' => $uti_nom,
@@ -107,7 +107,6 @@ class User
                 'tel' => $uti_tel,
                 'sexe' => $uti_sexe,
                 'orientation' => $uti_orientation,
-                'age' => $uti_age,
                 'mail' => $uti_mail,
                 'mdp' => $mdp
             ]);
@@ -141,6 +140,17 @@ class User
         try{
             $requete = $bdd->prepare('SELECT * FROM t_utilisateur WHERE UTI_MAIL = ?');
             $requete->execute(array($email));
+            $userDatas = $requete->fetch();
+            return $userDatas;
+
+        }catch (\Exception $e){
+            return array("1", "[ERREUR] ".$e->getMessage());
+        }
+    }
+    public function getAllUserId(\PDO $bdd, $id){
+        try{
+            $requete = $bdd->prepare('SELECT * FROM t_utilisateur WHERE ID_UTI = ?');
+            $requete->execute(array($id));
             $userDatas = $requete->fetch();
             return $userDatas;
 
