@@ -95,6 +95,7 @@ class User
         $datas = $requete ->fetch();
         return $datas;
     }
+
     function registerUser(\PDO $bdd, $uti_prenom, $uti_nom, $uti_ville, $uti_tel, $uti_sexe, $uti_orientation, $uti_mail, $mdp){
         try{
             $requete=$bdd->prepare("INSERT INTO t_utilisateur (UTI_PRENOM, UTI_NOM, UTI_VILLE, UTI_TEL, UTI_SEXE, UTI_ORIENTATION, UTI_MAIL, UTI_MDP) VALUES (:prenom, :nom, :ville, :tel, :sexe, :orientation, :mail, :mdp);");
@@ -134,6 +135,7 @@ class User
             die('Erreur : ' . $e->getMessage());
         }
     }
+
     public function getAllUser(\PDO $bdd, $email){
         try{
             $requete = $bdd->prepare('SELECT * FROM t_utilisateur WHERE UTI_MAIL = ?');
@@ -145,6 +147,7 @@ class User
             return array("1", "[ERREUR] ".$e->getMessage());
         }
     }
+
     public function getAllUserId(\PDO $bdd, $id){
         try{
             $requete = $bdd->prepare('SELECT * FROM t_utilisateur WHERE ID_UTI = ?');
@@ -183,6 +186,7 @@ class User
     }
 
     public function SqlSearch(\PDO $bdd)
+        //requete moteur de recherche
     {
         try {
             $search = $_GET['search'];

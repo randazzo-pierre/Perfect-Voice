@@ -71,6 +71,7 @@ class UserController extends  AbstractController {
             ]
         );
     }
+
     public function Profil($id)
     {
         if(!isset ($_SESSION['uti_mail'])){
@@ -84,6 +85,7 @@ class UserController extends  AbstractController {
             "userData"=>$userData,
         ]);
     }
+
     public function modifyCheck()
     {
         if (isset($_POST['uti_prenom']) && isset($_POST['uti_nom'])
@@ -138,6 +140,7 @@ class UserController extends  AbstractController {
                     return $this->twig->render('User/inscription2.html.twig');
             }
         }
+
         else {
             $token = bin2hex(random_bytes(32));
             $_SESSION['token'] = $token;
@@ -189,6 +192,8 @@ class UserController extends  AbstractController {
         $_SESSION['uti_age'] = $user['UTI_AGE'];
         header('Location:/profil');
     }
+
+
     public function ListAll(){
         $user = new User();
         $listUser = $user->SqlGetAllUser(Bdd::GetInstance());
@@ -225,7 +230,7 @@ class UserController extends  AbstractController {
         $Search = new User();
         $UserList = $Search->SqlSearch(Bdd::GetInstance());
         return $this->twig->render(
-            'User/Resultat.html.twig',[
+            'User/recherche.html.twig',[
                 'UserList' => $UserList
             ]
         );

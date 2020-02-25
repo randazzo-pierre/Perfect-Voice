@@ -62,6 +62,8 @@ $router->post('/Photo/UpdatePhoto/:id', "Photo#UpdatePhoto#id");
 $router->get('/Photo/DeletePhoto/:id', "Photo#DeletePhoto#id");
 $router->get('/Profil/Search', 'User#motorSearch');
 $router->get('/Profil/Search/Resultat', 'User#Search');
+$router->get('/Profil/Search/test', 'User#motorSearch');
+
 
 $router->get('/Match/:id', 'Match#MatchAdd#id');
 $router->get('/Mesvoix', 'Match#MatchMesvoix');

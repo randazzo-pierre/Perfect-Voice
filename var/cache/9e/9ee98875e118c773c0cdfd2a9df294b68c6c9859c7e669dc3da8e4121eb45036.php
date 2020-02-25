@@ -131,6 +131,18 @@ class __TwigTemplate_c926b3490f7addd0b050745da1137f10976dc409de3581cc45fb7ffac7c
                 </a>
             </li>
             <li class=\"nav-item\">
+                <a href=\"/Votrevoix\" class=\"nav-link text-light font-italic bg-danger\">
+                    <i class=\"fa fa-th-large mr-3 text-primary fa-fw\"></i>
+                    Votre voix
+                </a>
+            </li>
+            <li class=\"nav-item\">
+                <a href=\"/Match\" class=\"nav-link text-light font-italic bg-danger\">
+                    <i class=\"fa fa-picture-o mr-3 text-primary fa-fw\"></i>
+                    Mes matchs
+                </a>
+            </li>
+            <li class=\"nav-item\">
                 <a href=\"/Profil\" class=\"nav-link text-light font-italic bg-danger\">
                     <i class=\"fa fa-address-card mr-3 text-primary fa-fw\"></i>
                     Mon profil
@@ -143,7 +155,7 @@ class __TwigTemplate_c926b3490f7addd0b050745da1137f10976dc409de3581cc45fb7ffac7c
                 </a>
             </li>
             <li class=\"nav-item\">
-                <a href=\"/Profil/Search\" class=\"nav-link text-light font-italic bg-danger\">
+                <a href=\"/Profil/Search/test\" class=\"nav-link text-light font-italic bg-danger\">
                     <i class=\"fa fa-picture-o mr-3 text-primary fa-fw\"></i>
                     Rechercher
                 </a>
@@ -199,7 +211,7 @@ class __TwigTemplate_c926b3490f7addd0b050745da1137f10976dc409de3581cc45fb7ffac7c
                     <div class=\"card-body\">
                         <p class=\"font-weight-light text-dark\"></p>
                         <div class=\"row\">
-                            <form class=\"form-inline\" method=\"get\" action=\"/Profil/Search/\">
+                            <form class=\"form-inline\" method=\"get\" action=\"/Profil/Search/test\">
                                 <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"il/elle aime\" name=\"search\">
                                 <input type=\"submit\"  class=\"btn btn-danger pl-5 pr-5 findsearch\" value=\"Trouver ma voix\"
                                        name=\"searchSubmit\">
@@ -222,19 +234,19 @@ class __TwigTemplate_c926b3490f7addd0b050745da1137f10976dc409de3581cc45fb7ffac7c
               </thead>
               <tbody>
               ";
-        // line 150
+        // line 162
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["listAime"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["User"]) {
-            // line 151
+            // line 163
             echo "                  <tr>
                       <td>";
-            // line 152
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["User"], "uti_nom", [], "any", false, false, false, 152), "html", null, true);
+            // line 164
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["User"], "uti_nom", [], "any", false, false, false, 164), "html", null, true);
             echo "</td>
                       <td>";
-            // line 153
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["User"], "uti_prenom", [], "any", false, false, false, 153), "html", null, true);
+            // line 165
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["User"], "uti_prenom", [], "any", false, false, false, 165), "html", null, true);
             echo "</td>
                   </tr>
               ";
@@ -242,7 +254,7 @@ class __TwigTemplate_c926b3490f7addd0b050745da1137f10976dc409de3581cc45fb7ffac7c
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['User'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 156
+        // line 168
         echo "              </tbody>
           </table>
       </div>
@@ -290,14 +302,14 @@ class __TwigTemplate_c926b3490f7addd0b050745da1137f10976dc409de3581cc45fb7ffac7c
 </script>
 
   ";
-        // line 202
+        // line 214
         $this->displayBlock('javascript', $context, $blocks);
     }
 
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 203
+        // line 215
         echo "  <script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\" integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\" crossorigin=\"anonymous\"></script>
   <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
   <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\" integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\" crossorigin=\"anonymous\"></script>
@@ -311,7 +323,7 @@ class __TwigTemplate_c926b3490f7addd0b050745da1137f10976dc409de3581cc45fb7ffac7c
 
     public function getDebugInfo()
     {
-        return array (  301 => 203,  294 => 202,  246 => 156,  237 => 153,  233 => 152,  230 => 151,  226 => 150,  116 => 45,  85 => 16,  81 => 15,  73 => 9,  69 => 8,  62 => 3,  58 => 2,  54 => 15,  51 => 14,  49 => 8,  46 => 7,  44 => 2,  41 => 1,);
+        return array (  313 => 215,  306 => 214,  258 => 168,  249 => 165,  245 => 164,  242 => 163,  238 => 162,  116 => 45,  85 => 16,  81 => 15,  73 => 9,  69 => 8,  62 => 3,  58 => 2,  54 => 15,  51 => 14,  49 => 8,  46 => 7,  44 => 2,  41 => 1,);
     }
 
     public function getSourceContext()
@@ -375,6 +387,18 @@ class __TwigTemplate_c926b3490f7addd0b050745da1137f10976dc409de3581cc45fb7ffac7c
                 </a>
             </li>
             <li class=\"nav-item\">
+                <a href=\"/Votrevoix\" class=\"nav-link text-light font-italic bg-danger\">
+                    <i class=\"fa fa-th-large mr-3 text-primary fa-fw\"></i>
+                    Votre voix
+                </a>
+            </li>
+            <li class=\"nav-item\">
+                <a href=\"/Match\" class=\"nav-link text-light font-italic bg-danger\">
+                    <i class=\"fa fa-picture-o mr-3 text-primary fa-fw\"></i>
+                    Mes matchs
+                </a>
+            </li>
+            <li class=\"nav-item\">
                 <a href=\"/Profil\" class=\"nav-link text-light font-italic bg-danger\">
                     <i class=\"fa fa-address-card mr-3 text-primary fa-fw\"></i>
                     Mon profil
@@ -387,7 +411,7 @@ class __TwigTemplate_c926b3490f7addd0b050745da1137f10976dc409de3581cc45fb7ffac7c
                 </a>
             </li>
             <li class=\"nav-item\">
-                <a href=\"/Profil/Search\" class=\"nav-link text-light font-italic bg-danger\">
+                <a href=\"/Profil/Search/test\" class=\"nav-link text-light font-italic bg-danger\">
                     <i class=\"fa fa-picture-o mr-3 text-primary fa-fw\"></i>
                     Rechercher
                 </a>
@@ -443,7 +467,7 @@ class __TwigTemplate_c926b3490f7addd0b050745da1137f10976dc409de3581cc45fb7ffac7c
                     <div class=\"card-body\">
                         <p class=\"font-weight-light text-dark\"></p>
                         <div class=\"row\">
-                            <form class=\"form-inline\" method=\"get\" action=\"/Profil/Search/\">
+                            <form class=\"form-inline\" method=\"get\" action=\"/Profil/Search/test\">
                                 <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"il/elle aime\" name=\"search\">
                                 <input type=\"submit\"  class=\"btn btn-danger pl-5 pr-5 findsearch\" value=\"Trouver ma voix\"
                                        name=\"searchSubmit\">

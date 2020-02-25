@@ -57,6 +57,18 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="/Votrevoix" class="nav-link text-light font-italic bg-danger">
+                    <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+                    Votre voix
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/Match" class="nav-link text-light font-italic bg-danger">
+                    <i class="fa fa-picture-o mr-3 text-primary fa-fw"></i>
+                    Mes matchs
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="/Profil" class="nav-link text-light font-italic bg-danger">
                     <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
                     Mon profil
@@ -69,7 +81,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/Profil/Search" class="nav-link text-light font-italic bg-danger">
+                <a href="/Profil/Search/test" class="nav-link text-light font-italic bg-danger">
                     <i class="fa fa-picture-o mr-3 text-primary fa-fw"></i>
                     Rechercher
                 </a>
@@ -108,96 +120,96 @@
     </div>
     <!-- Fin navbar -->
 
+  <div style="background:url(/asset/uploads/images/fond.jpg) no-repeat scroll 0 0 / 100% auto;">
+  
     <!-- Recherche -->
-            <div class="jumbotron">
-                <h3>Profil : </h3>
+    <br/><br/><br/><br/><br/><br/><br/>
+    <section class="search-banner text-white py-3 form-arka-plan" id="search-banner">
+    <div class="container py-5 my-5">
+        <div class="row text-center pb-8">
+            <div class="col-md-12">
             </div>
-                <section class="search-banner text-white py-3 form-arka-plan" id="search-banner">
-                <div class="container py-5 my-5">
-                    <div class="row text-center pb-8">
-                        <div class="col-md-12">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <h2 id="recherchevoix"> Que recherche tu ?</h2>
-                        <div class="col-md-10">
-                            <div class="card acik-renk-form">
-                                <div class="card-body">
-                                    <p class="font-weight-light text-dark"></p>
-                                    <div class="row">
-                                        <form class="form-inline" method="get" action="/Profil/Search/">
-                                            <input class="form-control mr-sm-2" type="search" placeholder="il/elle aime" name="search">
-                                            <input type="submit"  class="btn btn-danger pl-5 pr-5 findsearch" value="Trouver ma voix"
-                                                   name="searchSubmit">
-                                        </form>
-                                    </div>
-                                </div>
+        </div>
+        <div class="row">
+          <h2 id="recherchevoix"> Que recherche tu ?</h2>
+            <div class="col-md-10">
+                <div class="card acik-renk-form">
+                    <div class="card-body">
+                        <p class="font-weight-light text-dark"></p>
+                        <div class="row">
+                            <form class="form-inline" method="get" action="/Profil/Search/test">
+                                <input class="form-control mr-sm-2" type="search" placeholder="il/elle aime" name="search">
+                                <input type="submit"  class="btn btn-danger pl-5 pr-5 findsearch" value="Trouver ma voix"
+                                       name="searchSubmit">
+                            </form>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    </section>
-                  <div class="container ml-auto">
-                      <table class="table table-striped">
-                          <thead>
-                          <tr>
-                              <th scope="col">Nom</th>
-                              <th scope="col">Prénom</th>
-                          </tr>
-                          </thead>
-                          <tbody>
-                          {% for User in UserList %}
-                              <tr>
-                                  <td>{{ User.uti_nom }}</td>
-                                  <td>{{ User.uti_prenom }}</td>
-                              </tr>
-                          {% endfor %}
-                          </tbody>
-                      </table>
-                  </div>
-                <br/><br/><br/><br/><br/>
+            </div>
+        </div>
+</section>
+      <div class="container ml-auto">
+          <table class="table table-striped">
+              <thead>
+              <tr>
+                  <th scope="col">Nom</th>
+                  <th scope="col">Prénom</th>
+              </tr>
+              </thead>
+              <tbody>
+              {% for User in listAime %}
+                  <tr>
+                      <td>{{ User.uti_nom }}</td>
+                      <td>{{ User.uti_prenom }}</td>
+                  </tr>
+              {% endfor %}
+              </tbody>
+          </table>
+      </div>
+<br/><br/><br/><br/><br/>
 
-                  </div>
-                    <!-- Barre séparation -->
-                  <div id=lignerouge></div>
-                <script>
-                  // When the user scrolls the page, execute myFunction
-                  window.onscroll = function() {myFunction()};
+  </div>
+    <!-- Barre séparation -->
+  <div id=lignerouge></div>
+<script>
+  // When the user scrolls the page, execute myFunction
+  window.onscroll = function() {myFunction()};
 
-                  // Get the navbar
-                  var navbar = document.getElementById("nav");
+  // Get the navbar
+  var navbar = document.getElementById("nav");
 
-                  // Get the offset position of the navbar
-                  var sticky = navbar.offsetTop;
+  // Get the offset position of the navbar
+  var sticky = navbar.offsetTop;
 
-                  // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-                  function myFunction() {
-                    if (window.pageYOffset >= sticky) {
-                      navbar.classList.add("sticky")
-                    } else {
-                      navbar.classList.remove("sticky");
-                    }
-                  }
+  // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+  function myFunction() {
+    if (window.pageYOffset >= sticky) {
+      navbar.classList.add("sticky")
+    } else {
+      navbar.classList.remove("sticky");
+    }
+  } 
 
-                  // When the user scrolls the page, execute myFunction
-                  window.onscroll = function() {myFunction()};
+  // When the user scrolls the page, execute myFunction
+  window.onscroll = function() {myFunction()};
 
-                  // Get the navbar
-                  var navbar = document.getElementById("sidebar");
+  // Get the navbar
+  var navbar = document.getElementById("sidebar");
 
-                  // Get the offset position of the navbar
-                  var sticky = navbar.offsetTop;
+  // Get the offset position of the navbar
+  var sticky = navbar.offsetTop;
 
-                  // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-                  function myFunction() {
-                    if (window.pageYOffset >= sticky) {
-                      navbar.classList.add("sticky")
-                    } else {
-                      navbar.classList.remove("sticky");
-                    }
-                  }
-                </script>
-
+  // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+  function myFunction() {
+    if (window.pageYOffset >= sticky) {
+      navbar.classList.add("sticky")
+    } else {
+      navbar.classList.remove("sticky");
+    }
+  } 
+</script>
 
   {% block javascript %}
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
