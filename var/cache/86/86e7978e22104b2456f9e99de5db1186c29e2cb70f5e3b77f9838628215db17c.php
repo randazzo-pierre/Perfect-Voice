@@ -146,7 +146,7 @@ class __TwigTemplate_ba262d8b6cee540dc56c40a3d9423aa9271b02e921e5e1a02d51568867e
                 </a>
             </li>
             <li class=\"nav-item\">
-                <a href=\"/Rechercher\" class=\"nav-link text-light font-italic bg-danger\">
+                <a href=\"/Profil/Search/test\" class=\"nav-link text-light font-italic bg-danger\">
                     <i class=\"fa fa-picture-o mr-3 text-primary fa-fw\"></i>
                     Rechercher
                 </a>
@@ -314,7 +314,7 @@ class __TwigTemplate_ba262d8b6cee540dc56c40a3d9423aa9271b02e921e5e1a02d51568867e
                 </a>
             </li>
             <li class=\"nav-item\">
-                <a href=\"/Rechercher\" class=\"nav-link text-light font-italic bg-danger\">
+                <a href=\"/Profil/Search/test\" class=\"nav-link text-light font-italic bg-danger\">
                     <i class=\"fa fa-picture-o mr-3 text-primary fa-fw\"></i>
                     Rechercher
                 </a>
